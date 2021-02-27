@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/accredible-logo.svg'
 import styled from 'styled-components'
+import { Button } from '../components/Button'
 
 const Navigation = styled.div`
   min-height: 52px;
@@ -37,6 +38,10 @@ const Container = styled.div`
 
     @media (max-width: 767px) {
       display: none;
+    }
+
+    .text-centered {
+      text-align: center;
     }
   }
 
@@ -126,6 +131,12 @@ const MobileNavOptions = styled.div`
       max-height: 1.75rem;
     }
   }
+
+  .navbar-end {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
 `
 
 const Navbar = () => {
@@ -168,7 +179,7 @@ const Navbar = () => {
             </Burger>
           </div>
           <div id="navMenu" className={`navbar-menu`}>
-            <div className="navbar-start has-text-centered">
+            <div className="navbar-start">
               <Link className="navbar-item" to="/about">
                 About
               </Link>
@@ -176,18 +187,14 @@ const Navbar = () => {
                 Case studies
               </Link>
             </div>
-            <div className="navbar-end has-text-centered">
-              <a className="navbar-item" href="https://github.com/netlify-templates/gatsby-starter-netlify-cms" target="_blank" rel="noopener noreferrer">
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
+            <div className="navbar-end text-centered">
+              <Button small ClickHandler={() => navigate('/')} text="Subscribe for Updates" />
             </div>
           </div>
         </Container>
         { active && 
           <MobileNavOptions>
-          <div className="navbar-start has-text-centered">
+          <div className="navbar-start">
             <Link className="navbar-item" to="/about">
               About
             </Link>
@@ -195,12 +202,8 @@ const Navbar = () => {
               Case studies
             </Link>
           </div>
-          <div className="navbar-end has-text-centered">
-            <a className="navbar-item" href="https://github.com/netlify-templates/gatsby-starter-netlify-cms" target="_blank" rel="noopener noreferrer">
-              <span className="icon">
-                <img src={github} alt="Github" />
-              </span>
-            </a>
+          <div className="navbar-end">
+          <Button small ClickHandler={() => navigate('/')} text="Subscribe for Updates" />
           </div>
         </MobileNavOptions>
         }
