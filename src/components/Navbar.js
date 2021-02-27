@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import logo from '../img/accredible-logo.svg'
 import styled from 'styled-components'
 
 const Navigation = styled.div`
@@ -13,18 +13,32 @@ const Navigation = styled.div`
 const Container = styled.div`
   display: flex;
   align-items: center;
+  min-height: 80px;
 
   .navbar-logo {
-    min-height: 56px;
     align-items: center;
     display: flex;
+    align-items: stretch;
+
+    @media (max-width: 767px) {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    img {
+      width: 182px
+    }
   }
 
   .navbar-menu {
     align-items: stretch;
     display: flex;
     width: 100%;
-    margin-left: 75px
+    margin-left: 75px;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 
   .navbar-start {
@@ -55,12 +69,54 @@ const Container = styled.div`
   }
 `;
 
+const Burger = styled.div`
+  @media (min-width: 768px) {
+    display: none;
+  }
+  color: #4a4a4a;
+  cursor: pointer;
+  display: block;
+  height: 3.25rem;
+  position: relative;
+  width: 3.25rem;
+  margin-left: auto;
+  border: 1px solid #dfdfe6;
+  border-radius: 4px;
+  background-color: ${props => props.active ? '#454798' : '#fff'};
+
+  &:focus {
+    outline: none;
+  }
+
+  span {
+    background-color: ${props => props.active ? '#fff' : '#454798'};
+    display: block;
+    height: 2px;
+    left: calc(50% - 8px);
+    position: absolute;
+    transform-origin: center;
+    transition-duration: 86ms;
+    transition-property: background-color,opacity,transform;
+    transition-timing-function: ease-out;
+    width: 16px;
+
+    &:first-child {
+      top: calc(50% - 6px);
+    }
+    &:nth-of-type(2) {
+      top: calc(50% - 1px);
+    }
+    &:nth-of-type(3) {
+      top: calc(50% + 4px);
+    }
+  }
+`;
+
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      active: false,
-      navBarActiveClass: '',
+      active: false
     }
   }
 
@@ -69,17 +125,6 @@ const Navbar = class extends React.Component {
     this.setState(
       {
         active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
       }
     )
   }
@@ -94,25 +139,26 @@ const Navbar = class extends React.Component {
         <Container className="container">
           <div className="navbar-logo">
             <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+              <img src={logo} alt="Logo" />
             </Link>
             {/* Hamburger menu */}
-            {/* <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
+            <Burger
+              className={`navbar-burger burger`}
               data-target="navMenu"
               onClick={() => this.toggleHamburger()}
               onKeyDown={() => this.toggleHamburger()}
               role="button"
               tabIndex={0}
+              active={this.state.active}
             >
               <span />
               <span />
               <span />
-            </div> */}
+            </Burger>
           </div>
           <div
             id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+            className={`navbar-menu`}
           >
             <div className="navbar-start has-text-centered">
               <Link className="navbar-item" to="/about">
