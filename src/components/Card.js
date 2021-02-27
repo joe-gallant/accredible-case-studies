@@ -24,7 +24,7 @@ const CardContainer = styled.div`
 const Content = styled.div`
   width: 50%;
   height: 100%;
-  padding: 24px;
+  padding: 30px;
 
   span {
     color: #5557cd;
