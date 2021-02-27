@@ -8,11 +8,18 @@ const CardContainer = styled.div`
   background: #ffffff;
   width: 100%;
   display: flex;
-  min-height: 400px;
+  min-height: 320px;
   max-width: 360px;
   border: 1px solid #e4f0fb;
   border-radius: 8px;
   box-shadow: 0px 0px 10px -5px #000;
+  margin-right: 24px;
+  margin-bottom: 24px;
+
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
 `;
 
 const Content = styled.div`
@@ -23,15 +30,20 @@ const Content = styled.div`
   span {
     color: #5557cd;
   }
+
+  Button {
+    margin-top: 24px;
+  }
 `;
 
 const Image = styled.div`
   width: 50%;
-  height: 200px;
+  flex: 1;
+  background: #f4f5fa;
   background-image: ${props => props.img ? `url(${props.img})` : 'url()' }
 `;
 
-export const Card = ({ image = '../src/img/case-study-placeholder.png', slug = 'test', title = 'Case study title', author = 'Accredible', date = '29/01/21', topics = ['Topic 1', 'Topic 2'] }) => {
+export const Card = ({ image = './src/img/case-study-placeholder.png', slug = 'test', title = 'Case study title', author = 'Accredible', date = '29/01/21', topics = ['Topic 1', 'Topic 2'] }) => {
   return (
     <CardContainer>
 
@@ -39,13 +51,9 @@ export const Card = ({ image = '../src/img/case-study-placeholder.png', slug = '
       <Content>
         <h3>{title}</h3>
         <p>Author: <span>{author}</span></p>
-        <p>Date: <span>{author}</span></p>
-        <p>Topics: &nbsp;
-          {topics.map(topic => (
-            <span>{topic},</span>
-          ))}
-        </p>
-        <Button onClick={() => navigate(`/case-studies/${slug}`)} small text='Read Case Study' />
+        <p>Date: <span>{date}</span></p>
+        <p>Topics: <span>{topics.join(', ')}</span></p>
+        <Button ClickHandler={() => navigate(`/case-studies/${slug}`)} small text='Read Case Study' />
       </Content>
       
     </CardContainer>
