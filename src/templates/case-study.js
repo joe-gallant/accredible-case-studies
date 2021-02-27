@@ -12,9 +12,12 @@ const Wrapper = styled.div`
 `;
 
 const Image = styled.div`
-  background: #ccc;
   flex: 0 0 calc(50% - 24px);
-  height: 400px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const Content = styled.div`
@@ -30,15 +33,18 @@ export const CaseStudyTemplate = ({
   synopsis,
   industry,
   platform,
+  image,
 }) => {
   return (
     <>
       {helmet || ''}
       <Banner title={title} tagline={author}></Banner>
-      <section class="section">
+      <section class="section section--bg">
         <div class="container container--sm">
           <Wrapper>
-            <Image />
+            <Image>
+              <img src={image.publicURL} alt={image.name} />
+            </Image>
             <Content>
               {author && <p>Author: <strong>{author}</strong></p>}
               {platform && <p>Platform: <strong>{platform}</strong></p>}
@@ -80,6 +86,7 @@ const CaseStudy = ({ data }) => {
         synopsis={post.frontmatter.synopsis}
         industry={post.frontmatter.industry}
         platform={post.frontmatter.platform}
+        image={post.frontmatter.featuredimage}
       />
     </Layout>
   )
@@ -105,6 +112,10 @@ export const pageQuery = graphql`
         industry
         platform
         author
+        featuredimage {
+          publicURL
+          name
+        }
       }
     }
   }
