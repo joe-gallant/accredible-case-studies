@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { TagSearch } from './TagSearch'
+import { Select } from './Select'
 import { DateRange } from 'react-date-range';
 import calendarIcon from '../../img/calendar-icon.svg'
 import 'react-date-range/dist/styles.css'; // main css file
@@ -96,7 +97,7 @@ const DateButton = styled.div`
   }
 
   img {
-    width: 20px;
+    width: 18px;
   }
 `;
 
@@ -145,6 +146,7 @@ const DateTags = styled.div`
 
 const FilterSummary = styled.div`
   margin-bottom: 24px;
+  min-height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -187,7 +189,11 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
         setActiveTopicTags([...activeTopicTags, tag]);
         break;
       default:
-        setActivePlatformTags([...activePlatformTags, tag]);
+        if (tag) {
+          setActivePlatformTags([tag]);
+        } else {
+          setActivePlatformTags([]);
+        }
     }
   }
 
@@ -200,7 +206,7 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
         setActiveTopicTags(activeTopicTags.filter(tag => tag !== tagValue));
         break;
       default:
-        setActivePlatformTags(activePlatformTags.filter(tag => tag !== tagValue));
+        setActivePlatformTags([]);
     }
   }
 
@@ -265,15 +271,11 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
 
           {/* Platform */}
           <FilterSection>
-            <TagSearch placeholder="Platform" addTag={tag => addTag(tag, 'platform')} tags={platforms.filter(tag => !activePlatformTags.includes(tag))} />
-
-            {activePlatformTags.length > 0 && (
-              <Tags>
-                {activePlatformTags.map((tag, index) => (
-                  <Tag key={index} onClick={() => removeTag(tag, 'platform')}>{tag}</Tag>
-                ))}
-              </Tags>
-            )}
+            <Select 
+              placeholder="Platform" 
+              addTag={tag => addTag(tag, 'platform')} 
+              tags={platforms} 
+            />
           </FilterSection>
 
 
@@ -309,8 +311,8 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
         {searchTerm && <p>You searched: {searchTerm}</p>}
 
         <div>
-          {resultCount && <p>{resultCount} results</p>}
-          {(activeIndustryTags.length > 0 || activePlatformTags.length > 0 || activeTopicTags.length > 0 || dateState[0].startDate || searchTerm) &&<Button small text="Clear all filters" ClickHandler={() => clearAllFilters()} />}
+          <p>{resultCount} results</p>
+          {(activeIndustryTags.length > 0 || activePlatformTags.length > 0 || activeTopicTags.length > 0 || dateState[0].startDate || searchTerm) && <Button small text="Clear all filters" ClickHandler={() => clearAllFilters()} />}
         </div>
       </FilterSummary>
     </>

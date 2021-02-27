@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import tagIcon from '../../img/tag-icon.svg'
 
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
+
+  img {
+    position: absolute;
+    width: 18px;
+    top: 12px;
+    right: 8px;
+  }
 `;
 
 const SearchBox = styled.input`
@@ -82,6 +90,8 @@ export const TagSearch = ({ tags = [], placeholder = 'Industry', addTag }) => {
           <Item className="tag" onClick={() => selectTag(tag)}>{tag}</Item>
         ))}
       </Dropdown>
+
+      <img src={tagIcon} alt="tag icon" />
     </Wrapper>
   );
 };
