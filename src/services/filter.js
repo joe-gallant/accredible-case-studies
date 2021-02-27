@@ -70,7 +70,14 @@ export const filterCaseStudies = (posts, filters) => {
   }
 
   // Step 5 - Date ranges
-
+  const startDate = filters.filters.dateState[0].startDate;
+  const endDate = filters.filters.dateState[0].endDate;
+  if (startDate && endDate) {
+    results = results.filter(post => {
+      const date = new Date(post.node.frontmatter.date);
+      return (date <= endDate && date >= startDate)
+    })
+  }
 
   return results;
 }

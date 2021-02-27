@@ -94,8 +94,8 @@ class CaseStudyIndexPage extends React.Component {
               updateToFilters={(filters) => this.filter(filters)}
             />
             <Cards>
-              {this.state.filteredResults.map(post => (
-                <SingleCard>
+              {this.state.filteredResults.map((post, index) => (
+                <SingleCard key={index}>
                   <Card
                     title={post.node.frontmatter.title}
                     image={post.node.frontmatter.featuredimage?.childImageSharp.fluid.src}

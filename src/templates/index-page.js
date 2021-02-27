@@ -77,7 +77,7 @@ export const IndexPageTemplate = ({
           <img alt="column-image" src="https://assets.website-files.com/5f68558b209a0b8f85194e47/5fdb7a8539bf2d2757ead9a2_premium_white_labelling-premium_wl_fullpage.png" />
         </ColumnLeft>
         <ColumnRight>
-          <h2 class="subTitle">What is the purpose of this site?</h2>
+          <h2 className="subTitle">What is the purpose of this site?</h2>
           <p className="text--lg">This site hosts a collection of links to digital credential case studies from a variety of different platform providers, brand names, and industry types. The case studies provide real-life applications of digital credentials and how they made a difference to the target organization. For more information, read our guide to What Is A Case Study or start browsing the library.</p>
           <Button ClickHandler={() => navigate(`${bannerButtonLink}`)} text={bannerButtonText} />
         </ColumnRight>
