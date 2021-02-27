@@ -2,6 +2,58 @@ import React from 'react'
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
+import styled from 'styled-components'
+
+const Navigation = styled.div`
+  min-height: 52px;
+  align-items: stretch;
+  display: flex;
+`;
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+
+  .navbar-logo {
+    min-height: 56px;
+    align-items: center;
+    display: flex;
+  }
+
+  .navbar-menu {
+    align-items: stretch;
+    display: flex;
+    width: 100%;
+    margin-left: 75px
+  }
+
+  .navbar-start {
+    justify-content: flex-start;
+    margin-right: auto;
+    align-items: stretch;
+    display: flex;
+  }
+
+  .navbar-end {
+    justify-content: flex-start;
+    margin-left: auto;
+    align-items: stretch;
+    display: flex;
+  }
+
+  .navbar-item {
+    display: flex;
+    align-items: center;
+
+    &:nth-of-type(2) {
+      margin-left: 35px;
+    }
+
+    img {
+      max-height: 1.75rem;
+    }
+  }
+`;
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -34,18 +86,18 @@ const Navbar = class extends React.Component {
 
   render() {
     return (
-      <nav
+      <Navigation
         className="navbar is-transparent"
         role="navigation"
         aria-label="main-navigation"
       >
-        <div className="container">
-          <div className="navbar-brand">
+        <Container className="container">
+          <div className="navbar-logo">
             <Link to="/" className="navbar-item" title="Logo">
               <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
             </Link>
             {/* Hamburger menu */}
-            <div
+            {/* <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
               onClick={() => this.toggleHamburger()}
@@ -56,7 +108,7 @@ const Navbar = class extends React.Component {
               <span />
               <span />
               <span />
-            </div>
+            </div> */}
           </div>
           <div
             id="navMenu"
@@ -83,8 +135,8 @@ const Navbar = class extends React.Component {
               </a>
             </div>
           </div>
-        </div>
-      </nav>
+        </Container>
+      </Navigation>
     )
   }
 }
