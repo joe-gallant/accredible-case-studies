@@ -38,6 +38,6 @@ export const Button = ({ text, ClickHandler, small }) => {
 
 Button.propTypes = {
   text: PropTypes.string,
-  ClickHandler: PropTypes.string,
+  ClickHandler: PropTypes.func,
   small: PropTypes.bool
 };
