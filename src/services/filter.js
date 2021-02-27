@@ -41,16 +41,33 @@ export const filterCaseStudies = (posts, filters) => {
     results = results.filter(post => {
 
       if (post.node.frontmatter.industry) {
-        return (post.node.frontmatter.industry.filter(element => filters.filters.activeIndustryTags.includes(element)));
+        const array = post.node.frontmatter.industry.filter(element => filters.filters.activeIndustryTags.includes(element));
+        if (array.length === filters.filters.activeIndustryTags.length) return true;
       }
     })
   }
 
   // Step 3 - Topics
+  if (filters.filters.activeTopicTags.length > 0) {
+    results = results.filter(post => {
+
+      if (post.node.frontmatter.topics) {
+        const array = post.node.frontmatter.topics.filter(element => filters.filters.activeTopicTags.includes(element));
+        if (array.length === filters.filters.activeTopicTags.length) return true;
+      }
+    })
+  }
 
 
   // Step 4 - Platform
+  if (filters.filters.activePlatformTags.length > 0) {
+    results = results.filter(post => {
 
+      if (post.node.frontmatter.platform) {
+        return filters.filters.activePlatformTags.includes(post.node.frontmatter.platform);
+      }
+    })
+  }
 
   // Step 5 - Date ranges
 
