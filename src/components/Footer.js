@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const FooterBar = styled.div`
@@ -6,8 +7,12 @@ const FooterBar = styled.div`
   width: 100%;
 `;
 
-export const Footer = () => {
+export const Footer = ({ title }) => {
   return (
-    <FooterBar>footer</FooterBar>
+    <FooterBar>{title}</FooterBar>
   );
+};
+
+Footer.propTypes = {
+  title: PropTypes.string
 };
