@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { TagSearch } from './TagSearch'
@@ -165,7 +165,7 @@ const FilterSummary = styled.div`
   }
 `;
 
-export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], platforms = ['Accredible'], searchTerm, resultCount, clearSearch }) => {
+export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], platforms = ['Accredible'], searchTerm, resultCount, clearSearch, updateToFilters }) => {
   const [activeTopicTags, setActiveTopicTags] = useState([]);
   const [activeIndustryTags, setActiveIndustryTags] = useState([]);
   const [activePlatformTags, setActivePlatformTags] = useState([]);
@@ -225,6 +225,10 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
     clearDates()
     clearSearch('clear')
   }
+
+  useEffect(() => {
+    updateToFilters({ activeIndustryTags, activeTopicTags, activePlatformTags, dateState });
+  }, [activeIndustryTags, activeTopicTags, activePlatformTags, dateState, searchTerm])
 
   return (
     <>
