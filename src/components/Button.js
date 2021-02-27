@@ -14,7 +14,7 @@ const ButtonComponent = styled.button`
   transition: box-shadow 300ms cubic-bezier(.23, 1, .32, 1), background-color 300ms cubic-bezier(.23, 1, .32, 1);
   color: #fff;
   font-size: ${props => props.small ? '14px' : '18px'};
-  line-height: 34px;
+  line-height: 1;
   font-weight: ${props => props.small ? '600' : '400'};
   letter-spacing: 1px;
   text-decoration: none;
