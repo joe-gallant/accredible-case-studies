@@ -8,11 +8,22 @@ const IndexPagePreview = ({ entry, getAsset }) => {
   if (data) {
     return (
       <IndexPageTemplate
-        bannerTitle={data.bannerTitle}
-        bannerSubHeading={data.bannerSubHeading}
-        bannerButtonText={data.bannerButtonText}
-        bannerButtonLink={data.bannerButtonLink}
-        image={getAsset(data.image)}
+        bannerTitle={data.banner.bannerTitle}
+        bannerSubHeading={data.banner.bannerSubHeading}
+        bannerButtonText={data.banner.bannerButtonText}
+        bannerButtonLink={data.banner.bannerButtonLink}
+        bannerTitle={data.banner.bannerTitle}
+        bannerSubHeading={data.banner.bannerSubHeading}
+        bannerButtonText={data.banner.bannerButtonText}
+        bannerButtonLink={data.banner.bannerButtonLink}
+        topPanelTitle={data.fullWidthImagePanel.panelTitle}
+        topPanelText={data.fullWidthImagePanel.panelText}
+        topPanelButtonText={data.fullWidthImagePanel.panelButtonText}
+        topPanelButtonLink={data.fullWidthImagePanel.panelButtonLink}
+        leftPanelTitle={data.leftTextPanel.panelTitle}
+        leftPanelText={data.leftTextPanel.panelText}
+        rightPanelTitle={data.rightTextPanel.panelTitle}
+        rightPanelText={data.rightTextPanel.panelText}
       />
     )
   } else {

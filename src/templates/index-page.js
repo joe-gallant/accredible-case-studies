@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql, navigate } from 'gatsby'
 import Layout from '../components/Layout'
 import styled from 'styled-components'
@@ -67,44 +66,43 @@ export const IndexPageTemplate = ({
   bannerSubHeading,
   bannerButtonText,
   bannerButtonLink,
-  image,
+  topPanelTitle,
+  topPanelText,
+  topPanelButtonText,
+  topPanelButtonLink,
+  leftPanelTitle,
+  leftPanelText,
+  rightPanelTitle,
+  rightPanelText,
 }) => (
   <>
-    <BannerCarousel title={bannerTitle} subheading={bannerSubHeading}></BannerCarousel>
+    <BannerCarousel title={bannerTitle} subheading={bannerSubHeading} buttonText={bannerButtonText} buttonLink={bannerButtonLink}></BannerCarousel>
     <Section>
       <Container className="container">
         <ColumnLeft>
           <img alt="column-image" src="https://assets.website-files.com/5f68558b209a0b8f85194e47/5fdb7a8539bf2d2757ead9a2_premium_white_labelling-premium_wl_fullpage.png" />
         </ColumnLeft>
         <ColumnRight>
-          <h2 className="subTitle">What is the purpose of this site?</h2>
-          <p className="text--lg">This site hosts a collection of links to digital credential case studies from a variety of different platform providers, brand names, and industry types. The case studies provide real-life applications of digital credentials and how they made a difference to the target organization. For more information, read our guide to What Is A Case Study or start browsing the library.</p>
-          <Button ClickHandler={() => navigate(`${bannerButtonLink}`)} text={bannerButtonText} />
+          <h2 className="subTitle">{topPanelTitle}</h2>
+          <p className="text--lg">{topPanelText}</p>
+          <Button ClickHandler={() => navigate(`${topPanelButtonLink}`)} text={topPanelButtonText} />
         </ColumnRight>
       </Container>
     </Section>
     <Section>
       <Container className="container">
         <ColumnLeft>
-          <h2>What is the purpose of this site?</h2>
-          <p className="text--lg">This site hosts a collection of links to digital credential case studies from a variety of different platform providers, brand names, and industry types. The case studies provide real-life applications of digital credentials and how they made a difference to the target organization. For more information, read our guide to What Is A Case Study or start browsing the library.</p>
+          <h2>{leftPanelTitle}</h2>
+          <div>{leftPanelText}</div>
         </ColumnLeft>
         <ColumnRight>
-          <h2>What is the purpose of this site?</h2>
-          <p className="text--lg">This site hosts a collection of links to digital credential case studies from a variety of different platform providers, brand names, and industry types. The case studies provide real-life applications of digital credentials and how they made a difference to the target organization. For more information, read our guide to What Is A Case Study or start browsing the library.</p>
+          <h2>{rightPanelTitle}</h2>
+          <div>{rightPanelText}</div>
         </ColumnRight>
       </Container>
     </Section>
   </>
 )
-
-IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  bannerTitle: PropTypes.string,
-  bannerSubHeading: PropTypes.string,
-  bannerButtonText: PropTypes.string,
-  bannerButtonLink: PropTypes.string,
-}
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
@@ -112,34 +110,51 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
-        bannerTitle={frontmatter.bannerTitle}
-        bannerSubHeading={frontmatter.bannerSubHeading}
-        bannerButtonText={frontmatter.bannerButtonText}
-        bannerButtonLink={frontmatter.bannerButtonLink}
+        bannerTitle={frontmatter.banner.bannerTitle}
+        bannerSubHeading={frontmatter.banner.bannerSubHeading}
+        bannerButtonText={frontmatter.banner.bannerButtonText}
+        bannerButtonLink={frontmatter.banner.bannerButtonLink}
+        topPanelTitle={frontmatter.fullWidthImagePanel.panelTitle}
+        topPanelText={frontmatter.fullWidthImagePanel.panelText}
+        topPanelButtonText={frontmatter.fullWidthImagePanel.panelButtonText}
+        topPanelButtonLink={frontmatter.fullWidthImagePanel.panelButtonLink}
+        leftPanelTitle={frontmatter.leftTextPanel.panelTitle}
+        leftPanelText={frontmatter.leftTextPanel.panelText}
+        rightPanelTitle={frontmatter.rightTextPanel.panelTitle}
+        rightPanelText={frontmatter.rightTextPanel.panelText}
       />
     </Layout>
   )
-}
-
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
 }
 
 export default IndexPage
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+    markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
       frontmatter {
-        bannerTitle
-        bannerSubHeading
-        bannerButtonText
-        bannerButtonLink
+        leftTextPanel {
+          panelText
+          panelTitle
+        }
+        banner {
+          bannerButtonLink
+          bannerButtonText
+          bannerImage
+          bannerSubHeading
+          bannerTitle
+        }
+        rightTextPanel {
+          panelText
+          panelTitle
+        }
+        fullWidthImagePanel {
+          panelButtonLink
+          panelButtonText
+          panelImage
+          panelText
+          panelTitle
+        }
       }
     }
   }
