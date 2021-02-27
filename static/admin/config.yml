@@ -29,7 +29,6 @@ collections:
       - {label: "Industry", name: "industry", widget: "list"}
       - {label: "Topics", name: "topics", widget: "list"}
       - {label: "Synopsis", name: "synopsis", widget: "markdown"}
-
   - name: "pages"
     label: "Pages"
     files:
@@ -38,14 +37,33 @@ collections:
         name: "index"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: Banner Title, name: bannerTitle, widget: string}
-          - {label: Banner Subheading, name: bannerSubHeading, widget: string}
-          - {label: Banner Button Text, name: bannerButtonText, widget: string}
-          - {label: Banner Button Link, name: bannerButtonLink, widget: string}
+          - {label: Banner, name: banner, widget: object, fields: [ 
+            {label: Banner Image, name: bannerImage, widget: image}, 
+            {label: Banner Title, name: bannerTitle, widget: string}, 
+            {label: Banner Subheading, name: bannerSubHeading, widget: string},
+            {label: Banner Button Text, name: bannerButtonText, widget: string}, 
+            {label: Banner Button Link, name: bannerButtonLink, widget: string},
+          ]}
+          - {label: Full Width Image Panel, name: fullWidthImagePanel, widget: object, fields: [ 
+            {label: Panel Image, name: panelImage, widget: image}, 
+            {label: Panel Title, name: panelTitle, widget: string}, 
+            {label: Panel Text, name: panelText, widget: string},
+            {label: Panel Button Text, name: panelButtonText, widget: string}, 
+            {label: Panel Button Link, name: panelButtonLink, widget: string},
+          ]}
+          - {label: Left Text Panel, name: leftTextPanel, widget: object, fields: [  
+            {label: Panel Title, name: panelTitle, widget: string}, 
+            {label: Panel Text, name: panelText, widget: string},
+          ]}
+          - {label: Right Text Panel, name: rightTextPanel, widget: object, fields: [  
+            {label: Panel Title, name: panelTitle, widget: string}, 
+            {label: Panel Text, name: panelText, widget: string},
+          ]}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Banner Image", name: "bannerImage", widget: image}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
