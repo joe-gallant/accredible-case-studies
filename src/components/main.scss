@@ -17,10 +17,28 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0 24px;
+
+  &.container--sm {
+    max-width: 800px;
+  }
+}
+
+.content {
+  h1, h2, h3 {
+    margin-top: 48px;
+  }
+
+  p {
+    margin-bottom: 24px;
+  }
 }
 
 .section {
   padding: 24px 0;
+}
+
+.section--bg {
+  padding: 48px 0;
 }
 
 h1,

@@ -53,11 +53,11 @@ collections:
           ]}
           - {label: Left Text Panel, name: leftTextPanel, widget: object, fields: [  
             {label: Panel Title, name: panelTitle, widget: string}, 
-            {label: Panel Text, name: panelText, widget: string},
+            {label: Panel Text, name: panelText, widget: markdown},
           ]}
           - {label: Right Text Panel, name: rightTextPanel, widget: object, fields: [  
             {label: Panel Title, name: panelTitle, widget: string}, 
-            {label: Panel Text, name: panelText, widget: string},
+            {label: Panel Text, name: panelText, widget: markdown},
           ]}
       - file: "src/pages/about/index.md"
         label: "About"
