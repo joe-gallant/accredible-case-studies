@@ -63,7 +63,10 @@ class CaseStudyIndexPage extends React.Component {
   }
 
   filter(filters) {
-    filterCaseStudies(this.state.originalResults, { searchTerm: this.state.searchTerm, filters });
+    const results = filterCaseStudies(this.state.originalResults, { searchTerm: this.state.searchTerm, filters });
+    this.setState({
+      filteredResults: results
+    });
   }
 
   render() {

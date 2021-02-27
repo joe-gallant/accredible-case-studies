@@ -11,7 +11,7 @@ export const filterCaseStudies = (posts, filters) => {
       // First search the title
       if (post.node.frontmatter.title.toLowerCase().includes(searchTerm)) return true;
 
-      // Next if the term in an industry
+      // Next if the search term is in an industry
       if (post.node.frontmatter.industry) {
         const indArray = post.node.frontmatter.industry.filter(ind => {
           return ind.toLowerCase().includes((searchTerm));
@@ -20,7 +20,7 @@ export const filterCaseStudies = (posts, filters) => {
         if (indArray.length > 0) return true
       }
 
-      // Next if the term in an topics
+      // Next if the search term is in topics
       if (post.node.frontmatter.topics) {
         const topicsArray = post.node.frontmatter.topics.filter(ind => {
           return ind.toLowerCase().includes((searchTerm));
@@ -28,7 +28,11 @@ export const filterCaseStudies = (posts, filters) => {
 
         if (topicsArray.length > 0) return true
       }
-        // return post.node.frontmatter.industry?.includes(searchTerm)
+
+      // Next if the search term is in platform
+      if (post.node.frontmatter.platform) {
+        return post.node.frontmatter.platform.toLowerCase().includes(searchTerm)
+      }      
     })
   }
 
@@ -44,5 +48,5 @@ export const filterCaseStudies = (posts, filters) => {
   // Step 5 - Date ranges
 
 
-  console.log(results);
+  return results;
 }
