@@ -1,0 +1,84 @@
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+const SearchBox = styled.input`
+  background: #ffffff;
+  padding: 16px;
+  width: 100%;
+  border: none;
+  appearance: none;
+  border-radius: 4px;
+  padding: 12px;
+`;
+
+const Dropdown = styled.div`
+  position: absolute;
+  background: #ffffff;
+  box-shadow: 0px 5px 20px -10px #000;
+  width: 100%;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 5;
+  border-radius: 4px;
+`;
+
+const Item = styled.div`
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    background: #f4f5fa;
+  }
+
+  &::after {
+    content: '+';
+    font-weight: bold;
+    color: #5557cd;
+  }
+`;
+
+export const TagSearch = ({ tags = [], placeholder = 'Industry', addTag }) => {
+  const [value, setValue] = useState('');
+  const [filterTags, setFilterTags] = useState([]);
+
+  const handleChange = (event) => {
+    const newValue = event.target.value;
+    setFilterTags(tags.filter(tag => tag.toLowerCase().includes(newValue.toLowerCase())))
+    setValue(newValue);
+  }
+
+  const selectTag = (tag) => {
+    addTag(tag);
+    setValue('');
+    setFilterTags([]);
+  }
+
+  return (
+    <Wrapper>
+      <SearchBox placeholder={placeholder} type="text" value={value} onFocus={handleChange} onChange={handleChange}></SearchBox>
+
+      <Dropdown>
+        {filterTags.map(tag => (
+          <Item onClick={() => selectTag(tag)}>{tag}</Item>
+        ))}
+      </Dropdown>
+    </Wrapper>
+  );
+};
+
+TagSearch.propTypes = {
+  tags: PropTypes.array,
+  placeholder: PropTypes.string,
+  addTag: PropTypes.func
+};

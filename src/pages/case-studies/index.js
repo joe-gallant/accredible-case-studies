@@ -1,35 +1,20 @@
 import React from 'react'
 
 import Layout from '../../components/Layout'
-import BlogRoll from '../../components/BlogRoll'
-
+import CaseStudyResults from '../../components/CaseStudyResults'
+import { FilterBar } from '../../components/FilterBar/FilterBar'
+import { Banner } from '../../components/Banner'
 export default class CaseStudyIndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <div
-          className="full-width-image-container margin-top-0"
-          style={{
-            backgroundImage: `url('/img/blog-index.jpg')`,
-          }}
-        >
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-              backgroundColor: '#f40',
-              color: 'white',
-              padding: '1rem',
-            }}
-          >
-            Latest Stories
-          </h1>
-        </div>
+        <Banner title="Case Study Library" search placeholder="Search for a case study" submitSearch={(searchTerm) => alert(searchTerm)}></Banner>
         <section className="section">
           <div className="container">
-            <div className="content">
-              <BlogRoll />
-            </div>
+
+            <FilterBar />
+            <CaseStudyResults />
+
           </div>
         </section>
       </Layout>

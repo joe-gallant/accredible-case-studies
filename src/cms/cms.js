@@ -11,4 +11,4 @@ CMS.registerMediaLibrary(cloudinary)
 
 CMS.registerPreviewTemplate('index', IndexPagePreview)
 CMS.registerPreviewTemplate('about', AboutPagePreview)
-CMS.registerPreviewTemplate('case-study', CaseStudyPreview)
+CMS.registerPreviewTemplate('case-studies', CaseStudyPreview)

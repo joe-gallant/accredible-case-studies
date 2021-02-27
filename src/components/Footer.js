@@ -1,18 +1,26 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { navigate } from 'gatsby'
 import styled from 'styled-components'
+import { Button } from '../components/Button'
 
-const FooterBar = styled.div`
-  background: grey;
-  width: 100%;
+const Container = styled.div`
+  padding: 0 24px;
+
+  .footer-inner--container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    border-top: 1px solid #dfdfe6;
+    padding: 24px 0;
+  }
 `;
 
-export const Footer = ({ title }) => {
+export const Footer = () => {
   return (
-    <FooterBar>{title}</FooterBar>
+    <Container className="container">
+      <div className="footer-inner--container text-centered">
+        <Button small ClickHandler={() => window.location.href="mailto:support@accredible.com?subject=Case Study Submission"} text="Submit a Case Study" />
+      </div>
+    </Container>
   );
-};
-
-Footer.propTypes = {
-  title: PropTypes.string
 };
