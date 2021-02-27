@@ -28,7 +28,6 @@ class CaseStudyResults extends React.Component {
       <Cards>
         {posts.map(post => (
           <SingleCard>
-            {console.log(post)}
             <Card
               title={post.node.frontmatter.title}
               image={post.node.frontmatter.featuredimage?.childImageSharp.fluid.src}

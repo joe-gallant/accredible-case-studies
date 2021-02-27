@@ -221,7 +221,8 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
     setActiveIndustryTags([])
     setActiveTopicTags([])
     setActivePlatformTags([])
-    clearSearch()
+    clearDates()
+    clearSearch('clear')
   }
 
   return (
@@ -304,7 +305,7 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
 
         <div>
           {resultCount && <p>{resultCount} results</p>}
-          {(activeIndustryTags.length > 0 || activePlatformTags.length > 0 || activeTopicTags.length > 0 || dateState[0].startDate) &&<Button small text="Clear all filters" ClickHandler={() => clearAllFilters()} />}
+          {(activeIndustryTags.length > 0 || activePlatformTags.length > 0 || activeTopicTags.length > 0 || dateState[0].startDate || searchTerm) &&<Button small text="Clear all filters" ClickHandler={() => clearAllFilters()} />}
         </div>
       </FilterSummary>
     </>

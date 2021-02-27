@@ -63,16 +63,16 @@ const ColumnRight = styled.div`
 `
 
 export const IndexPageTemplate = ({
+  bannerTitle,
+  bannerSubHeading,
   image,
-  heading,
-  subheading,
 }) => (
   <>
-    <BannerCarousel title={heading} subheading={subheading}></BannerCarousel>
+    <BannerCarousel title={bannerTitle} subheading={bannerSubHeading}></BannerCarousel>
     <Section>
       <Container className="container">
         <ColumnLeft>
-          <img src="https://assets.website-files.com/5f68558b209a0b8f85194e47/5fdb7a8539bf2d2757ead9a2_premium_white_labelling-premium_wl_fullpage.png" />
+          <img alt="column-image" src="https://assets.website-files.com/5f68558b209a0b8f85194e47/5fdb7a8539bf2d2757ead9a2_premium_white_labelling-premium_wl_fullpage.png" />
         </ColumnLeft>
         <ColumnRight>
           <h2 class="subTitle">What is the purpose of this site?</h2>
