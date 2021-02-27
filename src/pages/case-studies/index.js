@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Card } from '../../components/Card'
+import { filterCaseStudies } from '../../services/filter'
 
 const Cards = styled.div`
   width: 100%;
@@ -61,6 +62,10 @@ class CaseStudyIndexPage extends React.Component {
     this.resultRef.current.scrollIntoView();
   }
 
+  filter(filters) {
+    filterCaseStudies(this.state.originalResults, { searchTerm: this.state.searchTerm, filters });
+  }
+
   render() {
 
     return (
@@ -75,6 +80,7 @@ class CaseStudyIndexPage extends React.Component {
               industries={this.state.industries}
               topics={this.state.topics}
               platforms={this.state.platforms}
+              updateToFilters={(filters) => this.filter(filters)}
             />
             <Cards>
               {this.state.filteredResults.map(post => (
