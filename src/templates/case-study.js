@@ -1,55 +1,60 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
 import { Helmet } from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import { Banner } from '../components/Banner'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Image = styled.div`
+  background: #ccc;
+  flex: 0 0 calc(50% - 24px);
+  height: 400px;
+`;
+
+const Content = styled.div`
+  flex: 0 0 calc(50% - 24px);
+  padding: 24px 0;
+`;
 
 export const CaseStudyTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
   title,
   helmet,
+  topics,
+  author,
+  synopsis,
+  industry,
+  platform,
 }) => {
-  const PostContent = contentComponent || Content
-
   return (
-    <section className="section">
+    <>
       {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map((tag) => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
+      <Banner title={title} tagline={author}></Banner>
+      <section class="section">
+        <div class="container container--sm">
+          <Wrapper>
+            <Image />
+            <Content>
+              {author && <p>Author: <strong>{author}</strong></p>}
+              {platform && <p>Platform: <strong>{platform}</strong></p>}
+              {industry && <p>Industries: <strong>{industry.join(', ')}</strong></p>}
+              {topics && <p>Topics: <strong>{topics.join(', ')}</strong></p>}
+              {synopsis && <p>Synopsis:<br />{synopsis}</p>}
+            </Content>
+          </Wrapper>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
 
 CaseStudyTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
+  author: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
 }
@@ -60,20 +65,21 @@ const CaseStudy = ({ data }) => {
   return (
     <Layout>
       <CaseStudyTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
         helmet={
-          <Helmet titleTemplate="%s | Blog">
+          <Helmet titleTemplate="%s | Case Study">
             <title>{`${post.frontmatter.title}`}</title>
             <meta
               name="description"
-              content={`${post.frontmatter.description}`}
+              content={`${post.frontmatter.synopsis}`}
             />
           </Helmet>
         }
-        tags={post.frontmatter.tags}
+        topics={post.frontmatter.topics}
         title={post.frontmatter.title}
+        author={post.frontmatter.author}
+        synopsis={post.frontmatter.synopsis}
+        industry={post.frontmatter.industry}
+        platform={post.frontmatter.platform}
       />
     </Layout>
   )
@@ -91,12 +97,14 @@ export const pageQuery = graphql`
   query CaseStudyByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
-      html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
-        description
-        tags
+        synopsis
+        topics
+        industry
+        platform
+        author
       }
     }
   }
