@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import Layout from '../components/Layout'
+import { Button } from '../components/Button'
 import Content, { HTMLContent } from '../components/Content'
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
@@ -55,6 +56,8 @@ const AboutPage = ({ data }) => {
           <li>Test list item</li>
           <li>Test list item</li>
         </ol>
+        <Button small ClickHandler={() => navigate('/')} text="Test small" />
+        <Button ClickHandler={() => navigate('/')} text="Test normal" />
       </div>
       <AboutPageTemplate
         contentComponent={HTMLContent}
