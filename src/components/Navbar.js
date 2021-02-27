@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/accredible-logo.svg'
@@ -112,24 +112,19 @@ const Burger = styled.div`
   }
 `;
 
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      active: false
+const Navbar = () => {
+
+  const [active, openNav] = useState(false);
+
+  const toggleHamburger = () => {
+    // toggle the active boolean in the state
+    if (active) {
+      openNav(false);
+    } else {
+      openNav(true);
     }
   }
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      }
-    )
-  }
-
-  render() {
     return (
       <Navigation
         className="navbar is-transparent"
@@ -145,11 +140,11 @@ const Navbar = class extends React.Component {
             <Burger
               className={`navbar-burger burger`}
               data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-              onKeyDown={() => this.toggleHamburger()}
+              onClick={() => toggleHamburger()}
+              onKeyDown={() => toggleHamburger()}
               role="button"
               tabIndex={0}
-              active={this.state.active}
+              active={active}
             >
               <span />
               <span />
@@ -185,6 +180,6 @@ const Navbar = class extends React.Component {
       </Navigation>
     )
   }
-}
+
 
 export default Navbar
