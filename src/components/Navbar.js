@@ -200,10 +200,10 @@ const Navbar = () => {
           </div>
           <div id="navMenu" className={`navbar-menu`}>
             <div className="navbar-start">
-              <Link className={`navbar-item ${window.location.pathname === '/about' ? 'active' : ''}`} to="/about">
+              <Link className={`navbar-item ${typeof window !== 'undefined' && window.location.pathname === '/about' ? 'active' : ''}`} to="/about">
                 About
               </Link>
-              <Link className={`navbar-item ${window.location.pathname === '/case-studies' ? 'active' : ''}`} to="/case-studies">
+              <Link className={`navbar-item ${typeof window !== 'undefined' &&window.location.pathname === '/case-studies' ? 'active' : ''}`} to="/case-studies">
                 Case studies
               </Link>
             </div>
