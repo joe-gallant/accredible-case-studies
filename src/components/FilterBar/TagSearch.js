@@ -56,21 +56,30 @@ export const TagSearch = ({ tags = [], placeholder = 'Industry', addTag }) => {
     const newValue = event.target.value;
     setFilterTags(tags.filter(tag => tag.toLowerCase().includes(newValue.toLowerCase())))
     setValue(newValue);
+    document.addEventListener('mousedown', handleClickOutside);
   }
 
   const selectTag = (tag) => {
     addTag(tag);
     setValue('');
     setFilterTags([]);
+    document.removeEventListener('mousedown', handleClickOutside);
   }
+
+  const handleClickOutside = event => {
+    if (!event.target.classList.contains('tag') && !event.target.classList.contains('input')) {
+      setFilterTags([]);
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+  };
 
   return (
     <Wrapper>
-      <SearchBox placeholder={placeholder} type="text" value={value} onFocus={handleChange} onChange={handleChange}></SearchBox>
+      <SearchBox className="search-input" placeholder={placeholder} type="text" value={value} onFocus={handleChange} onChange={handleChange}></SearchBox>
 
       <Dropdown>
         {filterTags.map(tag => (
-          <Item onClick={() => selectTag(tag)}>{tag}</Item>
+          <Item className="tag" onClick={() => selectTag(tag)}>{tag}</Item>
         ))}
       </Dropdown>
     </Wrapper>

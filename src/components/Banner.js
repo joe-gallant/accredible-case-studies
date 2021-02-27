@@ -69,9 +69,9 @@ const SearchBarContainer = styled.div`
   }
 `;
 
-export const Banner = ({ title, tagline, image, placeholder = 'Enter your search term...', submitSearch, search = false }) => {
+export const Banner = ({ title, tagline, image, placeholder = 'Enter your search term...', submitSearch, search = false, searchValue = '' }) => {
 
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(searchValue);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
