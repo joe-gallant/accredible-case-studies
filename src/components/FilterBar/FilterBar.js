@@ -309,8 +309,8 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
         {searchTerm && <p>You searched: {searchTerm}</p>}
 
         <div>
-          {resultCount && <p>{resultCount} results</p>}
-          {(activeIndustryTags.length > 0 || activePlatformTags.length > 0 || activeTopicTags.length > 0 || dateState[0].startDate || searchTerm) &&<Button small text="Clear all filters" ClickHandler={() => clearAllFilters()} />}
+          <p>{resultCount} results</p>
+          {(activeIndustryTags.length > 0 || activePlatformTags.length > 0 || activeTopicTags.length > 0 || dateState[0].startDate || searchTerm) && <Button small text="Clear all filters" ClickHandler={() => clearAllFilters()} />}
         </div>
       </FilterSummary>
     </>

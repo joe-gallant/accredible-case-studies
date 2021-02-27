@@ -13,6 +13,7 @@ const Cards = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  min-height: 600px;
 `;
 
 const SingleCard = styled.div`
@@ -21,6 +22,13 @@ const SingleCard = styled.div`
   @media (max-width: 767px) {
     flex: 0 0 100%;
   }
+`;
+
+const NoResults = styled.div`
+  padding: 48px;
+  text-align: center;
+  width: 100%;
+  min-height: 600px;
 `;
 class CaseStudyIndexPage extends React.Component {
   constructor(props) {
@@ -98,6 +106,13 @@ class CaseStudyIndexPage extends React.Component {
                     />
                 </SingleCard>
               ))}
+
+              {this.state.filteredResults.length === 0 && (
+                <NoResults>
+                  <h2>Oops, looks like there are no results.</h2>
+                  <p>Please clear the filters or try another search term.</p>
+                </NoResults>
+              )}
             </Cards>
           </div>
         </section>
