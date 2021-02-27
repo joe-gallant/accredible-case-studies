@@ -27,6 +27,7 @@ const BannerContainer = styled.div`
 
   .tagline {
     margin-bottom: 0;
+    color: hsla(0, 0%, 100%, 0.7);
   }
 `;
 
