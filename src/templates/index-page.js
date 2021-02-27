@@ -65,6 +65,8 @@ const ColumnRight = styled.div`
 export const IndexPageTemplate = ({
   bannerTitle,
   bannerSubHeading,
+  bannerButtonText,
+  bannerButtonLink,
   image,
 }) => (
   <>
@@ -77,7 +79,7 @@ export const IndexPageTemplate = ({
         <ColumnRight>
           <h2 class="subTitle">What is the purpose of this site?</h2>
           <p className="text--lg">This site hosts a collection of links to digital credential case studies from a variety of different platform providers, brand names, and industry types. The case studies provide real-life applications of digital credentials and how they made a difference to the target organization. For more information, read our guide to What Is A Case Study or start browsing the library.</p>
-          <Button ClickHandler={() => navigate('/case-studies')} text="Subscribe for Updates" />
+          <Button ClickHandler={() => navigate(`${bannerButtonLink}`)} text={bannerButtonText} />
         </ColumnRight>
       </Container>
     </Section>
