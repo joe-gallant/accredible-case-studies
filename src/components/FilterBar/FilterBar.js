@@ -7,11 +7,13 @@ import calendarIcon from '../../img/calendar-icon.svg'
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import moment from 'moment'
+import { Button } from '../Button'
 
 const Filter = styled.div`
   background: #e4f0fb;
   padding: 18px;
   width: 100%;
+  margin-top: 24px;
   margin-bottom: 24px;
   border-radius: 8px;
 
@@ -113,7 +115,56 @@ const DateRangeContainer = styled.div`
   }
 `;
 
-export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], platforms = ['Accredible'] }) => {
+const DateTags = styled.div`
+  padding: 12px;
+  background: #00b5be;
+  margin-top: 12px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 0;
+    color: #ffffff;
+  }
+
+  &::after {
+    content: 'x';
+    opacity: 0.5;
+    position: absolute;
+    right: 12px;
+    top: 6px;
+    color: #fff;
+  }
+`;
+
+const FilterSummary = styled.div`
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin-right: 12px;
+      margin-bottom: 0;
+    }
+  }
+`;
+
+export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], platforms = ['Accredible'], searchTerm, resultCount, clearSearch }) => {
   const [activeTopicTags, setActiveTopicTags] = useState([]);
   const [activeIndustryTags, setActiveIndustryTags] = useState([]);
   const [activePlatformTags, setActivePlatformTags] = useState([]);
@@ -156,72 +207,107 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
     setDateState([item.selection]);
   }
 
+  const clearDates = () => {
+    setDateState([
+      {
+        startDate: null,
+        endDate: null,
+        key: 'selection'
+      }
+    ])
+  }
+
+  const clearAllFilters = () => {
+    setActiveIndustryTags([])
+    setActiveTopicTags([])
+    setActivePlatformTags([])
+    clearSearch()
+  }
+
   return (
-    <Filter>
+    <>
+      <Filter>
 
-      <FilterSections>
-        <h3 className="filter-title">Filter:</h3>
+        <FilterSections>
+          <h3 className="filter-title">Filter:</h3>
 
-        {/* Industries */}
-        <FilterSection>
-          <TagSearch placeholder="Industry" addTag={tag => addTag(tag, 'industry')} tags={industries.filter(tag => !activeIndustryTags.includes(tag))} />
+          {/* Industries */}
+          <FilterSection>
+            <TagSearch placeholder="Industry" addTag={tag => addTag(tag, 'industry')} tags={industries.filter(tag => !activeIndustryTags.includes(tag))} />
 
-          {activeIndustryTags.length > 0 && (
-            <Tags>
-              {activeIndustryTags.map(tag => (
-                <Tag onClick={() => removeTag(tag, 'industry')}>{tag}</Tag>
-              ))}
-            </Tags>
-          )}
-        </FilterSection>
-        
-        {/* Topic */}
-        <FilterSection>
-          <TagSearch placeholder="Topics" addTag={tag => addTag(tag, 'topic')} tags={topics.filter(tag => !activeTopicTags.includes(tag))} />
-
-          {activeTopicTags.length > 0 && (
-            <Tags>
-              {activeTopicTags.map(tag => (
-                <Tag onClick={() => removeTag(tag, 'topic')}>{tag}</Tag>
-              ))}
-            </Tags>
-          )}
-        </FilterSection>
-
-        {/* Platform */}
-        <FilterSection>
-          <TagSearch placeholder="Platform" addTag={tag => addTag(tag, 'platform')} tags={platforms.filter(tag => !activePlatformTags.includes(tag))} />
-
-          {activePlatformTags.length > 0 && (
-            <Tags>
-              {activePlatformTags.map(tag => (
-                <Tag onClick={() => removeTag(tag, 'platform')}>{tag}</Tag>
-              ))}
-            </Tags>
-          )}
-        </FilterSection>
-
-
-        {/* Date range */}
-        <FilterSection>
-          <DateButton onClick={() => setDatePickerActive(!datePickerActive)}>{!datePickerActive ? 'Filter by date' : 'Close'} <img src={calendarIcon} alt="Calendar icon" /></DateButton>
-
-          <p>Start date: {moment(dateState[0].startDate).format('MM/DD/YYYY')}</p>
+            {activeIndustryTags.length > 0 && (
+              <Tags>
+                {activeIndustryTags.map((tag, index) => (
+                  <Tag key={index} onClick={() => removeTag(tag, 'industry')}>{tag}</Tag>
+                ))}
+              </Tags>
+            )}
+          </FilterSection>
           
-          {datePickerActive && (
-            <DateRangeContainer>
-              <DateRange
-                editableDateInputs={true}
-                onChange={item => setDateRange(item)}
-                moveRangeOnFirstSelection={false}
-                ranges={dateState}
-              />
-            </DateRangeContainer>
-          )}
-        </FilterSection>
+          {/* Topic */}
+          <FilterSection>
+            <TagSearch placeholder="Topics" addTag={tag => addTag(tag, 'topic')} tags={topics.filter(tag => !activeTopicTags.includes(tag))} />
 
-      </FilterSections>
-    </Filter>
+            {activeTopicTags.length > 0 && (
+              <Tags>
+                {activeTopicTags.map((tag, index) => (
+                  <Tag key={index} onClick={() => removeTag(tag, 'topic')}>{tag}</Tag>
+                ))}
+              </Tags>
+            )}
+          </FilterSection>
+
+          {/* Platform */}
+          <FilterSection>
+            <TagSearch placeholder="Platform" addTag={tag => addTag(tag, 'platform')} tags={platforms.filter(tag => !activePlatformTags.includes(tag))} />
+
+            {activePlatformTags.length > 0 && (
+              <Tags>
+                {activePlatformTags.map((tag, index) => (
+                  <Tag key={index} onClick={() => removeTag(tag, 'platform')}>{tag}</Tag>
+                ))}
+              </Tags>
+            )}
+          </FilterSection>
+
+
+          {/* Date range */}
+          <FilterSection>
+            <DateButton onClick={() => setDatePickerActive(!datePickerActive)}>
+              {!datePickerActive ? 'Filter by date' : 'Close'} 
+              <img src={calendarIcon} alt="Calendar icon" />
+            </DateButton>
+            
+            {dateState[0].startDate && (
+              <DateTags onClick={() => clearDates()}>
+                <p>Start date: <strong>{moment(dateState[0].startDate).format('MMM Do YYYY')}</strong></p>
+                <p>End date: <strong>{moment(dateState[0].endDate).format('MMM Do YYYY')}</strong></p>
+              </DateTags>
+            )}
+
+            {datePickerActive && (
+              <DateRangeContainer>
+                <DateRange
+                  editableDateInputs={true}
+                  onChange={item => setDateRange(item)}
+                  moveRangeOnFirstSelection={false}
+                  ranges={dateState}
+                />
+              </DateRangeContainer>
+            )}
+          </FilterSection>
+
+        </FilterSections>
+      </Filter>
+      <FilterSummary>
+        {searchTerm && <p>You searched: {searchTerm}</p>}
+
+        <div>
+          {resultCount && <p>{resultCount} results</p>}
+          {(activeIndustryTags.length > 0 || activePlatformTags.length > 0 || activeTopicTags.length > 0 || dateState[0].startDate) &&<Button small text="Clear all filters" ClickHandler={() => clearAllFilters()} />}
+        </div>
+      </FilterSummary>
+    </>
   );
 };
 
