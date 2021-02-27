@@ -68,7 +68,7 @@ const SearchBarContainer = styled.div`
   }
 `;
 
-export const Banner = ({ title = 'Heading 1', tagline = 'Tagline to go here...', image = 'https://assets.website-files.com/5f68558b209a0b8f85194e47/6001d1c8a266bd470d7a9b12_Hero-Background.jpg', placeholder = 'Enter your search term...', submitSearch, search = false }) => {
+export const Banner = ({ title, tagline, image, placeholder = 'Enter your search term...', submitSearch, search = false }) => {
 
   const [searchTerm, setSearchTerm] = useState('');
 
