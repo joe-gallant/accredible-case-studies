@@ -37,7 +37,14 @@ export const filterCaseStudies = (posts, filters) => {
   }
 
   // Step 2 - Industries
+  if (filters.filters.activeIndustryTags.length > 0) {
+    results = results.filter(post => {
 
+      if (post.node.frontmatter.industry) {
+        return (post.node.frontmatter.industry.filter(element => filters.filters.activeIndustryTags.includes(element)));
+      }
+    })
+  }
 
   // Step 3 - Topics
 
