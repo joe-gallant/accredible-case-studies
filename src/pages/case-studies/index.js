@@ -2,6 +2,7 @@ import React from 'react'
 
 import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
+import { FilterBar } from '../../components/FilterBar/FilterBar'
 
 export default class CaseStudyIndexPage extends React.Component {
   render() {
@@ -27,9 +28,10 @@ export default class CaseStudyIndexPage extends React.Component {
         </div>
         <section className="section">
           <div className="container">
-            <div className="content">
-              <BlogRoll />
-            </div>
+
+            <FilterBar />
+            <BlogRoll />
+
           </div>
         </section>
       </Layout>
