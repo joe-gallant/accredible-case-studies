@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
 import { FilterBar } from '../../components/FilterBar/FilterBar'
-
+import { Card } from '../../components/Card'
 export default class CaseStudyIndexPage extends React.Component {
   render() {
     return (
@@ -30,6 +30,7 @@ export default class CaseStudyIndexPage extends React.Component {
           <div className="container">
 
             <FilterBar />
+            <Card />
             <BlogRoll />
 
           </div>
