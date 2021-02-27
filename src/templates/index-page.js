@@ -7,7 +7,7 @@ import { BannerCarousel } from '../components/BannerCarousel'
 import { Button } from '../components/Button'
 
 const Section = styled.div`
-  padding: 48px;
+  padding: 96px 0;
 
   &:last-of-type {
     background-color: #f4f5fa;
