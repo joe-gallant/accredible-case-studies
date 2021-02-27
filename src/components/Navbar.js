@@ -34,7 +34,7 @@ const Container = styled.div`
     align-items: stretch;
     display: flex;
     width: 100%;
-    margin-left: 75px;
+    margin-left: 45px;
 
     @media (max-width: 767px) {
       display: none;
@@ -62,9 +62,11 @@ const Container = styled.div`
   .navbar-item {
     display: flex;
     align-items: center;
+    color: rgba(40, 41, 85, 0.8);
+    padding: 4px 8px;
 
     &:nth-of-type(2) {
-      margin-left: 35px;
+      margin-left: 24px;
     }
 
     img {
@@ -126,6 +128,7 @@ const MobileNavOptions = styled.div`
     display: block;
     text-align: center;
     margin-bottom: 12px;
+    color: rgba(40, 41, 85, 0.8);
 
     img {
       max-height: 1.75rem;
