@@ -15,9 +15,9 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+              <h1 className="title">
                 {title}
-              </h2>
+              </h1>
               <PageContent className="content" content={content} />
             </div>
           </div>
@@ -39,28 +39,6 @@ const AboutPage = ({ data }) => {
   return (
     <Layout>
       <Banner title={post.frontmatter.title} submitSearch={(searchTerm) => alert(searchTerm)} />
-      <div className="container">
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <p>lorem lorem ogierngoer ournegouern nogerunguoer nogunrg ouenrger oungr <a href="#">this is a link.</a> nrg ouenrger oung</p>
-        <p><strong>strong text</strong> lorem lorem ogierngoer ournegouern nogerunguoer nogunrg ouenrger oungr <a href="#">this is a link.</a> nrg ouenrger oung</p>
-        <ul>
-          <li>Test list item</li>
-          <li>Test list item</li>
-          <li>Test list item</li>
-          <li>Test list item</li>
-        </ul>
-        <ol>
-          <li>Test list item</li>
-          <li>Test list item</li>
-          <li>Test list item</li>
-          <li>Test list item</li>
-        </ol>
-        <Button small ClickHandler={() => navigate('/')} text="Test small" />
-        <Button ClickHandler={() => navigate('/')} text="Test normal" />
-      </div>
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
