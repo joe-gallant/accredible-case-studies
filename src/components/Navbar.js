@@ -6,8 +6,7 @@ import styled from 'styled-components'
 
 const Navigation = styled.div`
   min-height: 52px;
-  align-items: stretch;
-  display: flex;
+  display: block;
 `;
 
 const Container = styled.div`
@@ -102,15 +101,32 @@ const Burger = styled.div`
 
     &:first-child {
       top: calc(50% - 6px);
+      transform: ${props => props.active ? 'translateY(5px) rotate(45deg)' : 'none'};
     }
     &:nth-of-type(2) {
       top: calc(50% - 1px);
+      opacity: ${props => props.active ? '0' : '1'};
     }
     &:nth-of-type(3) {
       top: calc(50% + 4px);
+      transform: ${props => props.active ? 'translateY(-5px) rotate(-45deg)' : 'none'};
     }
   }
 `;
+
+const MobileNavOptions = styled.div`
+  padding: 12px;
+
+  .navbar-item {
+    display: block;
+    text-align: center;
+    margin-bottom: 12px;
+
+    img {
+      max-height: 1.75rem;
+    }
+  }
+`
 
 const Navbar = () => {
 
@@ -151,10 +167,7 @@ const Navbar = () => {
               <span />
             </Burger>
           </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu`}
-          >
+          <div id="navMenu" className={`navbar-menu`}>
             <div className="navbar-start has-text-centered">
               <Link className="navbar-item" to="/about">
                 About
@@ -164,12 +177,7 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="navbar-item" href="https://github.com/netlify-templates/gatsby-starter-netlify-cms" target="_blank" rel="noopener noreferrer">
                 <span className="icon">
                   <img src={github} alt="Github" />
                 </span>
@@ -177,6 +185,25 @@ const Navbar = () => {
             </div>
           </div>
         </Container>
+        { active && 
+          <MobileNavOptions>
+          <div className="navbar-start has-text-centered">
+            <Link className="navbar-item" to="/about">
+              About
+            </Link>
+            <Link className="navbar-item" to="/case-studies">
+              Case studies
+            </Link>
+          </div>
+          <div className="navbar-end has-text-centered">
+            <a className="navbar-item" href="https://github.com/netlify-templates/gatsby-starter-netlify-cms" target="_blank" rel="noopener noreferrer">
+              <span className="icon">
+                <img src={github} alt="Github" />
+              </span>
+            </a>
+          </div>
+        </MobileNavOptions>
+        }
       </Navigation>
     )
   }
