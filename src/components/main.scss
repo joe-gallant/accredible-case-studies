@@ -33,8 +33,17 @@ h1,
 
   @media (max-width: 767px) {
     font-size: 30px;
-    font-weight: 500;
     line-height: 40px;
+  }
+
+  &.h1--big {
+    font-size: 80px;
+    line-height: 90px;
+
+    @media (max-width: 767px) {
+      font-size: 48px;
+      line-height: 60px;
+    }
   }
 }
 
@@ -81,6 +90,11 @@ p,
     font-weight: 400;
     line-height: 24px;
   }
+}
+
+.text--lg {
+  font-size: 24px;
+  line-height: 32px;
 }
 
 a,

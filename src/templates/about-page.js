@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, navigate } from 'gatsby'
 import Layout from '../components/Layout'
 import { Button } from '../components/Button'
+import { Banner } from '../components/Banner'
 import Content, { HTMLContent } from '../components/Content'
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
@@ -37,6 +38,7 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
+      <Banner title={post.frontmatter.title} submitSearch={(searchTerm) => alert(searchTerm)} />
       <div className="container">
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
