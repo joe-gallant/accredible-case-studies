@@ -75,7 +75,6 @@ export const filterCaseStudies = (posts, filters) => {
   if (startDate && endDate) {
     results = results.filter(post => {
       const date = new Date(post.node.frontmatter.date);
-      console.log(date, endDate, startDate);
       return (date <= endDate && date >= startDate)
     })
   }
