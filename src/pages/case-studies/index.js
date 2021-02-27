@@ -24,7 +24,7 @@ export default class CaseStudyIndexPage extends React.Component {
         <Banner title="Case Study Library" search searchValue={this.state.searchTerm} placeholder="Search for a case study" submitSearch={(searchTerm) => this.setSearch(searchTerm)}></Banner>
         <section ref={this.resultRef} className="section">
           <div className="container">
-            <FilterBar searchTerm={this.state.searchTerm} clearSearch={() => this.setSearch('')} />
+            <FilterBar searchTerm={this.state.searchTerm} clearSearch={() => this.setState({ searchTerm: ''})} />
             <CaseStudyResults />
           </div>
         </section>
