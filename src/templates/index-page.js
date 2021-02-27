@@ -65,6 +65,8 @@ const ColumnRight = styled.div`
 export const IndexPageTemplate = ({
   bannerTitle,
   bannerSubHeading,
+  bannerButtonText,
+  bannerButtonLink,
   image,
 }) => (
   <>
@@ -77,7 +79,7 @@ export const IndexPageTemplate = ({
         <ColumnRight>
           <h2 class="subTitle">What is the purpose of this site?</h2>
           <p className="text--lg">This site hosts a collection of links to digital credential case studies from a variety of different platform providers, brand names, and industry types. The case studies provide real-life applications of digital credentials and how they made a difference to the target organization. For more information, read our guide to What Is A Case Study or start browsing the library.</p>
-          <Button ClickHandler={() => navigate('/case-studies')} text="Subscribe for Updates" />
+          <Button ClickHandler={() => navigate(`${bannerButtonLink}`)} text={bannerButtonText} />
         </ColumnRight>
       </Container>
     </Section>
@@ -98,8 +100,10 @@ export const IndexPageTemplate = ({
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
+  bannerTitle: PropTypes.string,
+  bannerSubHeading: PropTypes.string,
+  bannerButtonText: PropTypes.string,
+  bannerButtonLink: PropTypes.string,
 }
 
 const IndexPage = ({ data }) => {
@@ -109,8 +113,10 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
+        bannerTitle={frontmatter.bannerTitle}
+        bannerSubHeading={frontmatter.bannerSubHeading}
+        bannerButtonText={frontmatter.bannerButtonText}
+        bannerButtonLink={frontmatter.bannerButtonLink}
       />
     </Layout>
   )
@@ -137,8 +143,10 @@ export const pageQuery = graphql`
             }
           }
         }
-        heading
-        subheading
+        bannerTitle
+        bannerSubHeading
+        bannerButtonText
+        bannerButtonLink
       }
     }
   }

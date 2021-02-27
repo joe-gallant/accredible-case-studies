@@ -13,8 +13,8 @@ const Filter = styled.div`
   background: #e4f0fb;
   padding: 18px;
   width: 100%;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   border-radius: 8px;
 
   .filter-title {
@@ -156,6 +156,7 @@ const FilterSummary = styled.div`
   div {
     display: flex;
     align-items: center;
+    margin-left: auto;
 
     p {
       margin-right: 12px;

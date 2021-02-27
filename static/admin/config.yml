@@ -40,6 +40,8 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: Banner Title, name: bannerTitle, widget: string}
           - {label: Banner Subheading, name: bannerSubHeading, widget: string}
+          - {label: Banner Button Text, name: bannerButtonText, widget: string}
+          - {label: Banner Button Link, name: bannerButtonLink, widget: string}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
