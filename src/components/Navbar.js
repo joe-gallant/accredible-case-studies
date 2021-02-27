@@ -1,6 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link, navigate } from 'gatsby'
-import github from '../img/github-icon.svg'
 import logo from '../img/accredible-logo.svg'
 import styled from 'styled-components'
 import { Button } from '../components/Button'
@@ -18,7 +17,12 @@ const Container = styled.div`
   .navbar-logo {
     align-items: center;
     display: flex;
-    align-items: stretch;
+
+    &:hover {
+      img {
+        opacity: 0.7;
+      }
+    }
 
     @media (max-width: 767px) {
       width: 100%;
@@ -65,12 +69,22 @@ const Container = styled.div`
     color: rgba(40, 41, 85, 0.8);
     padding: 4px 8px;
 
+    &:hover {
+      background-color: #e4f0fb;
+      colour: rgba(40, 41, 85, 0.65);
+    }
+
     &:nth-of-type(2) {
       margin-left: 24px;
     }
 
     img {
       max-height: 1.75rem;
+    }
+
+    &.active {
+      background-color: #e4f0fb;
+      colour: rgba(40, 41, 85, 0.65);
     }
   }
 `;
@@ -124,6 +138,10 @@ const Burger = styled.div`
 const MobileNavOptions = styled.div`
   padding: 12px;
 
+  @media (min-width: 768px) {
+    display: none;
+  }
+
   .navbar-item {
     display: block;
     text-align: center;
@@ -140,10 +158,9 @@ const MobileNavOptions = styled.div`
     justify-content: center;
     display: flex;
   }
-`
+  `
 
 const Navbar = () => {
-
   const [active, openNav] = useState(false);
 
   const toggleHamburger = () => {
@@ -163,7 +180,7 @@ const Navbar = () => {
       >
         <Container className="container">
           <div className="navbar-logo">
-            <Link to="/" className="navbar-item" title="Logo">
+            <Link to="/" title="Logo">
               <img src={logo} alt="Logo" />
             </Link>
             {/* Hamburger menu */}
@@ -183,10 +200,10 @@ const Navbar = () => {
           </div>
           <div id="navMenu" className={`navbar-menu`}>
             <div className="navbar-start">
-              <Link className="navbar-item" to="/about">
+              <Link className={`navbar-item ${window.location.pathname === '/about' ? 'active' : ''}`} to="/about">
                 About
               </Link>
-              <Link className="navbar-item" to="/case-studies">
+              <Link className={`navbar-item ${window.location.pathname === '/case-studies' ? 'active' : ''}`} to="/case-studies">
                 Case studies
               </Link>
             </div>
