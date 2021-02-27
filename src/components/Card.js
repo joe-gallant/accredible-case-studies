@@ -13,6 +13,7 @@ const CardContainer = styled.div`
   border-radius: 8px;
   box-shadow: 0px 0px 10px -5px #000;
   margin-bottom: 24px;
+  overflow: hidden;
 
   p {
     font-size: 16px;
@@ -38,7 +39,8 @@ const Image = styled.div`
   width: 50%;
   flex: 1;
   background: #f4f5fa;
-  background-image: ${props => props.img ? `url(${props.img})` : 'url()' }
+  background-image: ${props => props.img ? `url(${props.img})` : 'url()' };
+  background-size: cover;
 `;
 
 export const Card = ({ image, slug, title, author, date, topics = [] }) => {
@@ -47,11 +49,11 @@ export const Card = ({ image, slug, title, author, date, topics = [] }) => {
 
       <Image img={image}></Image>
       <Content>
-        {title && <h3>{title}</h3>}
+        {title && <h3 className="text--lg">{title}</h3>}
         {author && <p>Author: <span>{author}</span></p>}
         {date && <p>Date: <span>{date}</span></p>}
-        {topics.length > 0 && <p>Topics: <span>{topics.join(', ')}</span></p>}
-        {slug && <Button ClickHandler={() => navigate(`/case-studies/${slug}`)} small text='Read Case Study' />}
+        {topics && topics.length > 0 && <p>Topics: <span>{topics.join(', ')}</span></p>}
+        {slug && <Button ClickHandler={() => navigate(slug)} small text='Read Case Study' />}
       </Content>
       
     </CardContainer>

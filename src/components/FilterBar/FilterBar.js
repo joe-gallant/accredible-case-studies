@@ -6,6 +6,7 @@ import { DateRange } from 'react-date-range';
 import calendarIcon from '../../img/calendar-icon.svg'
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
+import moment from 'moment'
 
 const Filter = styled.div`
   background: #e4f0fb;
@@ -13,10 +14,16 @@ const Filter = styled.div`
   width: 100%;
   margin-bottom: 24px;
   border-radius: 8px;
+
+  .filter-title {
+    margin-right: 24px;
+    margin-top: 6px;
+  }
 `;
 
 const FilterSections = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
 
 const FilterSection = styled.div`
@@ -24,11 +31,12 @@ const FilterSection = styled.div`
   padding-right: 24px;
   margin-right: 24px;
   position: relative;
-  width: 200px;
+  width: 300px;
 
   &:last-of-type {
     margin-right: 0;
     border: none;
+    padding-right: 0;
   }
 `;
 
@@ -97,6 +105,12 @@ const DateRangeContainer = styled.div`
   width: 100%;
   top: 40px;
   z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+
+  .rdrDateRangeWrapper {
+    box-shadow: 0px 0px 20px -10px #000;
+  }
 `;
 
 export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], platforms = ['Accredible'] }) => {
@@ -106,12 +120,11 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
   const [datePickerActive, setDatePickerActive] = useState(false);
   const [dateState, setDateState] = useState([
     {
-      startDate: new Date(),
+      startDate: null,
       endDate: null,
       key: 'selection'
     }
   ]);
-
 
   const addTag = (tag, type) => {
     switch (type) {
@@ -145,9 +158,9 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
 
   return (
     <Filter>
-      <h3>Filter:</h3>
 
       <FilterSections>
+        <h3 className="filter-title">Filter:</h3>
 
         {/* Industries */}
         <FilterSection>
@@ -192,6 +205,8 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
         {/* Date range */}
         <FilterSection>
           <DateButton onClick={() => setDatePickerActive(!datePickerActive)}>{!datePickerActive ? 'Filter by date' : 'Close'} <img src={calendarIcon} alt="Calendar icon" /></DateButton>
+
+          <p>Start date: {moment(dateState[0].startDate).format('MM/DD/YYYY')}</p>
           
           {datePickerActive && (
             <DateRangeContainer>

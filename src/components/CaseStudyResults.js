@@ -12,11 +12,7 @@ const Cards = styled.div`
 `;
 
 const SingleCard = styled.div`
-  flex: 0 0 calc(33% - 12px);
-
-  @media (max-width: 1200px) {
-    flex: 0 0 calc(50% - 12px);
-  }
+  flex: 0 0 calc(50% - 12px);
 
   @media (max-width: 767px) {
     flex: 0 0 100%;
@@ -32,10 +28,14 @@ class CaseStudyResults extends React.Component {
       <Cards>
         {posts.map(post => (
           <SingleCard>
+            {console.log(post)}
             <Card
-              title={post.node.frontmatter.title} 
+              title={post.node.frontmatter.title}
+              image={post.node.frontmatter.featuredimage?.childImageSharp.fluid.src}
               slug={post.node.fields.slug} 
+              author={post.node.frontmatter.author} 
               date={post.node.frontmatter.date} 
+              topics={post.node.frontmatter.topics} 
               />
           </SingleCard>
         ))}
@@ -70,10 +70,11 @@ export default () => (
                 title
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
-                featuredpost
+                author
+                topics
                 featuredimage {
                   childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
+                    fluid(maxWidth: 400, quality: 100) {
                       ...GatsbyImageSharpFluid
                     }
                   }
