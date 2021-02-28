@@ -21,6 +21,7 @@ banner:
   bannerImages:
     - https://assets.website-files.com/5f68558b209a0b8f85194e47/6001d1c8a266bd470d7a9b12_Hero-Background.jpg
     - https://cdn.mos.cms.futurecdn.net/ntFmJUZ8tw3ULD3tkBaAtf.jpg
+    - https://assets.website-files.com/5f68558b209a0b8f85194e47/5fd7c3c46f0ed5811d63876d_digital_certificates-feature_page_design_control.png
 bannerSubHeading: Find the latest digital credentialing case studies in our library.
 leftTextPanel:
   panelTitle: Who is this site for?
