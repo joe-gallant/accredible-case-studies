@@ -84,7 +84,7 @@ const Image = styled.div`
   }
 `;
 
-export const BannerCarousel = ({ title, subheading, images = ['https://assets.website-files.com/5f68558b209a0b8f85194e47/6001d1c8a266bd470d7a9b12_Hero-Background.jpg', 'https://cdn.mos.cms.futurecdn.net/ntFmJUZ8tw3ULD3tkBaAtf.jpg'] }) => {
+export const BannerCarousel = ({ title, subheading, buttonText, buttonLink, images = ['https://assets.website-files.com/5f68558b209a0b8f85194e47/6001d1c8a266bd470d7a9b12_Hero-Background.jpg', 'https://cdn.mos.cms.futurecdn.net/ntFmJUZ8tw3ULD3tkBaAtf.jpg'] }) => {
   const [slide, setSlide] = useState(1);
 
   useEffect(() => {
@@ -106,7 +106,7 @@ export const BannerCarousel = ({ title, subheading, images = ['https://assets.we
         <InnerContent>
           <h1>{title}</h1>
           <p className="text--lg">{subheading}</p>
-          <Button ClickHandler={() => navigate('about')} text="Find out more" />
+          <Button ClickHandler={() => navigate(`${buttonLink}`)} text={buttonText} />
         </InnerContent>
       </Content>
 
@@ -122,5 +122,7 @@ export const BannerCarousel = ({ title, subheading, images = ['https://assets.we
 
 BannerCarousel.propTypes = {
   title: PropTypes.string,
-  subheading: PropTypes.string
+  subheading: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonLink: PropTypes.string,
 };
