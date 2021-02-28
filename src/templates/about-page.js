@@ -4,16 +4,22 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { Banner } from '../components/Banner'
 import Content, { HTMLContent } from '../components/Content'
+import { Helmet } from "react-helmet";
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
-    <section className="section section--bg">
-      <div className="container container--sm">
-        <PageContent className="content" content={content} />
-      </div>
-    </section>
+    <>
+      <Helmet>
+        <title>Replace with CMS</title>
+      </Helmet>
+      <section className="section section--bg">
+        <div className="container container--sm">
+          <PageContent className="content" content={content} />
+        </div>
+      </section>
+    </>
   )
 }
 

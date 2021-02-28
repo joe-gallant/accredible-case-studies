@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { BannerCarousel } from '../components/BannerCarousel'
 import { Button } from '../components/Button'
 import ReactMarkdown from 'react-markdown'
+import { Helmet } from "react-helmet";
 
 const Section = styled.div`
   padding: 96px 0;
@@ -77,6 +78,9 @@ export const IndexPageTemplate = ({
   rightPanelText,
 }) => (
   <>
+    <Helmet>
+      <title>Replace with CMS</title>
+    </Helmet>
     <BannerCarousel title={bannerTitle} subheading={bannerSubHeading} buttonText={bannerButtonText} buttonLink={bannerButtonLink} bannerImages={bannerImages}></BannerCarousel>
     <Section>
       <Container className="container">
