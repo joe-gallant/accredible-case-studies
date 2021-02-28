@@ -75,7 +75,7 @@ export const CaseStudyTemplate = ({ post }) => {
         <div class="container container--sm">
           <Wrapper>
             <Image>
-              <img src={post.frontmatter.featuredimage.publicURL} alt={post.frontmatter.featuredimage.name} />
+              {post.frontmatter.featuredimage && <img src={post.frontmatter.featuredimage.publicURL} alt={post.frontmatter.featuredimage.name} />}
             </Image>
             <Content>
               <ul>
