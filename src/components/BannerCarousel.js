@@ -84,13 +84,13 @@ const Image = styled.div`
   }
 `;
 
-export const BannerCarousel = ({ title, subheading, buttonText, buttonLink, images = ['https://assets.website-files.com/5f68558b209a0b8f85194e47/6001d1c8a266bd470d7a9b12_Hero-Background.jpg', 'https://cdn.mos.cms.futurecdn.net/ntFmJUZ8tw3ULD3tkBaAtf.jpg'] }) => {
+export const BannerCarousel = ({ title, subheading, buttonText, buttonLink, bannerImages }) => {
   const [slide, setSlide] = useState(1);
 
   useEffect(() => {
     setInterval(() => {
       setSlide(slide => {
-        if (slide === images.length) {
+        if (slide === bannerImages.length) {
           return 1;
         } else {
           return slide + 1;
@@ -111,7 +111,7 @@ export const BannerCarousel = ({ title, subheading, buttonText, buttonLink, imag
       </Content>
 
       <Images>
-        {images.map((img, i) => (
+        {bannerImages.map((img, i) => (
           <Image key={i} className={i + 1 === slide ? 'active' : ''} img={img}/>
         ))}
       </Images>
@@ -125,4 +125,5 @@ BannerCarousel.propTypes = {
   subheading: PropTypes.string,
   buttonText: PropTypes.string,
   buttonLink: PropTypes.string,
+  bannerImages: PropTypes.array
 };
