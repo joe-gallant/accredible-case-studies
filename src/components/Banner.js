@@ -100,5 +100,6 @@ export const Banner = ({ title, tagline, image, placeholder = 'Enter your search
 };
 
 Banner.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  image: PropTypes.string
 };
