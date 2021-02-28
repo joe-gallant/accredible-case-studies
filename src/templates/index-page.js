@@ -76,11 +76,13 @@ export const IndexPageTemplate = ({
   leftPanelText,
   rightPanelTitle,
   rightPanelText,
+  metaTitle,
+  metaDescription,
 }) => (
   <>
     <Helmet>
-      <title>Replace with CMS</title>
-      <meta name="description" content="Helmet application" />
+      <title>{metaTitle}</title>
+      <meta name="description" content={metaDescription} />
     </Helmet>
     <BannerCarousel title={bannerTitle} subheading={bannerSubHeading} buttonText={bannerButtonText} buttonLink={bannerButtonLink} bannerImages={bannerImages}></BannerCarousel>
     <Section>
@@ -116,6 +118,8 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
+        metaTitle={frontmatter.pageMeta.metaTitle}
+        metaDescription={frontmatter.pageMeta.metaDescription}
         bannerTitle={frontmatter.banner.bannerTitle}
         bannerSubHeading={frontmatter.banner.bannerSubHeading}
         bannerButtonText={frontmatter.banner.bannerButtonText}
@@ -140,6 +144,10 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
       frontmatter {
+        pageMeta {
+          metaTitle
+          metaDescription
+        }
         leftTextPanel {
           panelText
           panelTitle
