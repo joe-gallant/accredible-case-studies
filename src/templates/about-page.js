@@ -6,14 +6,14 @@ import { Banner } from '../components/Banner'
 import Content, { HTMLContent } from '../components/Content'
 import { Helmet } from "react-helmet";
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+export const AboutPageTemplate = ({ content, contentComponent, metaTitle, metaDescription }) => {
   const PageContent = contentComponent || Content
 
   return (
     <>
       <Helmet>
-        <title>Replace with CMS</title>
-        <meta name="description" content="Helmet application" />
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
       </Helmet>
       <section className="section section--bg">
         <div className="container container--sm">
@@ -36,6 +36,8 @@ const AboutPage = ({ data }) => {
     <Layout>
       <Banner title={post.frontmatter.title} image={post.frontmatter.bannerImage} submitSearch={(searchTerm) => alert(searchTerm)} />
       <AboutPageTemplate
+        metaTitle={post.frontmatter.pageMeta.metaTitle}
+        metaDescription={post.frontmatter.pageMeta.metaDescription}
         contentComponent={HTMLContent}
         content={post.html}
       />
@@ -54,6 +56,10 @@ export const aboutPageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
+        pageMeta {
+          metaTitle
+          metaDescription
+        }
         title
         bannerImage
       }
