@@ -66,6 +66,7 @@ export const IndexPageTemplate = ({
   bannerSubHeading,
   bannerButtonText,
   bannerButtonLink,
+  bannerImages,
   topPanelTitle,
   topPanelText,
   topPanelButtonText,
@@ -76,7 +77,7 @@ export const IndexPageTemplate = ({
   rightPanelText,
 }) => (
   <>
-    <BannerCarousel title={bannerTitle} subheading={bannerSubHeading} buttonText={bannerButtonText} buttonLink={bannerButtonLink}></BannerCarousel>
+    <BannerCarousel title={bannerTitle} subheading={bannerSubHeading} buttonText={bannerButtonText} buttonLink={bannerButtonLink} bannerImages={bannerImages}></BannerCarousel>
     <Section>
       <Container className="container">
         <ColumnLeft>
@@ -114,6 +115,7 @@ const IndexPage = ({ data }) => {
         bannerSubHeading={frontmatter.banner.bannerSubHeading}
         bannerButtonText={frontmatter.banner.bannerButtonText}
         bannerButtonLink={frontmatter.banner.bannerButtonLink}
+        bannerImages={frontmatter.banner.bannerImages}
         topPanelTitle={frontmatter.fullWidthImagePanel.panelTitle}
         topPanelText={frontmatter.fullWidthImagePanel.panelText}
         topPanelButtonText={frontmatter.fullWidthImagePanel.panelButtonText}
@@ -142,6 +144,7 @@ export const pageQuery = graphql`
           bannerButtonText
           bannerSubHeading
           bannerTitle
+          bannerImages
         }
         rightTextPanel {
           panelText
