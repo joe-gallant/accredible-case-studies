@@ -13,6 +13,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
     <>
       <Helmet>
         <title>Replace with CMS</title>
+        <meta name="description" content="Helmet application" />
       </Helmet>
       <section className="section section--bg">
         <div className="container container--sm">
