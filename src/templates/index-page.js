@@ -80,6 +80,7 @@ export const IndexPageTemplate = ({
   <>
     <Helmet>
       <title>Replace with CMS</title>
+      <meta name="description" content="Helmet application" />
     </Helmet>
     <BannerCarousel title={bannerTitle} subheading={bannerSubHeading} buttonText={bannerButtonText} buttonLink={bannerButtonLink} bannerImages={bannerImages}></BannerCarousel>
     <Section>
