@@ -49,10 +49,17 @@ export const Card = ({ image, slug, title, author, date, topics = [] }) => {
 
       <Image img={image}></Image>
       <Content>
-        {title && <h3 className="text--lg">{title}</h3>}
+        {title && <h3>{title}</h3>}
         {author && <p>Author: <span>{author}</span></p>}
         {date && <p>Date: <span>{date}</span></p>}
-        {topics && topics.length > 0 && <p>Topics: <span>{topics.join(', ')}</span></p>}
+        <br />
+        <br />
+        {topics && topics.length > 0 && (
+          <div className="tags-section">
+            <p>Topics:</p> 
+            {topics.map((topic, index) => <div key={index} className="single-tag">{topic}</div>)}
+          </div>
+        )}
         {slug && <Button ClickHandler={() => navigate(slug)} small text='Read Case Study' />}
       </Content>
       

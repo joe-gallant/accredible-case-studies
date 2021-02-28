@@ -86,11 +86,6 @@ h3,
   line-height: 28px;
   color: #454798;
   margin-bottom: 12px;
-
-  @media (max-width: 767px) {
-    font-size: 15px;
-    line-height: 20px;
-  }
 }
 
 h4,
@@ -178,4 +173,29 @@ ul {
       line-height: 16px;
     }
   }
+}
+
+.tags-section {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+
+  p {
+    margin-right: 6px !important;
+  }
+}
+
+.single-tag {
+  padding: 4px 6px;
+  font-size: 14px;
+  border-radius: 4px;
+  background: #5557cd;
+  margin-right: 6px;
+  color: white;
+  margin-bottom: 6px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
 }
