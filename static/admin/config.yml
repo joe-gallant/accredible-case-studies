@@ -64,6 +64,6 @@ collections:
         name: "about"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Banner Image", name: "bannerImage", widget: image}
+          - {label: "Banner Image", name: "bannerImage", widget: image, required: false}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
