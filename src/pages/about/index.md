@@ -1,6 +1,7 @@
 ---
 templateKey: about-page
 path: /about
+bannerImage: https://assets.website-files.com/5f68558b209a0b8f85194e47/6001d1c8a266bd470d7a9b12_Hero-Background.jpg
 title: What is a case study?
 ---
 Case studies are research documents that are written using real-life situations and data. The aim of case studies is to gain an in-depth understanding of a service, product, event, or activity. Although case studies cover a variety of topics such as education, marketing, and business case studies, they serve different purposes and are commonly categorized in three ways:
