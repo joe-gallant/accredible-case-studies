@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import styled from 'styled-components'
 import { BannerCarousel } from '../components/BannerCarousel'
 import { Button } from '../components/Button'
+import ReactMarkdown from 'react-markdown'
 
 const Section = styled.div`
   padding: 96px 0;
@@ -22,6 +23,9 @@ const Container = styled.div`
 
 const ColumnLeft = styled.div`
   width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   @media (max-width: 767px) {
     width: 100%;
@@ -36,7 +40,7 @@ const ColumnRight = styled.div`
   width: 45%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
 
   @media (max-width: 767px) {
@@ -93,11 +97,11 @@ export const IndexPageTemplate = ({
       <Container className="container">
         <ColumnLeft>
           <h2>{leftPanelTitle}</h2>
-          <div>{leftPanelText}</div>
+          <ReactMarkdown >{leftPanelText}</ReactMarkdown>
         </ColumnLeft>
         <ColumnRight>
           <h2>{rightPanelTitle}</h2>
-          <div>{rightPanelText}</div>
+          <ReactMarkdown>{rightPanelText}</ReactMarkdown>
         </ColumnRight>
       </Container>
     </Section>
