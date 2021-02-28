@@ -42,7 +42,7 @@ collections:
             {label: Banner Subheading, name: bannerSubHeading, widget: string},
             {label: Banner Button Text, name: bannerButtonText, widget: string}, 
             {label: Banner Button Link, name: bannerButtonLink, widget: string},
-            {label: Banner Images, name: bannerImage, widget: list, summary: '{{fields.image}}', field: {label: Image, name: image, widget: image}},
+            {label: Banner Images, name: bannerImages, widget: list, summary: '{{fields.image}}', field: {label: Image, name: image, widget: image}},
           ]}
           - {label: Full Width Image Panel, name: fullWidthImagePanel, widget: object, fields: [ 
             {label: Panel Image, name: panelImage, widget: image}, 
