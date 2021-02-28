@@ -7,6 +7,13 @@ import { Button } from '../components/Button'
 const Navigation = styled.div`
   min-height: 52px;
   display: block;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  background-color: #fff;
+  width: 100%;
+  box-shadow: 0 0 12px 0 rgb(40 41 85 / 16%);
+}
 `;
 
 const Container = styled.div`
