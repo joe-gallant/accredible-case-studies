@@ -1,57 +1,124 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
 import { Helmet } from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import { Banner } from '../components/Banner'
+import styled from 'styled-components'
+import ReactMarkdown from 'react-markdown'
 
-export const CaseStudyTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
-  title,
-  helmet,
-}) => {
-  const PostContent = contentComponent || Content
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
+
+const Image = styled.div`
+  flex: 0 0 calc(50% - 24px);
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 600px) {
+    margin-bottom: 24px;
+    max-width: 300px;
+  }
+`;
+
+const Content = styled.div`
+  flex: 0 0 calc(50% - 24px);
+
+  h3 {
+    margin-bottom: 2px;
+    margin-top: 12px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .synopsis {
+    min-height: 100px;
+    margin-bottom: 24px;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      margin: 0 0 6px 0;
+      padding: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+`;
+
+export const CaseStudyTemplate = ({ post }) => {
   return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map((tag) => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+    <>
+      <Helmet titleTemplate="%s | Case Study">
+        <title>{`${post.frontmatter.title}`}</title>
+        <meta
+          name="description"
+          content={`${post.frontmatter.synopsis}`}
+        />
+      </Helmet>
+      <Banner title={post.frontmatter.title} tagline={'Author: ' + post.frontmatter.author}></Banner>
+      <section class="section section--bg">
+        <div class="container container--sm">
+          <Wrapper>
+            <Image>
+              <img src={post.frontmatter.featuredimage.publicURL} alt={post.frontmatter.featuredimage.name} />
+            </Image>
+            <Content>
+              <ul>
+                {post.frontmatter.platform && <li><strong>Platform:</strong> {post.frontmatter.platform}</li>}
+                {post.frontmatter.date && <li><strong>Published:</strong> {post.frontmatter.date}</li>}
+                {post.frontmatter.company_name && <li><strong>Company name:</strong> {post.frontmatter.company_name}</li>}
+                {post.frontmatter.publishing_company_name && <li><strong>Publishing company name:</strong> {post.frontmatter.publishing_company_name}</li>}
+              </ul>
+              <hr />
+              {post.frontmatter.synopsis && (
+                <>
+                  <h3>Synopsis:</h3>
+                  <ReactMarkdown className="synopsis">{post.frontmatter.synopsis}</ReactMarkdown>
+                  <hr />
+                </>
+              )}
+              {post.frontmatter.topics && post.frontmatter.topics.length > 0 && (
+                <>
+                  <h3>Topics</h3>
+                  <div className="tags-section">
+                    {post.frontmatter.topics.map((topic, index) => <div key={index} className="single-tag">{topic}</div>)}
+                  </div>
+                  <br />
+                  <hr />
+                </>
+              )}
+              {post.frontmatter.industry && post.frontmatter.industry.length > 0 && (
+                <>
+                  <h3>Industries</h3>
+                  <div className="tags-section">
+                    {post.frontmatter.industry.map((ind, index) => <div key={index} className="single-tag">{ind}</div>)}
+                  </div>
+                  <br />
+                  <hr />
+                </>
+              )}
 
-CaseStudyTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
+            </Content>
+          </Wrapper>
+        </div>
+      </section>
+    </>
+  )
 }
 
 const CaseStudy = ({ data }) => {
@@ -59,30 +126,9 @@ const CaseStudy = ({ data }) => {
 
   return (
     <Layout>
-      <CaseStudyTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        helmet={
-          <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
-          </Helmet>
-        }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
-      />
+      <CaseStudyTemplate post={post} />
     </Layout>
   )
-}
-
-CaseStudy.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
 }
 
 export default CaseStudy
@@ -95,8 +141,17 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
-        description
-        tags
+        synopsis
+        topics
+        industry
+        platform
+        author
+        company_name
+        publishing_company_name
+        featuredimage {
+          publicURL
+          name
+        }
       }
     }
   }
