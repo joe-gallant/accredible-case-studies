@@ -181,7 +181,12 @@ ul {
     position: relative;
     padding-left: 24px;
     margin-bottom: 12px;
+    font-size: 18px;
     color: #282955;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
 
     &::before {
       content: '•';
