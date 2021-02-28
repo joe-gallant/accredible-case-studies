@@ -144,7 +144,6 @@ export const pageQuery = graphql`
         banner {
           bannerButtonLink
           bannerButtonText
-          bannerImage
           bannerSubHeading
           bannerTitle
         }
