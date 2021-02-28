@@ -18,7 +18,6 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
 }
 
 AboutPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }
@@ -28,10 +27,9 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <Banner title={post.frontmatter.title} submitSearch={(searchTerm) => alert(searchTerm)} />
+      <Banner title={post.frontmatter.title} image={post.frontmatter.bannerImage} submitSearch={(searchTerm) => alert(searchTerm)} />
       <AboutPageTemplate
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
         content={post.html}
       />
     </Layout>
@@ -50,6 +48,7 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        bannerImage
       }
     }
   }
