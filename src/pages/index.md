@@ -18,6 +18,9 @@ banner:
   bannerSubHeading: Find the latest digital credentialing case studies in our library.
   bannerButtonText: View the Library
   bannerButtonLink: /case-studies
+  bannerImages:
+    - https://assets.website-files.com/5f68558b209a0b8f85194e47/6001d1c8a266bd470d7a9b12_Hero-Background.jpg
+    - https://cdn.mos.cms.futurecdn.net/ntFmJUZ8tw3ULD3tkBaAtf.jpg
 bannerSubHeading: Find the latest digital credentialing case studies in our library.
 leftTextPanel:
   panelTitle: Who is this site for?
