@@ -59,10 +59,6 @@ const ColumnRight = styled.div`
       line-height: 42px;
     }
   }
-
-  p {
-    margin-bottom: 24px;
-  }
 `
 
 export const IndexPageTemplate = ({
