@@ -38,11 +38,11 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: Banner, name: banner, widget: object, fields: [ 
-            {label: Banner Image, name: bannerImage, widget: image}, 
             {label: Banner Title, name: bannerTitle, widget: string}, 
             {label: Banner Subheading, name: bannerSubHeading, widget: string},
             {label: Banner Button Text, name: bannerButtonText, widget: string}, 
             {label: Banner Button Link, name: bannerButtonLink, widget: string},
+            {label: Banner Images, name: bannerImage, widget: list, summary: '{{fields.image}}', field: {label: Image, name: image, widget: image}},
           ]}
           - {label: Full Width Image Panel, name: fullWidthImagePanel, widget: object, fields: [ 
             {label: Panel Image, name: panelImage, widget: image}, 
