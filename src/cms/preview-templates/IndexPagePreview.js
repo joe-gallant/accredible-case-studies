@@ -12,10 +12,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         bannerSubHeading={data.banner.bannerSubHeading}
         bannerButtonText={data.banner.bannerButtonText}
         bannerButtonLink={data.banner.bannerButtonLink}
-        bannerTitle={data.banner.bannerTitle}
-        bannerSubHeading={data.banner.bannerSubHeading}
-        bannerButtonText={data.banner.bannerButtonText}
-        bannerButtonLink={data.banner.bannerButtonLink}
+        bannerImages={data.banner.bannerImages}
         topPanelTitle={data.fullWidthImagePanel.panelTitle}
         topPanelText={data.fullWidthImagePanel.panelText}
         topPanelButtonText={data.fullWidthImagePanel.panelButtonText}
