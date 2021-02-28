@@ -1,6 +1,10 @@
 ---
 templateKey: about-page
 path: /about
+pageMeta:
+  metaTitle: Digital Credential Case Studies
+  metaDescription: This site hosts a collection of links to digital credential
+    case studies from a variety of different platform providers.
 bannerImage: https://assets.website-files.com/5f68558b209a0b8f85194e47/6001d1c8a266bd470d7a9b12_Hero-Background.jpg
 title: What is a case study?
 ---
