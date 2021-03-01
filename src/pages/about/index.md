@@ -6,6 +6,7 @@ pageMeta:
   metaDescription: This site hosts a collection of links to digital credential
     case studies from a variety of different platform providers.
 bannerImage: /img/6001d1c8a266bd470d7a9b12_hero-background.jpg
+aboutBannerImage: /img/6001d1c8a266bd470d7a9b12_hero-background.jpg
 title: What is a case study?
 ---
 Case studies are research documents that are written using real-life situations and data. The aim of case studies is to gain an in-depth understanding of a service, product, event, or activity. Although case studies cover a variety of topics such as education, marketing, and business case studies, they serve different purposes and are commonly categorized in three ways:
