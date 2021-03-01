@@ -73,7 +73,7 @@ collections:
             {label: "Meta Title", name: "metaTitle", widget: string},
             {label: "Meta Description", name: "metaDescription", widget: string}
             ]}
-          - {label: "Banner Image", name: "bannerImage", widget: image, required: false}
+          - {label: "Banner Image", name: "aboutBannerImage", widget: image, required: false}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - file: "src/pages/case-studies/index.md"
