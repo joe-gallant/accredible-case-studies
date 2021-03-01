@@ -69,7 +69,7 @@ const Content = styled.div`
   }
 `;
 
-export const CaseStudyTemplate = ({ data }) => {
+export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, featuredImageName }) => {
   return (
     <>
       <Helmet titleTemplate="%s | Case Study">
@@ -79,17 +79,17 @@ export const CaseStudyTemplate = ({ data }) => {
           content={`${data.synopsis}`}
         />
       </Helmet>
-      <Banner title={data.title} tagline={data.author ? 'Author: ' + data.author : null}></Banner>
-      <Section class="section section--bg">
-        <div class="container container--sm">
+      <Banner image={bannerImage} title={data.title} tagline={data.author ? 'Author: ' + data.author : null}></Banner>
+      <Section className="section section--bg">
+        <div className="container container--sm">
           <Wrapper>
             <Image>
-              {data.featuredimage && <img src={data.featuredimage.publicURL} alt={data.featuredimage.name} />}
+              {featuredImage && <img src={featuredImage} alt={featuredImageName} />}
             </Image>
             <Content>
               <ul>
                 {data.platform && <li><strong>Platform:</strong> {data.platform}</li>}
-                {data.date && <li><strong>Published:</strong> {data.date}</li>}
+                {date && <li><strong>Published:</strong> {date}</li>}
                 {data.company_name && <li><strong>Company name:</strong> {data.company_name}</li>}
                 {data.publishing_company_name && <li><strong>Publishing company name:</strong> {data.publishing_company_name}</li>}
               </ul>
@@ -135,7 +135,13 @@ const CaseStudy = ({ data }) => {
 
   return (
     <Layout>
-      <CaseStudyTemplate data={post.frontmatter} />
+      <CaseStudyTemplate 
+        data={post.frontmatter} 
+        bannerImage={post.frontmatter.bannerImage?.publicURL}
+        featuredImage={post.frontmatter.featuredimage?.publicURL}
+        featuredImageName={post.frontmatter.featuredimage?.name}
+        date={post.frontmatter.date}
+      />
     </Layout>
   )
 }
@@ -160,6 +166,9 @@ export const pageQuery = graphql`
         featuredimage {
           publicURL
           name
+        }
+        bannerImage {
+          publicURL
         }
       }
     }

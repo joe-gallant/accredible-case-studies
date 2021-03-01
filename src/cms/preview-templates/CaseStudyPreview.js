@@ -7,6 +7,10 @@ const CaseStudyPreview = ({ entry, widgetFor }) => {
   return (
     <CaseStudyTemplate
       data={post}
+      bannerImage={entry.getIn(['data', 'bannerImage'])}
+      featuredImage={entry.getIn(['data', 'featuredimage'])}
+      date="(This will show the date published)"
+      featuredImageName=""
     />
   )
 }

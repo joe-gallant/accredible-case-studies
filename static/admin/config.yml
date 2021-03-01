@@ -76,7 +76,7 @@ collections:
           - {label: "Banner Image", name: "aboutBannerImage", widget: image, required: false}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/case-studies/index.md"
+      - file: "src/pages/case-study-parent/index.md"
         label: "Case Study Library"
         name: "case-study-library"
         fields:
