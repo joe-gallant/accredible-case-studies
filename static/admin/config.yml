@@ -21,6 +21,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "case-study"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Featured Image", name: "featuredimage", widget: image}
+      - {label: "Banner Image", name: "bannerImage", widget: image}
       - {label: "Company name", name: "company-name", widget: "string"}
       - {label: "Publishing company name", name: "publishing-company-name", widget: "string"}
       - {label: "Platform", name: "platform", widget: "string"}
@@ -75,3 +76,13 @@ collections:
           - {label: "Banner Image", name: "bannerImage", widget: image, required: false}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/case-studies/index.md"
+        label: "Case Study Library"
+        name: "case-study-library"
+        fields:
+          - {label: Page Meta, name: pageMeta, widget: object, fields: [ 
+            {label: "Meta Title", name: "metaTitle", widget: string},
+            {label: "Meta Description", name: "metaDescription", widget: string}
+            ]}
+          - {label: "Banner Image", name: "bannerImage", widget: image, required: false}
+          - {label: "Title", name: "title", widget: "string"}

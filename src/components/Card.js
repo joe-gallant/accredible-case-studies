@@ -11,9 +11,10 @@ const CardContainer = styled.div`
   min-height: 320px;
   border: 1px solid #e4f0fb;
   border-radius: 8px;
-  box-shadow: 0px 0px 10px -5px #000;
+  box-shadow: 0 8px 32px 0 rgb(40 41 85 / 15%);
   margin-bottom: 24px;
   overflow: hidden;
+  padding: 24px;
 
   p {
     font-size: 16px;
@@ -22,9 +23,11 @@ const CardContainer = styled.div`
 `;
 
 const Content = styled.div`
-  width: 50%;
+  width: 55%;
   height: 100%;
-  padding: 30px;
+  padding: 12px 24px;
+  border-left: 1px solid #e4f0fb;
+  margin-left: 24px;
 
   span {
     color: #5557cd;
@@ -36,18 +39,22 @@ const Content = styled.div`
 `;
 
 const Image = styled.div`
-  width: 50%;
+  width: 45%;
   flex: 1;
-  background: #f4f5fa;
-  background-image: ${props => props.img ? `url(${props.img})` : 'url()' };
-  background-size: cover;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const Card = ({ image, slug, title, author, date, topics = [] }) => {
   return (
     <CardContainer>
 
-      <Image img={image}></Image>
+      <Image>
+        <img src={image} alt={title + ' image'} />
+      </Image>
       <Content>
         {title && <h3>{title}</h3>}
         {author && <p>Author: <span>{author}</span></p>}
