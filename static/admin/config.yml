@@ -21,15 +21,15 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "case-study"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Featured Image", name: "featuredimage", widget: image}
-      - {label: "Banner Image", name: "bannerImage", widget: image}
-      - {label: "Company name", name: "company-name", widget: "string"}
-      - {label: "Publishing company name", name: "publishing-company-name", widget: "string"}
-      - {label: "Platform", name: "platform", widget: "string"}
-      - {label: "Author", name: "author", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Industry", name: "industry", widget: "list", summary: '{{fields.tag}}', field: {label: Industry Tag, name: industry_tag, widget: string}}
-      - {label: "Topics", name: "topics", widget: "list", field: {label: Topic Tag, name: topic_tag, widget: string}}
-      - {label: "Synopsis", name: "synopsis", widget: "markdown"}
+      - {label: "Banner Image", name: "bannerImage", widget: image, required: false}
+      - {label: "Company name", name: "company-name", widget: "string", required: false}
+      - {label: "Publishing company name", name: "publishing-company-name", widget: "string", required: false}
+      - {label: "Platform", name: "platform", widget: "string", required: false}
+      - {label: "Author", name: "author", widget: "string", required: false}
+      - {label: "Publish Date", name: "date", widget: "datetime", required: false}
+      - {label: "Industry", name: "industry", widget: "list", summary: '{{fields.tag}}', required: false, field: {label: Industry Tag, name: industry_tag, widget: string}}
+      - {label: "Topics", name: "topics", widget: "list", required: false, field: {label: Topic Tag, name: topic_tag, widget: string}}
+      - {label: "Synopsis", name: "synopsis", widget: "markdown", required: false}
   - name: "pages"
     label: "Pages"
     files:
