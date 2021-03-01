@@ -6,9 +6,18 @@ import { Banner } from '../components/Banner'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 
+const Section = styled.section`
+  background: #f4f5fa;
+  padding: 48px 0;
+`;
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  background: #fff;
+  padding: 48px;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px 0 rgb(40 41 85 / 15%);
 
   @media (max-width: 600px) {
     flex-direction: column;
@@ -60,53 +69,53 @@ const Content = styled.div`
   }
 `;
 
-export const CaseStudyTemplate = ({ post }) => {
+export const CaseStudyTemplate = ({ data }) => {
   return (
     <>
       <Helmet titleTemplate="%s | Case Study">
-        <title>{`${post.frontmatter.title}`}</title>
+        <title>{`${data.title}`}</title>
         <meta
           name="description"
-          content={`${post.frontmatter.synopsis}`}
+          content={`${data.synopsis}`}
         />
       </Helmet>
-      <Banner title={post.frontmatter.title} tagline={'Author: ' + post.frontmatter.author}></Banner>
-      <section class="section section--bg">
+      <Banner title={data.title} tagline={'Author: ' + data.author}></Banner>
+      <Section class="section section--bg">
         <div class="container container--sm">
           <Wrapper>
             <Image>
-              {post.frontmatter.featuredimage && <img src={post.frontmatter.featuredimage.publicURL} alt={post.frontmatter.featuredimage.name} />}
+              {data.featuredimage && <img src={data.featuredimage.publicURL} alt={data.featuredimage.name} />}
             </Image>
             <Content>
               <ul>
-                {post.frontmatter.platform && <li><strong>Platform:</strong> {post.frontmatter.platform}</li>}
-                {post.frontmatter.date && <li><strong>Published:</strong> {post.frontmatter.date}</li>}
-                {post.frontmatter.company_name && <li><strong>Company name:</strong> {post.frontmatter.company_name}</li>}
-                {post.frontmatter.publishing_company_name && <li><strong>Publishing company name:</strong> {post.frontmatter.publishing_company_name}</li>}
+                {data.platform && <li><strong>Platform:</strong> {data.platform}</li>}
+                {data.date && <li><strong>Published:</strong> {data.date}</li>}
+                {data.company_name && <li><strong>Company name:</strong> {data.company_name}</li>}
+                {data.publishing_company_name && <li><strong>Publishing company name:</strong> {data.publishing_company_name}</li>}
               </ul>
               <hr />
-              {post.frontmatter.synopsis && (
+              {data.synopsis && (
                 <>
                   <h3>Synopsis:</h3>
-                  <ReactMarkdown className="synopsis">{post.frontmatter.synopsis}</ReactMarkdown>
+                  <ReactMarkdown className="synopsis">{data.synopsis}</ReactMarkdown>
                   <hr />
                 </>
               )}
-              {post.frontmatter.topics && post.frontmatter.topics.length > 0 && (
+              {data.topics && data.topics.length > 0 && (
                 <>
                   <h3>Topics</h3>
                   <div className="tags-section">
-                    {post.frontmatter.topics.map((topic, index) => <div key={index} className="single-tag">{topic}</div>)}
+                    {data.topics.map((topic, index) => <div key={index} className="single-tag">{topic}</div>)}
                   </div>
                   <br />
                   <hr />
                 </>
               )}
-              {post.frontmatter.industry && post.frontmatter.industry.length > 0 && (
+              {data.industry && data.industry.length > 0 && (
                 <>
                   <h3>Industries</h3>
                   <div className="tags-section">
-                    {post.frontmatter.industry.map((ind, index) => <div key={index} className="single-tag">{ind}</div>)}
+                    {data.industry.map((ind, index) => <div key={index} className="single-tag">{ind}</div>)}
                   </div>
                   <br />
                   <hr />
@@ -116,7 +125,7 @@ export const CaseStudyTemplate = ({ post }) => {
             </Content>
           </Wrapper>
         </div>
-      </section>
+      </Section>
     </>
   )
 }
@@ -126,7 +135,7 @@ const CaseStudy = ({ data }) => {
 
   return (
     <Layout>
-      <CaseStudyTemplate post={post} />
+      <CaseStudyTemplate data={post.frontmatter} />
     </Layout>
   )
 }

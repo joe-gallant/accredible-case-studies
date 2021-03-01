@@ -29,6 +29,10 @@ const BannerContainer = styled.div`
     margin-bottom: 0;
     color: hsla(0, 0%, 100%, 0.7);
   }
+
+  @media (max-width: 767px) {
+    min-height: 300px;
+  }
 `;
 
 const Gradient = styled.div`
@@ -52,6 +56,7 @@ const SearchBar = styled.input`
   margin: 0;
   width: 100%;
   color: #282955;
+  box-shadow: 0 8px 32px 0 rgb(40 41 85 / 15%);
 `;
 
 const SearchBarContainer = styled.div`
