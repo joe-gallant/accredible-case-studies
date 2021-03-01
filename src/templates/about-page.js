@@ -34,7 +34,7 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <Banner title={post.frontmatter.title} image={post.frontmatter.bannerImage} submitSearch={(searchTerm) => alert(searchTerm)} />
+      <Banner title={post.frontmatter.title} image={post.frontmatter.bannerImage.publicURL} submitSearch={(searchTerm) => alert(searchTerm)} />
       <AboutPageTemplate
         metaTitle={post.frontmatter.pageMeta.metaTitle}
         metaDescription={post.frontmatter.pageMeta.metaDescription}
@@ -61,7 +61,9 @@ export const aboutPageQuery = graphql`
           metaDescription
         }
         title
-        bannerImage
+        bannerImage {
+          publicURL
+        }
       }
     }
   }
