@@ -83,6 +83,7 @@ export const IndexPageTemplate = ({
     <Helmet>
       <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} />
+      <meta property="og:image" content="/img/og-image.png" />
     </Helmet>
     <BannerCarousel title={bannerTitle} subheading={bannerSubHeading} buttonText={bannerButtonText} buttonLink={bannerButtonLink} bannerImages={bannerImages}></BannerCarousel>
     <Section>

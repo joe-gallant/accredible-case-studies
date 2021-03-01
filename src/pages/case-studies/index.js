@@ -161,7 +161,7 @@ export default () => (
         }
       }
 
-      caseStudyParent: markdownRemark(fields: {slug: {in: "/case-studies/"}}) {
+      caseStudyParent: markdownRemark(fields: {slug: {in: "/case-study-parent/"}}) {
         frontmatter {
           title
           bannerImage {
