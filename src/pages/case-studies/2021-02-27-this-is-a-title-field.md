@@ -8,11 +8,11 @@ platform: Platform here
 author: Author name here
 date: 2021-02-27T16:47:53.283Z
 industry:
-  - Industry
-  - Industy2
+  - Industry 1
+  - Industy 2
 topics:
-  - Topic1
-  - Topic2
+  - Topic 1
+  - Topic 2
 synopsis: Syngoerungerougneorn oingreoigneorin onigeroingeoring
   oingeroignoringoin oin goierngoerin oingeroignoierng oingeroign oingoering
   oingreoign oingreoing
