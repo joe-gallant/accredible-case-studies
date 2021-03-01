@@ -4,9 +4,9 @@ import { FilterBar } from '../../components/FilterBar/FilterBar'
 import { Banner } from '../../components/Banner'
 import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
 import { Card } from '../../components/Card'
 import { filterCaseStudies } from '../../services/filter'
+import { Helmet } from "react-helmet";
 
 const Cards = styled.div`
   width: 100%;
@@ -35,7 +35,8 @@ class CaseStudyIndexPage extends React.Component {
     super(props);
 
     const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { edges: posts } = data.caseStudies
+    const pageData = data.caseStudyParent.frontmatter
 
     this.state = { 
       searchTerm: '', 
@@ -44,6 +45,7 @@ class CaseStudyIndexPage extends React.Component {
       topics: this.getArraysFromPosts(posts, 'topics'),
       industries: this.getArraysFromPosts(posts, 'industry'),
       platforms: this.getPlatformsFromPosts(posts),
+      pageData: pageData
     };
 
     this.resultRef = React.createRef();
@@ -81,7 +83,11 @@ class CaseStudyIndexPage extends React.Component {
 
     return (
       <Layout>
-        <Banner title="Case Study Library" search searchValue={this.state.searchTerm} placeholder="Search for a case study" submitSearch={(searchTerm) => this.setSearch(searchTerm)}></Banner>
+        <Helmet>
+          <title>{this.state.pageData.pageMeta.metaTitle}</title>
+          <meta name="description" content={this.state.pageData.pageMeta.metaDescription} />
+        </Helmet>
+        <Banner title={this.state.pageData.title} image={this.state.pageData.bannerImage.publicURL} search searchValue={this.state.searchTerm} placeholder="Search for a case study" submitSearch={(searchTerm) => this.setSearch(searchTerm)}></Banner>
         <section ref={this.resultRef} className="section">
           <div className="container">
             <FilterBar 
@@ -121,41 +127,32 @@ class CaseStudyIndexPage extends React.Component {
   }
 }
 
-CaseStudyIndexPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-}
-
 export default () => (
   <StaticQuery
     query={graphql`
-      query CaseStudyQuery {
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "case-study" } } }
-        ) {
-          edges {
-            node {
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                date(formatString: "MMMM DD, YYYY")
-                author
-                topics
-                industry
-                platform
-                featuredimage {
-                  childImageSharp {
-                    fluid(maxWidth: 400, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
+    query CaseStudyQuery {
+      caseStudies: allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        filter: { frontmatter: { templateKey: { eq: "case-study" } } }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              templateKey
+              date(formatString: "MMMM DD, YYYY")
+              author
+              topics
+              industry
+              platform
+              featuredimage {
+                childImageSharp {
+                  fluid(maxWidth: 400, quality: 100) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
@@ -163,7 +160,22 @@ export default () => (
           }
         }
       }
-    `}
+
+      caseStudyParent: markdownRemark(fields: {slug: {in: "/case-studies/"}}) {
+        frontmatter {
+          title
+          bannerImage {
+            publicURL
+          }
+          pageMeta {
+            metaDescription
+            metaTitle
+          }
+        }
+      }
+    }
+    
+  `}
     render={(data, count) => <CaseStudyIndexPage data={data} count={count} />}
   />
 )

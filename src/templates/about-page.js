@@ -6,7 +6,7 @@ import { Banner } from '../components/Banner'
 import Content, { HTMLContent } from '../components/Content'
 import { Helmet } from "react-helmet";
 
-export const AboutPageTemplate = ({ content, contentComponent, metaTitle, metaDescription }) => {
+export const AboutPageTemplate = ({ content, contentComponent, bannerImage, title, metaTitle, metaDescription }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -15,6 +15,7 @@ export const AboutPageTemplate = ({ content, contentComponent, metaTitle, metaDe
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
       </Helmet>
+      <Banner title={title} image={bannerImage} />
       <section className="section section--bg">
         <div className="container container--sm">
           <PageContent className="content" content={content} />
@@ -34,8 +35,9 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <Banner title={post.frontmatter.title} image={post.frontmatter.bannerImage} submitSearch={(searchTerm) => alert(searchTerm)} />
       <AboutPageTemplate
+        title={post.frontmatter.title}
+        bannerImage={post.frontmatter.aboutBannerImage.publicURL}
         metaTitle={post.frontmatter.pageMeta.metaTitle}
         metaDescription={post.frontmatter.pageMeta.metaDescription}
         contentComponent={HTMLContent}
@@ -61,7 +63,9 @@ export const aboutPageQuery = graphql`
           metaDescription
         }
         title
-        bannerImage
+        aboutBannerImage {
+          publicURL
+        }
       }
     }
   }
