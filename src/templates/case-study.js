@@ -79,7 +79,7 @@ export const CaseStudyTemplate = ({ data }) => {
           content={`${data.synopsis}`}
         />
       </Helmet>
-      <Banner title={data.title} tagline={'Author: ' + data.author}></Banner>
+      <Banner title={data.title} tagline={data.author ? 'Author: ' + data.author : null}></Banner>
       <Section class="section section--bg">
         <div class="container container--sm">
           <Wrapper>
