@@ -26,8 +26,8 @@ collections:
       - {label: "Platform", name: "platform", widget: "string"}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Industry", name: "industry", widget: "list"}
-      - {label: "Topics", name: "topics", widget: "list"}
+      - {label: "Industry", name: "industry", widget: "list", summary: '{{fields.tag}}', field: {label: Industry Tag, name: industry_tag, widget: string}}
+      - {label: "Topics", name: "topics", widget: "list", field: {label: Topic Tag, name: topic_tag, widget: string}}
       - {label: "Synopsis", name: "synopsis", widget: "markdown"}
   - name: "pages"
     label: "Pages"
