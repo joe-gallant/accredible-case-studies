@@ -26,6 +26,7 @@ pageMeta:
   metaTitle: Digital Credential Case Studies
   metaDescription: This site hosts a collection of links to digital credential
     case studies from a variety of different platform providers.
+  OGImage: /img/og-image.png
 leftTextPanel:
   panelTitle: Who is this site for?
   panelText: >-

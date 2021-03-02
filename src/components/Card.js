@@ -88,7 +88,7 @@ export const Card = ({ image, slug, title, author, date, topics = [], tagClick }
             </div>
           </div>
         )}
-        {slug && <Button ClickHandler={() => navigate(slug)} small text='Read Case Study' />}
+        {slug && <Button ClickHandler={() => navigate(slug)} small text='Read More' />}
       </Content>
       
     </CardContainer>

@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { Banner } from '../components/Banner'
+import { Button } from '../components/Button'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 import { addTagToURL } from '../services/tagClick'
@@ -31,6 +32,10 @@ const Image = styled.div`
   img {
     width: 100%;
     height: auto;
+  }
+
+  Button {
+    margin-top: 30px;
   }
 
   @media (max-width: 600px) {
@@ -85,7 +90,8 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
         <div className="container container--sm">
           <Wrapper>
             <Image>
-              {featuredImage && <img src={featuredImage} alt={featuredImageName} />}
+              {featuredImage && <a href={data.websiteURL}><img src={featuredImage} alt={featuredImageName} /></a>}
+              {data.websiteURL && <Button ClickHandler={() => window.location.href=data.websiteURL} text="Read Case Study" />}
             </Image>
             <Content>
               <ul>
@@ -157,6 +163,7 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        websiteURL
         synopsis
         topics
         industry
