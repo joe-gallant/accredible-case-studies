@@ -20,6 +20,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "case-study"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Link To Case Study", name: "websiteURL", widget: "string"}
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Banner Image", name: "bannerImage", widget: image, required: false}
       - {label: "Company name", name: "company-name", widget: "string", required: false}

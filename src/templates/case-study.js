@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { Banner } from '../components/Banner'
+import { Button } from '../components/Button'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 
@@ -30,6 +31,10 @@ const Image = styled.div`
   img {
     width: 100%;
     height: auto;
+  }
+
+  Button {
+    margin-top: 30px;
   }
 
   @media (max-width: 600px) {
@@ -85,6 +90,7 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
           <Wrapper>
             <Image>
               {featuredImage && <img src={featuredImage} alt={featuredImageName} />}
+              <Button ClickHandler={() => window.location.href=""} text="Read Case Study" />
             </Image>
             <Content>
               <ul>
