@@ -2,6 +2,12 @@
 templateKey: case-study
 title: Certificate Sharing and Professional Directory Empower Social Media
   Expert Hootsuite
+pageMeta:
+  OGImage: /img/og-image.png
+  metaDescription: Certificate Sharing and Professional Directory Empower Social
+    Media Expert Hootsuite
+  metaTitle: Hootsuite Case Study
+websiteURL: https://www.google.com
 featuredimage: /img/hootsuite-case-study-cover-image.png
 company-name: Hootsuite
 publishing-company-name: Accredible
