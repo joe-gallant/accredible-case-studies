@@ -67,7 +67,7 @@ export const Card = ({ image, slug, title, author, date, topics = [] }) => {
             {topics.map((topic, index) => <div key={index} className="single-tag">{topic}</div>)}
           </div>
         )}
-        {slug && <Button ClickHandler={() => navigate(slug)} small text='Read Case Study' />}
+        {slug && <Button ClickHandler={() => navigate(slug)} small text='Read More' />}
       </Content>
       
     </CardContainer>
