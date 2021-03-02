@@ -79,7 +79,7 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
           content={`${data.synopsis}`}
         />
       </Helmet>
-      <Banner image={bannerImage} title={data.title} tagline={data.author ? 'Author: ' + data.author : null}></Banner>
+      <Banner image={bannerImage} smallHeader title={data.title} tagline={data.author ? 'Author: ' + data.author : null}></Banner>
       <Section className="section section--bg">
         <div className="container container--sm">
           <Wrapper>

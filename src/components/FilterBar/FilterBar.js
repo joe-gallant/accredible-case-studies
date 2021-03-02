@@ -3,11 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { TagSearch } from './TagSearch'
 import { Select } from './Select'
-import { DateRange } from 'react-date-range';
-import calendarIcon from '../../img/calendar-icon.svg'
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import moment from 'moment'
 import { Button } from '../Button'
 
 const Filter = styled.div`
@@ -76,74 +73,6 @@ const Tag = styled.div`
   }
 `;
 
-const DateButton = styled.div`
-  background: #5557cd;
-  padding: 16px;
-  width: 100%;
-  border: none;
-  border-radius: 4px;
-  padding: 12px;
-  font-size: 14px;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  cursor: pointer;
-
-  &:hover {
-    img {
-      opacity: 0.5;
-    }
-  }
-
-  img {
-    width: 18px;
-  }
-`;
-
-const DateRangeContainer = styled.div`
-  margin-top: 14px;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  top: 40px;
-  z-index: 10;
-  display: flex;
-  justify-content: flex-end;
-
-  .rdrDateRangeWrapper {
-    box-shadow: 0px 0px 20px -10px #000;
-  }
-`;
-
-const DateTags = styled.div`
-  padding: 12px;
-  background: #00b5be;
-  margin-top: 12px;
-  border-radius: 4px;
-  position: relative;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.9;
-  }
-
-  p {
-    font-size: 14px;
-    margin: 0;
-    color: #ffffff;
-  }
-
-  &::after {
-    content: 'x';
-    opacity: 0.5;
-    position: absolute;
-    right: 12px;
-    top: 6px;
-    color: #fff;
-  }
-`;
-
 const FilterSummary = styled.div`
   margin-bottom: 24px;
   min-height: 40px;
@@ -167,18 +96,11 @@ const FilterSummary = styled.div`
   }
 `;
 
-export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], platforms = ['Accredible'], searchTerm, resultCount, clearSearch, updateToFilters }) => {
+export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], dates = ['2018', '2019'], platforms = ['Accredible'], searchTerm, resultCount, clearSearch, updateToFilters }) => {
   const [activeTopicTags, setActiveTopicTags] = useState([]);
   const [activeIndustryTags, setActiveIndustryTags] = useState([]);
   const [activePlatformTags, setActivePlatformTags] = useState([]);
-  const [datePickerActive, setDatePickerActive] = useState(false);
-  const [dateState, setDateState] = useState([
-    {
-      startDate: null,
-      endDate: null,
-      key: 'selection'
-    }
-  ]);
+  const [activeDate, setActiveDate] = useState();
 
   const addTag = (tag, type) => {
     switch (type) {
@@ -188,13 +110,16 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
       case 'topic':
         setActiveTopicTags([...activeTopicTags, tag]);
         break;
-      default:
+      case 'platform':
         if (tag) {
           setActivePlatformTags([tag]);
         } else {
           setActivePlatformTags([]);
         }
-    }
+        break;
+      default:
+        setActiveDate(tag);
+      }
   }
 
   const removeTag = (tagValue, type) => {
@@ -210,31 +135,17 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
     }
   }
 
-  const setDateRange = (item) => {
-    setDateState([item.selection]);
-  }
-
-  const clearDates = () => {
-    setDateState([
-      {
-        startDate: null,
-        endDate: null,
-        key: 'selection'
-      }
-    ])
-  }
-
   const clearAllFilters = () => {
     setActiveIndustryTags([])
     setActiveTopicTags([])
     setActivePlatformTags([])
-    clearDates()
+    setActiveDate()
     clearSearch('clear')
   }
 
   useEffect(() => {
-    updateToFilters({ activeIndustryTags, activeTopicTags, activePlatformTags, dateState });
-  }, [activeIndustryTags, activeTopicTags, activePlatformTags, dateState, searchTerm])
+    updateToFilters({ activeIndustryTags, activeTopicTags, activePlatformTags, activeDate });
+  }, [activeIndustryTags, activeTopicTags, activePlatformTags, activeDate, searchTerm])
 
   return (
     <>
@@ -272,14 +183,24 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
           {/* Platform */}
           <FilterSection>
             <Select 
-              placeholder="Platform" 
+              placeholder="Choose a platform" 
               addTag={tag => addTag(tag, 'platform')} 
               tags={platforms} 
             />
           </FilterSection>
 
+          {/* Date */}
+          <FilterSection>
+            <Select 
+              placeholder="Filter by year" 
+              addTag={tag => addTag(tag, 'date')} 
+              tags={dates} 
+            />
+          </FilterSection>
 
-          {/* Date range */}
+  
+
+          {/* Date range
           <FilterSection>
             <DateButton onClick={() => setDatePickerActive(!datePickerActive)}>
               {!datePickerActive ? 'Filter by date' : 'Close'} 
@@ -303,7 +224,7 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
                 />
               </DateRangeContainer>
             )}
-          </FilterSection>
+          </FilterSection> */}
 
         </FilterSections>
       </Filter>
@@ -312,7 +233,7 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
 
         <div>
           <p>{resultCount} results</p>
-          {(activeIndustryTags.length > 0 || activePlatformTags.length > 0 || activeTopicTags.length > 0 || dateState[0].startDate || searchTerm) && <Button small text="Clear all filters" ClickHandler={() => clearAllFilters()} />}
+          {(activeIndustryTags.length > 0 || activePlatformTags.length > 0 || activeTopicTags.length > 0 || activeDate || searchTerm) && <Button small text="Clear all filters" ClickHandler={() => clearAllFilters()} />}
         </div>
       </FilterSummary>
     </>

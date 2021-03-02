@@ -38,7 +38,7 @@ export const Select = ({ tags = [], placeholder = 'Industry', addTag }) => {
   return (
     <Wrapper>
       <SelectInput placeholder={placeholder} type="select" value={value} onChange={handleChange}>
-        <option key="999" value="">Choose a platform</option>
+        <option key="999" value="">{placeholder}</option>
         {tags.map((tag, index) => (
           <option key={index} value={tag}>{tag}</option>
         ))}
