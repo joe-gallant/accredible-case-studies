@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import { Card } from '../../components/Card'
 import { filterCaseStudies } from '../../services/filter'
+import { addTagToURL } from '../../services/tagClick'
 import { Helmet } from "react-helmet";
 
 const Cards = styled.div`
@@ -19,7 +20,7 @@ const Cards = styled.div`
 const SingleCard = styled.div`
   flex: 0 0 calc(50% - 12px);
 
-  @media (max-width: 767px) {
+  @media (max-width: 1000px) {
     flex: 0 0 100%;
   }
 `;
@@ -46,7 +47,8 @@ class CaseStudyIndexPage extends React.Component {
       industries: this.getArraysFromPosts(posts, 'industry'),
       platforms: this.getPlatformsFromPosts(posts),
       dates: this.getAvailableYears(posts),
-      pageData: pageData
+      pageData: pageData,
+      tagsGotAdded: new Date(),
     };
 
     this.resultRef = React.createRef();
@@ -85,6 +87,15 @@ class CaseStudyIndexPage extends React.Component {
     this.resultRef.current.scrollIntoView();
   }
 
+  clickOnTag(tag) {
+    this.setState({
+      tagsGotAdded: new Date()
+    });
+
+    addTagToURL(tag, 'topics');
+    this.resultRef.current.scrollIntoView();
+  }
+
   filter(filters) {
     const results = filterCaseStudies(this.state.originalResults, { searchTerm: this.state.searchTerm, filters });
     this.setState({
@@ -99,11 +110,13 @@ class CaseStudyIndexPage extends React.Component {
         <Helmet>
           <title>{this.state.pageData.pageMeta.metaTitle}</title>
           <meta name="description" content={this.state.pageData.pageMeta.metaDescription} />
+          <meta property="og:image" content={this.state.pageData.pageMeta.OGImage.publicURL} />
         </Helmet>
         <Banner title={this.state.pageData.title} image={this.state.pageData.bannerImage.publicURL} search searchValue={this.state.searchTerm} placeholder="Search for a case study" submitSearch={(searchTerm) => this.setSearch(searchTerm)}></Banner>
         <section ref={this.resultRef} className="section">
           <div className="container">
-            <FilterBar 
+            <FilterBar
+              addedTags={this.state.tagsGotAdded}
               resultCount={this.state.filteredResults.length}
               searchTerm={this.state.searchTerm}
               clearSearch={() => this.setState({ searchTerm: ''})}
@@ -117,6 +130,7 @@ class CaseStudyIndexPage extends React.Component {
               {this.state.filteredResults.map((post, index) => (
                 <SingleCard key={index}>
                   <Card
+                    tagClick={tag => this.clickOnTag(tag)}
                     title={post.node.frontmatter.title}
                     image={post.node.frontmatter.featuredimage?.childImageSharp.fluid.src}
                     slug={post.node.fields.slug} 
@@ -162,6 +176,9 @@ export default () => (
               author
               topics
               industry
+              company_name
+              publishing_company_name
+              synopsis
               platform
               featuredimage {
                 childImageSharp {
@@ -184,6 +201,9 @@ export default () => (
           pageMeta {
             metaDescription
             metaTitle
+            OGImage {
+              publicURL
+            }
           }
         }
       }

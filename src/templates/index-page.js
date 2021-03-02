@@ -78,12 +78,13 @@ export const IndexPageTemplate = ({
   rightPanelText,
   metaTitle,
   metaDescription,
+  metaOGImage
 }) => (
   <>
     <Helmet>
       <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} />
-      <meta property="og:image" content="/img/og-image.png" />
+      <meta property="og:image" content={metaOGImage} />
     </Helmet>
     <BannerCarousel title={bannerTitle} subheading={bannerSubHeading} buttonText={bannerButtonText} buttonLink={bannerButtonLink} bannerImages={bannerImages}></BannerCarousel>
     <Section>
@@ -115,12 +116,14 @@ export const IndexPageTemplate = ({
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
+  console.log(frontmatter.pageMeta.OGImage)
 
   return (
     <Layout>
       <IndexPageTemplate
         metaTitle={frontmatter.pageMeta.metaTitle}
         metaDescription={frontmatter.pageMeta.metaDescription}
+        metaOGImage={frontmatter.pageMeta.OGImage.publicURL}
         bannerTitle={frontmatter.banner.bannerTitle}
         bannerSubHeading={frontmatter.banner.bannerSubHeading}
         bannerButtonText={frontmatter.banner.bannerButtonText}
@@ -148,6 +151,9 @@ export const pageQuery = graphql`
         pageMeta {
           metaTitle
           metaDescription
+          OGImage {
+            publicURL
+          }
         }
         leftTextPanel {
           panelText

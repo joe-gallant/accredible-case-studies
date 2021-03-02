@@ -6,6 +6,7 @@ import { Banner } from '../components/Banner'
 import { Button } from '../components/Button'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
+import { addTagToURL } from '../services/tagClick'
 
 const Section = styled.section`
   background: #f4f5fa;
@@ -78,11 +79,9 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
   return (
     <>
       <Helmet titleTemplate="%s | Case Study">
-        <title>{`${data.title}`}</title>
-        <meta
-          name="description"
-          content={`${data.synopsis}`}
-        />
+        <title>{data.pageMeta ? data.pageMeta.metaTitle : data.title}</title>
+        <meta name="description" content={data.pageMeta ? data.pageMeta.metaDescription : data.synopsis} />
+        {data.pageMeta && <meta property="og:image" content={data.pageMeta.OGImage.publicURL} />}
       </Helmet>
       <Banner image={bannerImage} smallHeader title={data.title} tagline={data.author ? 'Author: ' + data.author : null}></Banner>
       <Section className="section section--bg">
@@ -111,7 +110,7 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
                 <>
                   <h3>Topics</h3>
                   <div className="tags-section">
-                    {data.topics.map((topic, index) => <div key={index} className="single-tag">{topic}</div>)}
+                    {data.topics.map((topic, index) => <div onClick={() => addTagToURL(topic, 'topics')} key={index} className="single-tag">{topic}</div>)}
                   </div>
                   <br />
                   <hr />
@@ -121,7 +120,7 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
                 <>
                   <h3>Industries</h3>
                   <div className="tags-section">
-                    {data.industry.map((ind, index) => <div key={index} className="single-tag">{ind}</div>)}
+                    {data.industry.map((ind, index) => <div onClick={() => addTagToURL(ind, 'industries')} key={index} className="single-tag">{ind}</div>)}
                   </div>
                   <br />
                   <hr />
@@ -160,6 +159,13 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        pageMeta {
+          metaTitle
+          metaDescription
+          OGImage {
+            publicURL
+          }
+        }
         date(formatString: "MMMM DD, YYYY")
         title
         websiteURL

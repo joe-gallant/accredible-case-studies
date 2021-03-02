@@ -7,7 +7,7 @@ import { Button } from '../components/Button'
 import Content, { HTMLContent } from '../components/Content'
 import { Helmet } from "react-helmet";
 
-export const AboutPageTemplate = ({ content, contentComponent, bannerImage, title, metaTitle, metaDescription }) => {
+export const AboutPageTemplate = ({ content, contentComponent, bannerImage, title, metaTitle, metaDescription, metaOGImage }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -15,6 +15,7 @@ export const AboutPageTemplate = ({ content, contentComponent, bannerImage, titl
       <Helmet>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
+        <meta property="og:image" content={metaOGImage} />
       </Helmet>
       <Banner title={title} image={bannerImage} />
       <section className="section section--bg">
@@ -42,6 +43,7 @@ const AboutPage = ({ data }) => {
         bannerImage={post.frontmatter.aboutBannerImage.publicURL}
         metaTitle={post.frontmatter.pageMeta.metaTitle}
         metaDescription={post.frontmatter.pageMeta.metaDescription}
+        metaOGImage={post.frontmatter.pageMeta.OGImage.publicURL}
         contentComponent={HTMLContent}
         content={post.html}
       />
@@ -63,6 +65,9 @@ export const aboutPageQuery = graphql`
         pageMeta {
           metaTitle
           metaDescription
+          OGImage {
+            publicURL
+          }
         }
         title
         aboutBannerImage {

@@ -96,7 +96,7 @@ const FilterSummary = styled.div`
   }
 `;
 
-export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], dates = ['2018', '2019'], platforms = ['Accredible'], searchTerm, resultCount, clearSearch, updateToFilters }) => {
+export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], dates = ['2018', '2019'], platforms = ['Accredible'], searchTerm, resultCount, clearSearch, updateToFilters, addedTags }) => {
   const [activeTopicTags, setActiveTopicTags] = useState([]);
   const [activeIndustryTags, setActiveIndustryTags] = useState([]);
   const [activePlatformTags, setActivePlatformTags] = useState([]);
@@ -142,6 +142,19 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
     setActiveDate()
     clearSearch('clear')
   }
+
+  useEffect(() => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+  
+    const topicsParams = urlParams.get('topics');
+    const industriesParams = urlParams.get('industries');
+
+    if (topicsParams) setActiveTopicTags(topicsParams.split(','));
+    if (industriesParams) setActiveIndustryTags(industriesParams.split(','));
+
+    window.history.pushState({}, document.title, '/case-studies');
+  }, [addedTags])
 
   useEffect(() => {
     updateToFilters({ activeIndustryTags, activeTopicTags, activePlatformTags, activeDate });
