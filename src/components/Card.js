@@ -83,7 +83,7 @@ export const Card = ({ image, slug, title, author, date, topics = [], tagClick }
         {topics && topics.length > 0 && (
           <div className="tags-section">
             <p>Topics:</p> 
-            <div class="tags-area">
+            <div className="tags-area">
               {topics.map((topic, index) => <div key={index} onClick={() => tagClick(topic)} className="single-tag">{topic}</div>)}
             </div>
           </div>
