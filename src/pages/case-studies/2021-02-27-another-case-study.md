@@ -1,7 +1,7 @@
 ---
 templateKey: case-study
 title: Another case study
-websiteURL: www.google.com
+websiteURL: https://www.google.com
 featuredimage: /img/iapp-case-study-cover-image.png
 company-name: Test company name
 publishing-company-name: Test publish company name
