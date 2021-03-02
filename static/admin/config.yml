@@ -20,7 +20,12 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "case-study"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Link To Case Study", name: "websiteURL", widget: "string"}
+      - {label: Page Meta, name: pageMeta, widget: object, fields: [ 
+          {label: "Meta Title", name: "metaTitle", widget: string},
+          {label: "Meta Description", name: "metaDescription", widget: string},
+          {label: "Meta OG Image", name: "OGImage", widget: image}
+        ]} 
+      - {label: "Link To Case Study - Make sure it starts with https://", name: "websiteURL", widget: "string"}
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Banner Image", name: "bannerImage", widget: image, required: false}
       - {label: "Company name", name: "company-name", widget: "string", required: false}
@@ -41,7 +46,8 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: Page Meta, name: pageMeta, widget: object, fields: [ 
             {label: "Meta Title", name: "metaTitle", widget: string},
-            {label: "Meta Description", name: "metaDescription", widget: string}
+            {label: "Meta Description", name: "metaDescription", widget: string},
+            {label: "Meta OG Image", name: "OGImage", widget: image}
             ]} 
           - {label: Banner, name: banner, widget: object, fields: [ 
             {label: Banner Title, name: bannerTitle, widget: string}, 
@@ -72,7 +78,8 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: Page Meta, name: pageMeta, widget: object, fields: [ 
             {label: "Meta Title", name: "metaTitle", widget: string},
-            {label: "Meta Description", name: "metaDescription", widget: string}
+            {label: "Meta Description", name: "metaDescription", widget: string},
+            {label: "Meta OG Image", name: "OGImage", widget: image}
             ]}
           - {label: "Banner Image", name: "aboutBannerImage", widget: image, required: false}
           - {label: "Title", name: "title", widget: "string"}
@@ -83,7 +90,8 @@ collections:
         fields:
           - {label: Page Meta, name: pageMeta, widget: object, fields: [ 
             {label: "Meta Title", name: "metaTitle", widget: string},
-            {label: "Meta Description", name: "metaDescription", widget: string}
+            {label: "Meta Description", name: "metaDescription", widget: string},
+            {label: "Meta OG Image", name: "OGImage", widget: image}
             ]}
           - {label: "Banner Image", name: "bannerImage", widget: image, required: false}
           - {label: "Title", name: "title", widget: "string"}
