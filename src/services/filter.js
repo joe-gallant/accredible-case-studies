@@ -28,11 +28,32 @@ export const filterCaseStudies = (posts, filters) => {
 
         if (topicsArray.length > 0) return true
       }
+      
 
       // Next if the search term is in platform
       if (post.node.frontmatter.platform) {
-        return post.node.frontmatter.platform.toLowerCase().includes(searchTerm)
-      }      
+        if (post.node.frontmatter.platform.toLowerCase().includes(searchTerm)) return true
+      }
+
+      // Next if the search term is in author
+      if (post.node.frontmatter.author) {
+        if (post.node.frontmatter.author.toLowerCase().includes(searchTerm)) return true
+      }
+   
+      // Next if the search term is in company name
+      if (post.node.frontmatter.company_name) {
+        if (post.node.frontmatter.company_name.toLowerCase().includes(searchTerm)) return true
+      }
+   
+      // Next if the search term is in publishing company name
+      if (post.node.frontmatter.publishing_company_name) {
+        if (post.node.frontmatter.publishing_company_name.toLowerCase().includes(searchTerm)) return true
+      }
+   
+      // Next if the search term is in synopsis
+      if (post.node.frontmatter.synopsis) {
+        if (post.node.frontmatter.synopsis.toLowerCase().includes(searchTerm)) return true
+      }
     })
   }
 

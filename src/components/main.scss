@@ -207,11 +207,15 @@ ul {
 .tags-section {
   margin-top: 12px;
   display: flex;
-  flex-wrap: wrap;
 
   p {
     margin-right: 6px !important;
   }
+}
+
+.tags-area {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .single-tag {
@@ -222,6 +226,11 @@ ul {
   margin-right: 6px;
   color: white;
   margin-bottom: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background: #454798;
+  }
 }
 
 hr {

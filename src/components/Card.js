@@ -20,6 +20,11 @@ const CardContainer = styled.div`
     font-size: 16px;
     margin: 0;
   }
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    padding: 36;
+  }
 `;
 
 const Content = styled.div`
@@ -36,19 +41,33 @@ const Content = styled.div`
   Button {
     margin-top: 24px;
   }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    border-left: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 24px;
+  }
 `;
 
 const Image = styled.div`
   width: 45%;
   flex: 1;
+  max-width: 300px;
 
   img {
     width: 100%;
     height: auto;
   }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    max-width: 200px;
+  }
 `;
 
-export const Card = ({ image, slug, title, author, date, topics = [] }) => {
+export const Card = ({ image, slug, title, author, date, topics = [], tagClick }) => {
   return (
     <CardContainer>
 
@@ -64,7 +83,9 @@ export const Card = ({ image, slug, title, author, date, topics = [] }) => {
         {topics && topics.length > 0 && (
           <div className="tags-section">
             <p>Topics:</p> 
-            {topics.map((topic, index) => <div key={index} className="single-tag">{topic}</div>)}
+            <div class="tags-area">
+              {topics.map((topic, index) => <div key={index} onClick={() => tagClick(topic)} className="single-tag">{topic}</div>)}
+            </div>
           </div>
         )}
         {slug && <Button ClickHandler={() => navigate(slug)} small text='Read Case Study' />}
