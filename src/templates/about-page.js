@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { Banner } from '../components/Banner'
+import { Button } from '../components/Button'
 import Content, { HTMLContent } from '../components/Content'
 import { Helmet } from "react-helmet";
 
@@ -19,6 +20,7 @@ export const AboutPageTemplate = ({ content, contentComponent, bannerImage, titl
       <section className="section section--bg">
         <div className="container container--sm">
           <PageContent className="content" content={content} />
+          <Button ClickHandler={() => window.location.href="/case-studies"} text="Read Case Studies" />
         </div>
       </section>
     </>
