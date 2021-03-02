@@ -79,11 +79,9 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
   return (
     <>
       <Helmet titleTemplate="%s | Case Study">
-        <title>{`${data.title}`}</title>
-        <meta
-          name="description"
-          content={`${data.synopsis}`}
-        />
+        <title>{data.pageMeta ? data.pageMeta.metaTitle : data.title}</title>
+        <meta name="description" content={data.pageMeta ? data.pageMeta.metaDescription : data.synopsis} />
+        {data.pageMeta && <meta property="og:image" content={data.pageMeta.OGImage.publicURL} />}
       </Helmet>
       <Banner image={bannerImage} smallHeader title={data.title} tagline={data.author ? 'Author: ' + data.author : null}></Banner>
       <Section className="section section--bg">
@@ -161,6 +159,13 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        pageMeta {
+          metaTitle
+          metaDescription
+          OGImage {
+            publicURL
+          }
+        }
         date(formatString: "MMMM DD, YYYY")
         title
         websiteURL

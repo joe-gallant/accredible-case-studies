@@ -110,6 +110,7 @@ class CaseStudyIndexPage extends React.Component {
         <Helmet>
           <title>{this.state.pageData.pageMeta.metaTitle}</title>
           <meta name="description" content={this.state.pageData.pageMeta.metaDescription} />
+          <meta property="og:image" content={this.state.pageData.pageMeta.OGImage.publicURL} />
         </Helmet>
         <Banner title={this.state.pageData.title} image={this.state.pageData.bannerImage.publicURL} search searchValue={this.state.searchTerm} placeholder="Search for a case study" submitSearch={(searchTerm) => this.setSearch(searchTerm)}></Banner>
         <section ref={this.resultRef} className="section">
@@ -200,6 +201,9 @@ export default () => (
           pageMeta {
             metaDescription
             metaTitle
+            OGImage {
+              publicURL
+            }
           }
         }
       }
