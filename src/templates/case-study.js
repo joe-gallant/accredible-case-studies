@@ -89,8 +89,8 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
         <div className="container container--sm">
           <Wrapper>
             <Image>
-              {featuredImage && <img src={featuredImage} alt={featuredImageName} />}
-              <Button ClickHandler={() => window.location.href=""} text="Read Case Study" />
+              {featuredImage && <a href={data.websiteURL}><img src={featuredImage} alt={featuredImageName} /></a>}
+              {data.websiteURL && <Button ClickHandler={() => window.location.href=data.websiteURL} text="Read Case Study" />}
             </Image>
             <Content>
               <ul>
@@ -162,6 +162,7 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        websiteURL
         synopsis
         topics
         industry
