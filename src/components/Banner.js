@@ -17,7 +17,7 @@ const BannerContainer = styled.div`
   position: relative;
   background-position: center center;
   text-align: center;
-  padding: 0 24px;
+  padding: 24px;
 
   * {
     color: #ffffff;
@@ -74,7 +74,7 @@ const SearchBarContainer = styled.div`
   }
 `;
 
-export const Banner = ({ title, tagline, image, placeholder = 'Enter your search term...', submitSearch, search = false, searchValue = '' }) => {
+export const Banner = ({ title, tagline, image, placeholder = 'Enter your search term...', submitSearch, search = false, searchValue = '', smallHeader = false }) => {
 
   const [searchTerm, setSearchTerm] = useState(searchValue);
 
@@ -91,8 +91,10 @@ export const Banner = ({ title, tagline, image, placeholder = 'Enter your search
   return (
     <BannerContainer img={image}>
       <Gradient img={image} />
-      {tagline && <p className="text--lg tagline">{tagline}</p>}
-      <h1 className="h1--big">{title}</h1>
+      <div className="container">
+        {tagline && <p className="text--lg tagline">{tagline}</p>}
+        <h1 className={!smallHeader ? 'h1--big' : null}>{title}</h1>
+      </div>
 
       {search && (
         <SearchBarContainer>
