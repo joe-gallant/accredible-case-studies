@@ -35,7 +35,7 @@ class CaseStudyIndexPage extends React.Component {
     super(props);
 
     const { data } = this.props
-    const { edges: posts } = data.caseStudies
+    let { edges: posts } = data.caseStudies
     const pageData = data.caseStudyParent.frontmatter
 
     this.state = { 
@@ -45,10 +45,23 @@ class CaseStudyIndexPage extends React.Component {
       topics: this.getArraysFromPosts(posts, 'topics'),
       industries: this.getArraysFromPosts(posts, 'industry'),
       platforms: this.getPlatformsFromPosts(posts),
+      dates: this.getAvailableYears(posts),
       pageData: pageData
     };
 
     this.resultRef = React.createRef();
+  }
+  
+  getAvailableYears(posts) {
+    let earliestDate = posts[posts.length - 1].node.frontmatter.date;
+    earliestDate = new Date(earliestDate);
+    let earliestYear = earliestDate.getFullYear();
+    const currentYear = new Date().getFullYear();
+    const years = [];
+    while ( earliestYear <= currentYear ) {
+      years.push(earliestYear++);
+    }
+    return years;
   }
 
   getArraysFromPosts(posts, type) {
@@ -97,6 +110,7 @@ class CaseStudyIndexPage extends React.Component {
               industries={this.state.industries}
               topics={this.state.topics}
               platforms={this.state.platforms}
+              dates={this.state.dates}
               updateToFilters={(filters) => this.filter(filters)}
             />
             <Cards>
