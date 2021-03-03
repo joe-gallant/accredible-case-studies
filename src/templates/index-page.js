@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { BannerCarousel } from '../components/BannerCarousel'
 import { Button } from '../components/Button'
 import ReactMarkdown from 'react-markdown'
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet'
 
 const Section = styled.div`
   padding: 96px 0;
@@ -79,7 +79,7 @@ export const IndexPageTemplate = ({
   rightPanelText,
   metaTitle,
   metaDescription,
-  metaOGImage
+  metaOGImage,
 }) => (
   <>
     <Helmet>
@@ -87,7 +87,13 @@ export const IndexPageTemplate = ({
       <meta name="description" content={metaDescription} />
       <meta property="og:image" content={metaOGImage} />
     </Helmet>
-    <BannerCarousel title={bannerTitle} subheading={bannerSubHeading} buttonText={bannerButtonText} buttonLink={bannerButtonLink} bannerImages={bannerImages}></BannerCarousel>
+    <BannerCarousel
+      title={bannerTitle}
+      subheading={bannerSubHeading}
+      buttonText={bannerButtonText}
+      buttonLink={bannerButtonLink}
+      bannerImages={bannerImages}
+    ></BannerCarousel>
     <Section>
       <Container className="container">
         <ColumnLeft>
@@ -96,7 +102,10 @@ export const IndexPageTemplate = ({
         <ColumnRight>
           <h2 className="subTitle">{topPanelTitle}</h2>
           <p className="text--lg">{topPanelText}</p>
-          <Button ClickHandler={() => navigate(`${topPanelButtonLink}`)} text={topPanelButtonText} />
+          <Button
+            ClickHandler={() => navigate(`${topPanelButtonLink}`)}
+            text={topPanelButtonText}
+          />
         </ColumnRight>
       </Container>
     </Section>
@@ -104,7 +113,7 @@ export const IndexPageTemplate = ({
       <Container className="container">
         <ColumnLeft>
           <h2>{leftPanelTitle}</h2>
-          <ReactMarkdown >{leftPanelText}</ReactMarkdown>
+          <ReactMarkdown>{leftPanelText}</ReactMarkdown>
         </ColumnLeft>
         <ColumnRight>
           <h2>{rightPanelTitle}</h2>
@@ -147,7 +156,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
-    markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
+    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         pageMeta {
           metaTitle

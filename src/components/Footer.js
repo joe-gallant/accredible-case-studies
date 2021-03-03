@@ -12,14 +12,21 @@ const Container = styled.div`
     border-top: 1px solid #dfdfe6;
     padding: 24px 0;
   }
-`;
+`
 
 export const Footer = () => {
   return (
     <Container className="container">
       <div className="footer-inner--container text-centered">
-        <Button small ClickHandler={() => window.location.href="mailto:support@accredible.com?subject=Case Study Submission"} text="Submit a Case Study" />
+        <Button
+          small
+          ClickHandler={() =>
+            (window.location.href =
+              'mailto:support@accredible.com?subject=Case Study Submission')
+          }
+          text="Submit a Case Study"
+        />
       </div>
     </Container>
-  );
-};
+  )
+}

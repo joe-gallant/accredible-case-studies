@@ -11,7 +11,7 @@ import { addTagToURL } from '../services/tagClick'
 const Section = styled.section`
   background: #f4f5fa;
   padding: 48px 0;
-`;
+`
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   @media (max-width: 600px) {
     flex-direction: column;
   }
-`;
+`
 
 const Image = styled.div`
   flex: 0 0 calc(50% - 24px);
@@ -42,7 +42,7 @@ const Image = styled.div`
     margin-bottom: 24px;
     max-width: 300px;
   }
-`;
+`
 
 const Content = styled.div`
   flex: 0 0 calc(50% - 24px);
@@ -73,36 +73,84 @@ const Content = styled.div`
       }
     }
   }
-`;
+`
 
-export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, featuredImageName }) => {
+export const CaseStudyTemplate = ({
+  data,
+  date,
+  bannerImage,
+  featuredImage,
+  featuredImageName,
+}) => {
   return (
     <>
       <Helmet titleTemplate="%s | Case Study">
         <title>{data.pageMeta ? data.pageMeta.metaTitle : data.title}</title>
-        <meta name="description" content={data.pageMeta ? data.pageMeta.metaDescription : data.synopsis} />
-        {data.pageMeta && <meta property="og:image" content={data.pageMeta.OGImage.publicURL} />}
+        <meta
+          name="description"
+          content={
+            data.pageMeta ? data.pageMeta.metaDescription : data.synopsis
+          }
+        />
+        {data.pageMeta && (
+          <meta property="og:image" content={data.pageMeta.OGImage.publicURL} />
+        )}
       </Helmet>
-      <Banner overlay={data.bannerOverlay} overlayColor={data.bannerColor} image={bannerImage} smallHeader title={data.title} tagline={data.author ? 'Author: ' + data.author : null}></Banner>
+      <Banner
+        overlay={data.bannerOverlay}
+        overlayColor={data.bannerColor}
+        image={bannerImage}
+        smallHeader
+        title={data.title}
+        tagline={data.author ? 'Author: ' + data.author : null}
+      ></Banner>
       <Section className="section section--bg">
         <div className="container container--sm">
           <Wrapper>
             <Image>
-              {featuredImage && <a href={data.websiteURL}><img src={featuredImage} alt={featuredImageName} /></a>}
-              {data.websiteURL && <Button ClickHandler={() => window.location.href=data.websiteURL} text="Read Case Study" />}
+              {featuredImage && (
+                <a href={data.websiteURL}>
+                  <img src={featuredImage} alt={featuredImageName} />
+                </a>
+              )}
+              {data.websiteURL && (
+                <Button
+                  ClickHandler={() => (window.location.href = data.websiteURL)}
+                  text="Read Case Study"
+                />
+              )}
             </Image>
             <Content>
               <ul>
-                {data.platform && <li><strong>Platform:</strong> {data.platform}</li>}
-                {date && <li><strong>Published:</strong> {date}</li>}
-                {data.company_name && <li><strong>Company name:</strong> {data.company_name}</li>}
-                {data.publishing_company_name && <li><strong>Publishing company name:</strong> {data.publishing_company_name}</li>}
+                {data.platform && (
+                  <li>
+                    <strong>Platform:</strong> {data.platform}
+                  </li>
+                )}
+                {date && (
+                  <li>
+                    <strong>Published:</strong> {date}
+                  </li>
+                )}
+                {data.company_name && (
+                  <li>
+                    <strong>Company name:</strong> {data.company_name}
+                  </li>
+                )}
+                {data.publishing_company_name && (
+                  <li>
+                    <strong>Publishing company name:</strong>{' '}
+                    {data.publishing_company_name}
+                  </li>
+                )}
               </ul>
               <hr />
               {data.synopsis && (
                 <>
                   <h3>Synopsis:</h3>
-                  <ReactMarkdown className="synopsis">{data.synopsis}</ReactMarkdown>
+                  <ReactMarkdown className="synopsis">
+                    {data.synopsis}
+                  </ReactMarkdown>
                   <hr />
                 </>
               )}
@@ -110,7 +158,15 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
                 <>
                   <h3>Topics</h3>
                   <div className="tags-section">
-                    {data.topics.map((topic, index) => <button onClick={() => addTagToURL(topic, 'topics')} key={index} className="single-tag">{topic}</button>)}
+                    {data.topics.map((topic, index) => (
+                      <button
+                        onClick={() => addTagToURL(topic, 'topics')}
+                        key={index}
+                        className="single-tag"
+                      >
+                        {topic}
+                      </button>
+                    ))}
                   </div>
                   <br />
                   <hr />
@@ -120,13 +176,20 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
                 <>
                   <h3>Industries</h3>
                   <div className="tags-section">
-                    {data.industry.map((ind, index) => <button onClick={() => addTagToURL(ind, 'industries')} key={index} className="single-tag">{ind}</button>)}
+                    {data.industry.map((ind, index) => (
+                      <button
+                        onClick={() => addTagToURL(ind, 'industries')}
+                        key={index}
+                        className="single-tag"
+                      >
+                        {ind}
+                      </button>
+                    ))}
                   </div>
                   <br />
                   <hr />
                 </>
               )}
-
             </Content>
           </Wrapper>
         </div>
@@ -140,8 +203,8 @@ const CaseStudy = ({ data }) => {
 
   return (
     <Layout>
-      <CaseStudyTemplate 
-        data={post.frontmatter} 
+      <CaseStudyTemplate
+        data={post.frontmatter}
         bannerImage={post.frontmatter.bannerImage?.publicURL}
         featuredImage={post.frontmatter.featuredimage?.publicURL}
         featuredImageName={post.frontmatter.featuredimage?.name}

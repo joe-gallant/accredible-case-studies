@@ -11,7 +11,19 @@ import withStyledComponentsRendered from '../services/previewRender'
 CMS.registerMediaLibrary(uploadcare)
 CMS.registerMediaLibrary(cloudinary)
 
-CMS.registerPreviewTemplate('index', withStyledComponentsRendered(IndexPagePreview));
-CMS.registerPreviewTemplate('about', withStyledComponentsRendered(AboutPagePreview));
-CMS.registerPreviewTemplate('case-study-library', withStyledComponentsRendered(CaseStudyParentPreview));
-CMS.registerPreviewTemplate('case-studies', withStyledComponentsRendered(CaseStudyPreview));
+CMS.registerPreviewTemplate(
+  'index',
+  withStyledComponentsRendered(IndexPagePreview)
+)
+CMS.registerPreviewTemplate(
+  'about',
+  withStyledComponentsRendered(AboutPagePreview)
+)
+CMS.registerPreviewTemplate(
+  'case-study-library',
+  withStyledComponentsRendered(CaseStudyParentPreview)
+)
+CMS.registerPreviewTemplate(
+  'case-studies',
+  withStyledComponentsRendered(CaseStudyPreview)
+)

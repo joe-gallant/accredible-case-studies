@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Link, navigate } from 'gatsby'
 import logo from '../img/accredible-logo.svg'
 import styled from 'styled-components'
@@ -14,7 +14,7 @@ const Navigation = styled.div`
   width: 100%;
   box-shadow: 0 0 12px 0 rgb(40 41 85 / 16%);
 }
-`;
+`
 
 const Container = styled.div`
   display: flex;
@@ -37,7 +37,7 @@ const Container = styled.div`
     }
 
     img {
-      width: 182px
+      width: 182px;
     }
   }
 
@@ -94,7 +94,7 @@ const Container = styled.div`
       colour: rgba(40, 41, 85, 0.65);
     }
   }
-`;
+`
 
 const Burger = styled.div`
   @media (min-width: 768px) {
@@ -109,38 +109,40 @@ const Burger = styled.div`
   margin-left: auto;
   border: 1px solid #dfdfe6;
   border-radius: 4px;
-  background-color: ${props => props.active ? '#454798' : '#fff'};
+  background-color: ${(props) => (props.active ? '#454798' : '#fff')};
 
   &:focus {
     outline: none;
   }
 
   span {
-    background-color: ${props => props.active ? '#fff' : '#454798'};
+    background-color: ${(props) => (props.active ? '#fff' : '#454798')};
     display: block;
     height: 2px;
     left: calc(50% - 8px);
     position: absolute;
     transform-origin: center;
     transition-duration: 86ms;
-    transition-property: background-color,opacity,transform;
+    transition-property: background-color, opacity, transform;
     transition-timing-function: ease-out;
     width: 16px;
 
     &:first-child {
       top: calc(50% - 6px);
-      transform: ${props => props.active ? 'translateY(5px) rotate(45deg)' : 'none'};
+      transform: ${(props) =>
+        props.active ? 'translateY(5px) rotate(45deg)' : 'none'};
     }
     &:nth-of-type(2) {
       top: calc(50% - 1px);
-      opacity: ${props => props.active ? '0' : '1'};
+      opacity: ${(props) => (props.active ? '0' : '1')};
     }
     &:nth-of-type(3) {
       top: calc(50% + 4px);
-      transform: ${props => props.active ? 'translateY(-5px) rotate(-45deg)' : 'none'};
+      transform: ${(props) =>
+        props.active ? 'translateY(-5px) rotate(-45deg)' : 'none'};
     }
   }
-`;
+`
 
 const MobileNavOptions = styled.div`
   padding: 12px;
@@ -165,62 +167,82 @@ const MobileNavOptions = styled.div`
     justify-content: center;
     display: flex;
   }
-  `
+`
 
 const Navbar = () => {
-  const [active, openNav] = useState(false);
+  const [active, openNav] = useState(false)
 
   const toggleHamburger = () => {
     // toggle the active boolean in the state
     if (active) {
-      openNav(false);
+      openNav(false)
     } else {
-      openNav(true);
+      openNav(true)
     }
   }
 
-    return (
-      <Navigation
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <Container className="container">
-          <div className="navbar-logo">
-            <Link to="/" title="Logo">
-              <img src={logo} alt="Logo" />
-            </Link>
-            {/* Hamburger menu */}
-            <Burger
-              className={`navbar-burger burger`}
-              data-target="navMenu"
-              onClick={() => toggleHamburger()}
-              onKeyDown={() => toggleHamburger()}
-              role="button"
-              tabIndex={0}
-              active={active}
+  return (
+    <Navigation
+      className="navbar is-transparent"
+      role="navigation"
+      aria-label="main-navigation"
+    >
+      <Container className="container">
+        <div className="navbar-logo">
+          <Link to="/" title="Logo">
+            <img src={logo} alt="Logo" />
+          </Link>
+          {/* Hamburger menu */}
+          <Burger
+            className={`navbar-burger burger`}
+            data-target="navMenu"
+            onClick={() => toggleHamburger()}
+            onKeyDown={() => toggleHamburger()}
+            role="button"
+            tabIndex={0}
+            active={active}
+          >
+            <span />
+            <span />
+            <span />
+          </Burger>
+        </div>
+        <div id="navMenu" className={`navbar-menu`}>
+          <div className="navbar-start">
+            <Link
+              className={`navbar-item ${
+                typeof window !== 'undefined' &&
+                window.location.pathname === '/about'
+                  ? 'active'
+                  : ''
+              }`}
+              to="/about"
             >
-              <span />
-              <span />
-              <span />
-            </Burger>
+              About
+            </Link>
+            <Link
+              className={`navbar-item ${
+                typeof window !== 'undefined' &&
+                window.location.pathname === '/case-studies'
+                  ? 'active'
+                  : ''
+              }`}
+              to="/case-studies"
+            >
+              Case studies
+            </Link>
           </div>
-          <div id="navMenu" className={`navbar-menu`}>
-            <div className="navbar-start">
-              <Link className={`navbar-item ${typeof window !== 'undefined' && window.location.pathname === '/about' ? 'active' : ''}`} to="/about">
-                About
-              </Link>
-              <Link className={`navbar-item ${typeof window !== 'undefined' &&window.location.pathname === '/case-studies' ? 'active' : ''}`} to="/case-studies">
-                Case studies
-              </Link>
-            </div>
-            <div className="navbar-end text-centered">
-              <Button small ClickHandler={() => navigate('/')} text="Subscribe for Updates" />
-            </div>
+          <div className="navbar-end text-centered">
+            <Button
+              small
+              ClickHandler={() => navigate('/')}
+              text="Subscribe for Updates"
+            />
           </div>
-        </Container>
-        { active && 
-          <MobileNavOptions>
+        </div>
+      </Container>
+      {active && (
+        <MobileNavOptions>
           <div className="navbar-start">
             <Link className="navbar-item" to="/about">
               About
@@ -230,13 +252,16 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="navbar-end">
-          <Button small ClickHandler={() => navigate('/')} text="Subscribe for Updates" />
+            <Button
+              small
+              ClickHandler={() => navigate('/')}
+              text="Subscribe for Updates"
+            />
           </div>
         </MobileNavOptions>
-        }
-      </Navigation>
-    )
-  }
-
+      )}
+    </Navigation>
+  )
+}
 
 export default Navbar

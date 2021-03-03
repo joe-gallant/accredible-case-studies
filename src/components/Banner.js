@@ -4,8 +4,11 @@ import styled from 'styled-components'
 import SearchIcon from '../img/search-icon.svg'
 
 const BannerContainer = styled.div`
-  background: ${props => props.backgroundColor ? props.backgroundColor : 'linear-gradient(45deg, #282955, #454798)'};
-  background-image: ${props => props.img ? `url(${props.img})` : ''};
+  background: ${(props) =>
+    props.backgroundColor
+      ? props.backgroundColor
+      : 'linear-gradient(45deg, #282955, #454798)'};
+  background-image: ${(props) => (props.img ? `url(${props.img})` : '')};
   width: 100%;
   min-height: 400px;
   display: flex;
@@ -33,10 +36,11 @@ const BannerContainer = styled.div`
   @media (max-width: 767px) {
     min-height: 300px;
   }
-`;
+`
 
 const Gradient = styled.div`
-  background: ${props => props.color ? props.color : 'linear-gradient(45deg, #282955, #454798)'};
+  background: ${(props) =>
+    props.color ? props.color : 'linear-gradient(45deg, #282955, #454798)'};
   position: absolute;
   height: 100%;
   width: 100%;
@@ -44,10 +48,10 @@ const Gradient = styled.div`
   top: 0;
   z-index: 0;
   opacity: 0.8;
-`;
+`
 
 const SearchBar = styled.input`
-  background: #ffffff;
+  background: #ffffff;
   border: none;
   border-radius: 4px;
   appearance: none;
@@ -57,7 +61,7 @@ const SearchBar = styled.input`
   width: 100%;
   color: #282955;
   box-shadow: 0 8px 32px 0 rgb(40 41 85 / 15%);
-`;
+`
 
 const SearchBarContainer = styled.div`
   position: relative;
@@ -80,19 +84,29 @@ const SearchBarContainer = styled.div`
   img {
     width: 24px;
   }
-`;
+`
 
-export const Banner = ({ title, tagline, image, placeholder = 'Enter your search term...', submitSearch, search = false, searchValue = '', smallHeader = false, overlayColor, overlay }) => {
-
-  const [searchTerm, setSearchTerm] = useState(searchValue);
+export const Banner = ({
+  title,
+  tagline,
+  image,
+  placeholder = 'Enter your search term...',
+  submitSearch,
+  search = false,
+  searchValue = '',
+  smallHeader = false,
+  overlayColor,
+  overlay,
+}) => {
+  const [searchTerm, setSearchTerm] = useState(searchValue)
 
   const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+    setSearchTerm(event.target.value)
   }
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      submitSearch(searchTerm);
+      submitSearch(searchTerm)
     }
   }
 
@@ -106,15 +120,24 @@ export const Banner = ({ title, tagline, image, placeholder = 'Enter your search
 
       {search && (
         <SearchBarContainer>
-          <SearchBar onChange={handleChange} onKeyDown={handleKeyDown} placeholder={placeholder} />
-          <button onClick={() => submitSearch(searchTerm)} onKeyDown={() => submitSearch(searchTerm)}><img src={SearchIcon} alt="Search icon" /></button>
+          <SearchBar
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            placeholder={placeholder}
+          />
+          <button
+            onClick={() => submitSearch(searchTerm)}
+            onKeyDown={() => submitSearch(searchTerm)}
+          >
+            <img src={SearchIcon} alt="Search icon" />
+          </button>
         </SearchBarContainer>
       )}
     </BannerContainer>
-  );
-};
+  )
+}
 
 Banner.propTypes = {
   title: PropTypes.string,
-  image: PropTypes.string
-};
+  image: PropTypes.string,
+}

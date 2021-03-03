@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Digital Credential Case Studies',
-    description: 'This site hosts a collection of links to digital credential case studies from a variety of different platform providers, brand names, and industry types.',
+    description:
+      'This site hosts a collection of links to digital credential case studies from a variety of different platform providers, brand names, and industry types.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -72,6 +73,6 @@ module.exports = {
       },
     }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
-    'gatsby-plugin-styled-components'
+    'gatsby-plugin-styled-components',
   ],
 }
