@@ -90,7 +90,7 @@ export const IndexPageTemplate = ({
     <Section>
       <Container className="container">
         <ColumnLeft>
-          <img alt="column-image" src="https://assets.website-files.com/5f68558b209a0b8f85194e47/5fdb7a8539bf2d2757ead9a2_premium_white_labelling-premium_wl_fullpage.png" />
+          <img alt="Screenshot of website" src="https://assets.website-files.com/5f68558b209a0b8f85194e47/5fdb7a8539bf2d2757ead9a2_premium_white_labelling-premium_wl_fullpage.png" />
         </ColumnLeft>
         <ColumnRight>
           <h2 className="subTitle">{topPanelTitle}</h2>
@@ -116,7 +116,6 @@ export const IndexPageTemplate = ({
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-  console.log(frontmatter.pageMeta.OGImage)
 
   return (
     <Layout>

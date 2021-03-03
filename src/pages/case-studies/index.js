@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import { Card } from '../../components/Card'
 import { filterCaseStudies } from '../../services/filter'
-import { addTagToURL } from '../../services/tagClick'
 import { Helmet } from "react-helmet";
 
 const Cards = styled.div`
@@ -31,6 +30,11 @@ const NoResults = styled.div`
   width: 100%;
   min-height: 600px;
 `;
+
+const Cue = styled.div`
+  margin-top: -72px;
+  transform: translateY(-80px);
+`;
 class CaseStudyIndexPage extends React.Component {
   constructor(props) {
     super(props);
@@ -48,12 +52,12 @@ class CaseStudyIndexPage extends React.Component {
       platforms: this.getPlatformsFromPosts(posts),
       dates: this.getAvailableYears(posts),
       pageData: pageData,
-      tagsGotAdded: new Date(),
+      tagToAdd: null,
     };
 
     this.resultRef = React.createRef();
   }
-  
+
   getAvailableYears(posts) {
     let earliestDate = posts[posts.length - 1].node.frontmatter.date;
     earliestDate = new Date(earliestDate);
@@ -85,15 +89,16 @@ class CaseStudyIndexPage extends React.Component {
     });
 
     this.resultRef.current.scrollIntoView();
+    if (typeof window !== 'undefined') window.scrollBy(0, -80);
   }
 
   clickOnTag(tag) {
     this.setState({
-      tagsGotAdded: new Date()
+      tagToAdd: { tag: tag, type: 'topic' }
     });
 
-    addTagToURL(tag, 'topics');
     this.resultRef.current.scrollIntoView();
+    if (typeof window !== 'undefined') window.scrollBy(0, -80);
   }
 
   filter(filters) {
@@ -113,10 +118,11 @@ class CaseStudyIndexPage extends React.Component {
           <meta property="og:image" content={this.state.pageData.pageMeta.OGImage.publicURL} />
         </Helmet>
         <Banner overlayColor={this.state.pageData.bannerColor} overlay={this.state.pageData.bannerOverlay} title={this.state.pageData.title} image={this.state.pageData.bannerImage.publicURL} search searchValue={this.state.searchTerm} placeholder="Search for a case study" submitSearch={(searchTerm) => this.setSearch(searchTerm)}></Banner>
+        <Cue id="search-results" />
         <section ref={this.resultRef} className="section">
           <div className="container">
             <FilterBar
-              addedTags={this.state.tagsGotAdded}
+              tagToAdd={this.state.tagToAdd}
               resultCount={this.state.filteredResults.length}
               searchTerm={this.state.searchTerm}
               clearSearch={() => this.setState({ searchTerm: ''})}

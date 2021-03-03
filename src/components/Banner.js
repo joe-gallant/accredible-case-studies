@@ -65,12 +65,20 @@ const SearchBarContainer = styled.div`
   width: 500px;
   max-width: 100%;
 
-  img {
+  button {
+    appearance: none;
     position: absolute;
-    width: 24px;
-    right: 20px;
+    margin: 0;
+    right: 24px;
+    border: none;
+    background: none;
+    padding: 0;
     top: 16px;
     cursor: pointer;
+  }
+
+  img {
+    width: 24px;
   }
 `;
 
@@ -99,7 +107,7 @@ export const Banner = ({ title, tagline, image, placeholder = 'Enter your search
       {search && (
         <SearchBarContainer>
           <SearchBar onChange={handleChange} onKeyDown={handleKeyDown} placeholder={placeholder} />
-          <img src={SearchIcon} alt="Search icon" onClick={() => submitSearch(searchTerm)} />
+          <button onClick={() => submitSearch(searchTerm)} onKeyDown={() => submitSearch(searchTerm)}><img src={SearchIcon} alt="Search icon" /></button>
         </SearchBarContainer>
       )}
     </BannerContainer>
