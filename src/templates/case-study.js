@@ -110,7 +110,7 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
                 <>
                   <h3>Topics</h3>
                   <div className="tags-section">
-                    {data.topics.map((topic, index) => <div onClick={() => addTagToURL(topic, 'topics')} key={index} className="single-tag">{topic}</div>)}
+                    {data.topics.map((topic, index) => <button onClick={() => addTagToURL(topic, 'topics')} key={index} className="single-tag">{topic}</button>)}
                   </div>
                   <br />
                   <hr />
@@ -120,7 +120,7 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
                 <>
                   <h3>Industries</h3>
                   <div className="tags-section">
-                    {data.industry.map((ind, index) => <div onClick={() => addTagToURL(ind, 'industries')} key={index} className="single-tag">{ind}</div>)}
+                    {data.industry.map((ind, index) => <button onClick={() => addTagToURL(ind, 'industries')} key={index} className="single-tag">{ind}</button>)}
                   </div>
                   <br />
                   <hr />

@@ -178,10 +178,12 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
   // IF incoming prop changes then lets add it to the active filters
   useEffect(() => {
     if (tagToAdd) addTag(tagToAdd.tag, tagToAdd.type);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tagToAdd])
 
   useEffect(() => {
     updateToFilters({ activeIndustryTags, activeTopicTags, activePlatformTags, activeDate });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndustryTags, activeTopicTags, activePlatformTags, activeDate, searchTerm])
 
   // Detect URL params and add to filter
@@ -194,6 +196,7 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
 
     if (topicsParams) addTag(topicsParams, 'topic');
     if (industriesParams) addTag(industriesParams, 'industry');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

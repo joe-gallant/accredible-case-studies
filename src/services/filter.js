@@ -54,6 +54,8 @@ export const filterCaseStudies = (posts, filters) => {
       if (post.node.frontmatter.synopsis) {
         if (post.node.frontmatter.synopsis.toLowerCase().includes(searchTerm)) return true
       }
+
+      return false;
     })
   }
 
@@ -65,6 +67,8 @@ export const filterCaseStudies = (posts, filters) => {
         const array = post.node.frontmatter.industry.filter(element => filters.filters.activeIndustryTags.includes(element));
         if (array.length === filters.filters.activeIndustryTags.length) return true;
       }
+
+      return false;
     })
   }
 
@@ -76,6 +80,8 @@ export const filterCaseStudies = (posts, filters) => {
         const array = post.node.frontmatter.topics.filter(element => filters.filters.activeTopicTags.includes(element));
         if (array.length === filters.filters.activeTopicTags.length) return true;
       }
+
+      return false;
     })
   }
 
@@ -87,6 +93,8 @@ export const filterCaseStudies = (posts, filters) => {
       if (post.node.frontmatter.platform) {
         return filters.filters.activePlatformTags.includes(post.node.frontmatter.platform);
       }
+
+      return false;
     })
   }
 
@@ -94,7 +102,6 @@ export const filterCaseStudies = (posts, filters) => {
   const date = filters.filters.activeDate;
   if (date) {
     results = results.filter(post => {
-
       const postDate = new Date(post.node.frontmatter.date);
       const year = postDate.getFullYear().toString();
       return (year === date);

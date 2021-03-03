@@ -227,6 +227,8 @@ ul {
   color: white;
   margin-bottom: 6px;
   cursor: pointer;
+  appearance: none;
+  border: none;
 
   &:hover {
     background: #454798;

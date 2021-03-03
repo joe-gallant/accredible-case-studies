@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { Link, navigate } from 'gatsby'
 import logo from '../img/accredible-logo.svg'
 import styled from 'styled-components'

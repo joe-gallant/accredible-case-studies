@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import { Card } from '../../components/Card'
 import { filterCaseStudies } from '../../services/filter'
-import { addTagToURL } from '../../services/tagClick'
 import { Helmet } from "react-helmet";
 
 const Cards = styled.div`

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import styled, { keyframes, css } from 'styled-components'
+import styled from 'styled-components'
 import { Button } from './Button'
 import { navigate } from 'gatsby'
 
@@ -88,8 +88,8 @@ export const BannerCarousel = ({ title, subheading, buttonText, buttonLink, bann
   const [slide, setSlide] = useState(1);
 
   useEffect(() => {
-    setInterval(() => {
-      setSlide(slide => {
+    const slider = setInterval(() => {
+      setSlide(() => {
         if (slide === bannerImages.length) {
           return 1;
         } else {
@@ -97,6 +97,11 @@ export const BannerCarousel = ({ title, subheading, buttonText, buttonLink, bann
         } 
       });
     }, 5000);
+
+    return function cleanup() {
+      clearInterval(slider);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
