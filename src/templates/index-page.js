@@ -72,6 +72,7 @@ export const IndexPageTemplate = ({
   topPanelText,
   topPanelButtonText,
   topPanelButtonLink,
+  topPanelImage,
   leftPanelTitle,
   leftPanelText,
   rightPanelTitle,
@@ -90,7 +91,7 @@ export const IndexPageTemplate = ({
     <Section>
       <Container className="container">
         <ColumnLeft>
-          <img alt="Screenshot of website" src="https://assets.website-files.com/5f68558b209a0b8f85194e47/5fdb7a8539bf2d2757ead9a2_premium_white_labelling-premium_wl_fullpage.png" />
+          <img alt="Screenshot of website" src={topPanelImage} />
         </ColumnLeft>
         <ColumnRight>
           <h2 className="subTitle">{topPanelTitle}</h2>
@@ -132,6 +133,7 @@ const IndexPage = ({ data }) => {
         topPanelText={frontmatter.fullWidthImagePanel.panelText}
         topPanelButtonText={frontmatter.fullWidthImagePanel.panelButtonText}
         topPanelButtonLink={frontmatter.fullWidthImagePanel.panelButtonLink}
+        topPanelImage={frontmatter.fullWidthImagePanel.panelImage}
         leftPanelTitle={frontmatter.leftTextPanel.panelTitle}
         leftPanelText={frontmatter.leftTextPanel.panelText}
         rightPanelTitle={frontmatter.rightTextPanel.panelTitle}
