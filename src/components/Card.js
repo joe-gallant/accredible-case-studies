@@ -38,7 +38,7 @@ const Content = styled.div`
     color: #5557cd;
   }
 
-  Button {
+  Button:not(.single-tag) {
     margin-top: 24px;
   }
 
