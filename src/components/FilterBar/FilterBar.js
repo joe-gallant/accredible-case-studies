@@ -18,12 +18,20 @@ const Filter = styled.div`
   .filter-title {
     margin-right: 24px;
     margin-top: 6px;
+
+    @media (max-width: 767px) {
+      width: 100%;
+    }
   }
 `;
 
 const FilterSections = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const FilterSection = styled.div`
@@ -37,6 +45,29 @@ const FilterSection = styled.div`
     margin-right: 0;
     border: none;
     padding-right: 0;
+  }
+
+  @media (max-width: 767px) {
+    width: 50%;
+    margin: 0 0 24px;
+    flex: 0 0 calc(50% - 12px);
+
+    &:last-of-type {
+      padding-right: 24px;
+      border-right: 1px solid #fff;
+    }
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    flex: 0 0 100%;
+    border-right: none;
+    padding: 0;
+
+    &:last-of-type {
+      border: none;
+      padding: 0;
+    }
   }
 `;
 

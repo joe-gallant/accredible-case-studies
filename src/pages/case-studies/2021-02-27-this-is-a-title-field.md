@@ -2,6 +2,8 @@
 templateKey: case-study
 title: This is a title field
 featuredimage: /img/scality-case-study-cover-image.png
+bannerColor: ""
+bannerOverlay: true
 company-name: Company name here
 publishing-company-name: Publishing company name here
 platform: Platform here

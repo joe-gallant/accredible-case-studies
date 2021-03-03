@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import SearchIcon from '../img/search-icon.svg'
 
 const BannerContainer = styled.div`
-  background-color: #282955;
-  background-image: ${props => props.img ? `url(${props.img})` : 'linear-gradient(45deg, #282955, #454798)'};
+  background: ${props => props.backgroundColor ? props.backgroundColor : 'linear-gradient(45deg, #282955, #454798)'};
+  background-image: ${props => props.img ? `url(${props.img})` : ''};
   width: 100%;
   min-height: 400px;
   display: flex;
@@ -36,7 +36,7 @@ const BannerContainer = styled.div`
 `;
 
 const Gradient = styled.div`
-  background-image: linear-gradient(45deg, #282955, #454798);
+  background: ${props => props.color ? props.color : 'linear-gradient(45deg, #282955, #454798)'};
   position: absolute;
   height: 100%;
   width: 100%;
@@ -74,7 +74,7 @@ const SearchBarContainer = styled.div`
   }
 `;
 
-export const Banner = ({ title, tagline, image, placeholder = 'Enter your search term...', submitSearch, search = false, searchValue = '', smallHeader = false }) => {
+export const Banner = ({ title, tagline, image, placeholder = 'Enter your search term...', submitSearch, search = false, searchValue = '', smallHeader = false, overlayColor, overlay }) => {
 
   const [searchTerm, setSearchTerm] = useState(searchValue);
 
@@ -89,8 +89,8 @@ export const Banner = ({ title, tagline, image, placeholder = 'Enter your search
   }
 
   return (
-    <BannerContainer img={image}>
-      <Gradient img={image} />
+    <BannerContainer backgroundColor={overlayColor} img={image}>
+      {overlay && <Gradient color={overlayColor} img={image} />}
       <div className="container">
         {tagline && <p className="text--lg tagline">{tagline}</p>}
         <h1 className={!smallHeader ? 'h1--big' : null}>{title}</h1>

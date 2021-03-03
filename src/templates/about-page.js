@@ -7,7 +7,7 @@ import { Button } from '../components/Button'
 import Content, { HTMLContent } from '../components/Content'
 import { Helmet } from "react-helmet";
 
-export const AboutPageTemplate = ({ content, contentComponent, bannerImage, title, metaTitle, metaDescription, metaOGImage }) => {
+export const AboutPageTemplate = ({ content, contentComponent, bannerImage, title, metaTitle, metaDescription, metaOGImage, bannerColor, bannerOverlay }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -17,7 +17,7 @@ export const AboutPageTemplate = ({ content, contentComponent, bannerImage, titl
         <meta name="description" content={metaDescription} />
         <meta property="og:image" content={metaOGImage} />
       </Helmet>
-      <Banner title={title} image={bannerImage} />
+      <Banner overlay={bannerOverlay} overlayColor={bannerColor} title={title} image={bannerImage} />
       <section className="section section--bg">
         <div className="container container--sm">
           <PageContent className="content" content={content} />
@@ -46,6 +46,8 @@ const AboutPage = ({ data }) => {
         metaOGImage={post.frontmatter.pageMeta.OGImage.publicURL}
         contentComponent={HTMLContent}
         content={post.html}
+        bannerColor={post.frontmatter.aboutBannerColor}
+        bannerOverlay={post.frontmatter.aboutBannerOverlay}
       />
     </Layout>
   )
@@ -70,6 +72,8 @@ export const aboutPageQuery = graphql`
           }
         }
         title
+        aboutBannerOverlay
+        aboutBannerColor
         aboutBannerImage {
           publicURL
         }
