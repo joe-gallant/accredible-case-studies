@@ -28,6 +28,8 @@ collections:
       - {label: "Link To Case Study - Make sure it starts with https://", name: "websiteURL", widget: "string"}
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Banner Image", name: "bannerImage", widget: image, required: false}
+      - {label: "Banner Color (HEX value)", name: "bannerColor", widget: string, required: false}
+      - {label: "Banner Image Overlay", name: "bannerOverlay", widget: boolean, default: true}
       - {label: "Company name", name: "company-name", widget: "string", required: false}
       - {label: "Publishing company name", name: "publishing-company-name", widget: "string", required: false}
       - {label: "Platform", name: "platform", widget: "string", required: false}
@@ -82,6 +84,8 @@ collections:
             {label: "Meta OG Image", name: "OGImage", widget: image}
             ]}
           - {label: "Banner Image", name: "aboutBannerImage", widget: image, required: false}
+          - {label: "Banner Color (HEX value)", name: "aboutBannerColor", widget: string, required: false}
+          - {label: "Banner Image Overlay", name: "aboutBannerOverlay", widget: boolean, default: true}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - file: "src/pages/case-study-parent/index.md"
@@ -94,4 +98,6 @@ collections:
             {label: "Meta OG Image", name: "OGImage", widget: image}
             ]}
           - {label: "Banner Image", name: "bannerImage", widget: image, required: false}
+          - {label: "Banner Color (HEX value)", name: "bannerColor", widget: string, required: false}
+          - {label: "Banner Image Overlay", name: "bannerOverlay", widget: boolean, default: true}
           - {label: "Title", name: "title", widget: "string"}

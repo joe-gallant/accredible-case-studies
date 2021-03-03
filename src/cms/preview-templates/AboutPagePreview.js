@@ -5,7 +5,10 @@ import { AboutPageTemplate } from '../../templates/about-page'
 const AboutPagePreview = ({ entry, widgetFor }) => (
   <AboutPageTemplate
     title={entry.getIn(['data', 'title'])}
-    bannerImage={entry.getIn(['data', 'bannerImage'])}
+    bannerImage={entry.getIn(['data', 'aboutBannerImage'])}
+    content={widgetFor('body')}
+    bannerColor={entry.getIn(['data', 'aboutBannerColor'])}
+    bannerOverlay={entry.getIn(['data', 'aboutBannerOverlay'])}
   />
 )
 

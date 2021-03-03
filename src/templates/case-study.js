@@ -83,7 +83,7 @@ export const CaseStudyTemplate = ({ data, date, bannerImage, featuredImage, feat
         <meta name="description" content={data.pageMeta ? data.pageMeta.metaDescription : data.synopsis} />
         {data.pageMeta && <meta property="og:image" content={data.pageMeta.OGImage.publicURL} />}
       </Helmet>
-      <Banner image={bannerImage} smallHeader title={data.title} tagline={data.author ? 'Author: ' + data.author : null}></Banner>
+      <Banner overlay={data.bannerOverlay} overlayColor={data.bannerColor} image={bannerImage} smallHeader title={data.title} tagline={data.author ? 'Author: ' + data.author : null}></Banner>
       <Section className="section section--bg">
         <div className="container container--sm">
           <Wrapper>
@@ -183,6 +183,8 @@ export const pageQuery = graphql`
         bannerImage {
           publicURL
         }
+        bannerColor
+        bannerOverlay
       }
     }
   }

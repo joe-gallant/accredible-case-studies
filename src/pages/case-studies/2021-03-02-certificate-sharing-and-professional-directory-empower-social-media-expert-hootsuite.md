@@ -9,6 +9,8 @@ pageMeta:
   metaTitle: Hootsuite Case Study
 websiteURL: https://www.google.com
 featuredimage: /img/hootsuite-case-study-cover-image.png
+bannerColor: ""
+bannerOverlay: true
 company-name: Hootsuite
 publishing-company-name: Accredible
 platform: Accredible
