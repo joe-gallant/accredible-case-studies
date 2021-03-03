@@ -86,8 +86,8 @@ export const TagSearch = ({ tags = [], placeholder = 'Industry', addTag }) => {
       <SearchBox className="search-input" placeholder={placeholder} type="text" value={value} onFocus={handleChange} onChange={handleChange}></SearchBox>
 
       <Dropdown>
-        {filterTags.map(tag => (
-          <Item className="tag" onClick={() => selectTag(tag)}>{tag}</Item>
+        {filterTags.map((tag, index) => (
+          <Item key={index} className="tag" onClick={() => selectTag(tag)}>{tag}</Item>
         ))}
       </Dropdown>
 
