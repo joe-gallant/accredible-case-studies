@@ -127,19 +127,20 @@ const FilterSummary = styled.div`
   }
 `;
 
-export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], dates = ['2018', '2019'], platforms = ['Accredible'], searchTerm, resultCount, clearSearch, updateToFilters, addedTags }) => {
+export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], dates = ['2018', '2019'], platforms = ['Accredible'], searchTerm, resultCount, clearSearch, updateToFilters, tagToAdd = { tag: '', type: 'topic'} }) => {
   const [activeTopicTags, setActiveTopicTags] = useState([]);
   const [activeIndustryTags, setActiveIndustryTags] = useState([]);
   const [activePlatformTags, setActivePlatformTags] = useState([]);
   const [activeDate, setActiveDate] = useState();
 
   const addTag = (tag, type) => {
+    if (!tag) return;
     switch (type) {
       case 'industry':
-        setActiveIndustryTags([...activeIndustryTags, tag]);
+        if (!activeIndustryTags.includes(tag)) setActiveIndustryTags([...activeIndustryTags, tag]);
         break;
       case 'topic':
-        setActiveTopicTags([...activeTopicTags, tag]);
+        if (!activeTopicTags.includes(tag)) setActiveTopicTags([...activeTopicTags, tag]);
         break;
       case 'platform':
         if (tag) {
@@ -174,6 +175,16 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
     clearSearch('clear')
   }
 
+  // IF incoming prop changes then lets add it to the active filters
+  useEffect(() => {
+    if (tagToAdd) addTag(tagToAdd.tag, tagToAdd.type);
+  }, [tagToAdd])
+
+  useEffect(() => {
+    updateToFilters({ activeIndustryTags, activeTopicTags, activePlatformTags, activeDate });
+  }, [activeIndustryTags, activeTopicTags, activePlatformTags, activeDate, searchTerm])
+
+  // Detect URL params and add to filter
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -181,15 +192,9 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
     const topicsParams = urlParams.get('topics');
     const industriesParams = urlParams.get('industries');
 
-    if (topicsParams) setActiveTopicTags(topicsParams.split(','));
-    if (industriesParams) setActiveIndustryTags(industriesParams.split(','));
-
-    window.history.pushState({}, document.title, '/case-studies');
-  }, [addedTags])
-
-  useEffect(() => {
-    updateToFilters({ activeIndustryTags, activeTopicTags, activePlatformTags, activeDate });
-  }, [activeIndustryTags, activeTopicTags, activePlatformTags, activeDate, searchTerm])
+    if (topicsParams) addTag(topicsParams, 'topic');
+    if (industriesParams) addTag(industriesParams, 'industry');
+  }, [])
 
   return (
     <>
