@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { TagSearch } from './TagSearch'
 import { Select } from './Select'
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file
+import 'react-date-range/dist/styles.css' // main css file
+import 'react-date-range/dist/theme/default.css' // theme css file
 import { Button } from '../Button'
 
 const Filter = styled.div`
@@ -23,7 +23,7 @@ const Filter = styled.div`
       width: 100%;
     }
   }
-`;
+`
 
 const FilterSections = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ const FilterSections = styled.div`
   @media (max-width: 767px) {
     flex-wrap: wrap;
   }
-`;
+`
 
 const FilterSection = styled.div`
   border-right: 1px solid #fff;
@@ -69,14 +69,14 @@ const FilterSection = styled.div`
       padding: 0;
     }
   }
-`;
+`
 
 const Tags = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-`;
+`
 
 const Tag = styled.div`
   padding: 6px 10px 6px 12px;
@@ -102,7 +102,7 @@ const Tag = styled.div`
   &:hover {
     opacity: 0.9;
   }
-`;
+`
 
 const FilterSummary = styled.div`
   margin-bottom: 24px;
@@ -125,45 +125,59 @@ const FilterSummary = styled.div`
       margin-bottom: 0;
     }
   }
-`;
+`
 
-export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'], topics = ['test', 'testies'], dates = ['2018', '2019'], platforms = ['Accredible'], searchTerm, resultCount, clearSearch, updateToFilters, tagToAdd = { tag: '', type: 'topic'} }) => {
-  const [activeTopicTags, setActiveTopicTags] = useState([]);
-  const [activeIndustryTags, setActiveIndustryTags] = useState([]);
-  const [activePlatformTags, setActivePlatformTags] = useState([]);
-  const [activeDate, setActiveDate] = useState();
+export const FilterBar = ({
+  industries = ['Test', 'Taggy', 'Hello world', 'tgerg', 'tesg', 'testtt'],
+  topics = ['test', 'testies'],
+  dates = ['2018', '2019'],
+  platforms = ['Accredible'],
+  searchTerm,
+  resultCount,
+  clearSearch,
+  updateToFilters,
+  tagToAdd = { tag: '', type: 'topic' },
+}) => {
+  const [activeTopicTags, setActiveTopicTags] = useState([])
+  const [activeIndustryTags, setActiveIndustryTags] = useState([])
+  const [activePlatformTags, setActivePlatformTags] = useState([])
+  const [activeDate, setActiveDate] = useState()
 
   const addTag = (tag, type) => {
-    if (!tag) return;
+    if (!tag) return
     switch (type) {
       case 'industry':
-        if (!activeIndustryTags.includes(tag)) setActiveIndustryTags([...activeIndustryTags, tag]);
-        break;
+        if (!activeIndustryTags.includes(tag))
+          setActiveIndustryTags([...activeIndustryTags, tag])
+        break
       case 'topic':
-        if (!activeTopicTags.includes(tag)) setActiveTopicTags([...activeTopicTags, tag]);
-        break;
+        if (!activeTopicTags.includes(tag))
+          setActiveTopicTags([...activeTopicTags, tag])
+        break
       case 'platform':
         if (tag) {
-          setActivePlatformTags([tag]);
+          setActivePlatformTags([tag])
         } else {
-          setActivePlatformTags([]);
+          setActivePlatformTags([])
         }
-        break;
+        break
       default:
-        setActiveDate(tag);
-      }
+        setActiveDate(tag)
+    }
   }
 
   const removeTag = (tagValue, type) => {
     switch (type) {
       case 'industry':
-        setActiveIndustryTags(activeIndustryTags.filter(tag => tag !== tagValue));
-        break;
+        setActiveIndustryTags(
+          activeIndustryTags.filter((tag) => tag !== tagValue)
+        )
+        break
       case 'topic':
-        setActiveTopicTags(activeTopicTags.filter(tag => tag !== tagValue));
-        break;
+        setActiveTopicTags(activeTopicTags.filter((tag) => tag !== tagValue))
+        break
       default:
-        setActivePlatformTags([]);
+        setActivePlatformTags([])
     }
   }
 
@@ -177,56 +191,80 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
 
   // IF incoming prop changes then lets add it to the active filters
   useEffect(() => {
-    if (tagToAdd) addTag(tagToAdd.tag, tagToAdd.type);
+    if (tagToAdd) addTag(tagToAdd.tag, tagToAdd.type)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tagToAdd])
 
   useEffect(() => {
-    updateToFilters({ activeIndustryTags, activeTopicTags, activePlatformTags, activeDate });
+    updateToFilters({
+      activeIndustryTags,
+      activeTopicTags,
+      activePlatformTags,
+      activeDate,
+    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeIndustryTags, activeTopicTags, activePlatformTags, activeDate, searchTerm])
+  }, [
+    activeIndustryTags,
+    activeTopicTags,
+    activePlatformTags,
+    activeDate,
+    searchTerm,
+  ])
 
   // Detect URL params and add to filter
   useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-  
-    const topicsParams = urlParams.get('topics');
-    const industriesParams = urlParams.get('industries');
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
 
-    if (topicsParams) addTag(topicsParams, 'topic');
-    if (industriesParams) addTag(industriesParams, 'industry');
+    const topicsParams = urlParams.get('topics')
+    const industriesParams = urlParams.get('industries')
+
+    if (topicsParams) addTag(topicsParams, 'topic')
+    if (industriesParams) addTag(industriesParams, 'industry')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <>
       <Filter>
-
         <FilterSections>
           <h3 className="filter-title">Filter:</h3>
 
           {/* Industries */}
           <FilterSection>
-            <TagSearch placeholder="Industry" addTag={tag => addTag(tag, 'industry')} tags={industries.filter(tag => !activeIndustryTags.includes(tag))} />
+            <TagSearch
+              placeholder="Industry"
+              addTag={(tag) => addTag(tag, 'industry')}
+              tags={industries.filter(
+                (tag) => !activeIndustryTags.includes(tag)
+              )}
+            />
 
             {activeIndustryTags.length > 0 && (
               <Tags>
                 {activeIndustryTags.map((tag, index) => (
-                  <Tag key={index} onClick={() => removeTag(tag, 'industry')}>{tag}</Tag>
+                  <Tag key={index} onClick={() => removeTag(tag, 'industry')}>
+                    {tag}
+                  </Tag>
                 ))}
               </Tags>
             )}
           </FilterSection>
-          
+
           {/* Topic */}
           <FilterSection>
-            <TagSearch placeholder="Topics" addTag={tag => addTag(tag, 'topic')} tags={topics.filter(tag => !activeTopicTags.includes(tag))} />
+            <TagSearch
+              placeholder="Topics"
+              addTag={(tag) => addTag(tag, 'topic')}
+              tags={topics.filter((tag) => !activeTopicTags.includes(tag))}
+            />
 
             {activeTopicTags.length > 0 && (
               <Tags>
                 {activeTopicTags.map((tag, index) => (
-                  <Tag key={index} onClick={() => removeTag(tag, 'topic')}>{tag}</Tag>
+                  <Tag key={index} onClick={() => removeTag(tag, 'topic')}>
+                    {tag}
+                  </Tag>
                 ))}
               </Tags>
             )}
@@ -234,23 +272,21 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
 
           {/* Platform */}
           <FilterSection>
-            <Select 
-              placeholder="Choose a platform" 
-              addTag={tag => addTag(tag, 'platform')} 
-              tags={platforms} 
+            <Select
+              placeholder="Choose a platform"
+              addTag={(tag) => addTag(tag, 'platform')}
+              tags={platforms}
             />
           </FilterSection>
 
           {/* Date */}
           <FilterSection>
-            <Select 
-              placeholder="Filter by year" 
-              addTag={tag => addTag(tag, 'date')} 
-              tags={dates} 
+            <Select
+              placeholder="Filter by year"
+              addTag={(tag) => addTag(tag, 'date')}
+              tags={dates}
             />
           </FilterSection>
-
-  
 
           {/* Date range
           <FilterSection>
@@ -277,7 +313,6 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
               </DateRangeContainer>
             )}
           </FilterSection> */}
-
         </FilterSections>
       </Filter>
       <FilterSummary>
@@ -285,15 +320,25 @@ export const FilterBar = ({ industries = ['Test', 'Taggy', 'Hello world', 'tgerg
 
         <div>
           <p>{resultCount} results</p>
-          {(activeIndustryTags.length > 0 || activePlatformTags.length > 0 || activeTopicTags.length > 0 || activeDate || searchTerm) && <Button small text="Clear all filters" ClickHandler={() => clearAllFilters()} />}
+          {(activeIndustryTags.length > 0 ||
+            activePlatformTags.length > 0 ||
+            activeTopicTags.length > 0 ||
+            activeDate ||
+            searchTerm) && (
+            <Button
+              small
+              text="Clear all filters"
+              ClickHandler={() => clearAllFilters()}
+            />
+          )}
         </div>
       </FilterSummary>
     </>
-  );
-};
+  )
+}
 
 FilterBar.propTypes = {
   industries: PropTypes.array,
   topics: PropTypes.array,
-  platforms: PropTypes.array
-};
+  platforms: PropTypes.array,
+}

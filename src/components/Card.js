@@ -25,7 +25,7 @@ const CardContainer = styled.div`
     flex-direction: column;
     padding: 36;
   }
-`;
+`
 
 const Content = styled.div`
   width: 55%;
@@ -38,7 +38,7 @@ const Content = styled.div`
     color: #5557cd;
   }
 
-  Button {
+  Button:not(.single-tag) {
     margin-top: 24px;
   }
 
@@ -49,7 +49,7 @@ const Content = styled.div`
     margin: 0;
     margin-top: 24px;
   }
-`;
+`
 
 const Image = styled.div`
   width: 45%;
@@ -65,37 +65,61 @@ const Image = styled.div`
     width: 100%;
     max-width: 200px;
   }
-`;
+`
 
-export const Card = ({ image, slug, title, author, date, topics = [], tagClick }) => {
+export const Card = ({
+  image,
+  slug,
+  title,
+  author,
+  date,
+  topics = [],
+  tagClick,
+}) => {
   return (
     <CardContainer>
-
       <Image>
         <img src={image} alt={title + ' image'} />
       </Image>
       <Content>
         {title && <h3>{title}</h3>}
-        {author && <p>Author: <span>{author}</span></p>}
-        {date && <p>Date: <span>{date}</span></p>}
+        {author && (
+          <p>
+            Author: <span>{author}</span>
+          </p>
+        )}
+        {date && (
+          <p>
+            Date: <span>{date}</span>
+          </p>
+        )}
         <br />
         <br />
         {topics && topics.length > 0 && (
           <div className="tags-section">
-            <p>Topics:</p> 
+            <p>Topics:</p>
             <div className="tags-area">
-              {topics.map((topic, index) => <button key={index} onClick={() => tagClick(topic)} className="single-tag">{topic}</button>)}
+              {topics.map((topic, index) => (
+                <button
+                  key={index}
+                  onClick={() => tagClick(topic)}
+                  className="single-tag"
+                >
+                  {topic}
+                </button>
+              ))}
             </div>
           </div>
         )}
-        {slug && <Button ClickHandler={() => navigate(slug)} small text='Read More' />}
+        {slug && (
+          <Button ClickHandler={() => navigate(slug)} small text="Read More" />
+        )}
       </Content>
-      
     </CardContainer>
-  );
-};
+  )
+}
 
 Card.propTypes = {
   image: PropTypes.string,
-  slug: PropTypes.string
-};
+  slug: PropTypes.string,
+}
