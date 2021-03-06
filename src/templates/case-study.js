@@ -47,6 +47,11 @@ const Image = styled.div`
 const Content = styled.div`
   flex: 0 0 calc(50% - 24px);
 
+  .h3 {
+    margin-bottom: 2px;
+    margin-top: 12px;
+  }
+
   h3 {
     margin-bottom: 2px;
     margin-top: 12px;
@@ -147,7 +152,7 @@ export const CaseStudyTemplate = ({
               <hr />
               {data.synopsis && (
                 <>
-                  <h3>Synopsis:</h3>
+                  <h2 className="h3">Synopsis:</h2>
                   <ReactMarkdown className="synopsis">
                     {data.synopsis}
                   </ReactMarkdown>

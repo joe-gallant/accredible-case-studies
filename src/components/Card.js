@@ -82,7 +82,7 @@ export const Card = ({
         <img src={image} alt={title + ' image'} />
       </Image>
       <Content>
-        {title && <h3>{title}</h3>}
+        {title && <h2 className="h3">{title}</h2>}
         {author && (
           <p>
             Author: <span>{author}</span>
