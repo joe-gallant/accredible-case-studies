@@ -10,6 +10,10 @@ import { Helmet } from 'react-helmet'
 const Section = styled.div`
   padding: 96px 0;
 
+  @media (max-width: 767px) {
+    padding: 48px 0;
+  }
+
   &:last-of-type {
     background-color: #f4f5fa;
     margin-bottom: 48px;
@@ -47,6 +51,10 @@ const ColumnRight = styled.div`
   @media (max-width: 767px) {
     width: 100%;
     margin-top: 24px;
+
+    .top--panel-text {
+      margin-bottom: 24px;
+    }
   }
 
   .subTitle {
@@ -101,7 +109,7 @@ export const IndexPageTemplate = ({
         </ColumnLeft>
         <ColumnRight>
           <h2 className="subTitle">{topPanelTitle}</h2>
-          <p className="text--lg">{topPanelText}</p>
+          <p className="text--lg top--panel-text">{topPanelText}</p>
           <Button
             ClickHandler={() => navigate(`${topPanelButtonLink}`)}
             text={topPanelButtonText}

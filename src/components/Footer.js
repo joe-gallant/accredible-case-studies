@@ -7,6 +7,7 @@ const Container = styled.div`
 
   .footer-inner--container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
     border-top: 1px solid #dfdfe6;
@@ -16,10 +17,20 @@ const Container = styled.div`
   .table__heading {
     height: 50px;
   }
+
+  .footer--button-container {
+    @media (max-width: 767px) {
+      margin-left: 24px;
+    }
+  }
 `
 
 const TextColumn = styled.div`
   padding: 0 24px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 24px;
+  }
 
   .links {
     display: flex;
@@ -36,10 +47,6 @@ const TextColumn = styled.div`
 
   .footer__image {
     margin-bottom: 15px;
-  }
-
-  .footer__button {
-
   }
 
   .footer__address {
@@ -90,8 +97,8 @@ export const Footer = () => {
             <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/solutions/digital-credentials">What is a Credential?</a>
           </div>
         </TextColumn>
-        <div className="table__heading">
-          <Button small transparent ClickHandler={() => (window.location.href = 'mailto:support@accredible.com?subject=Case Study Submission')} text="Submit a Case Study" />
+        <div className="table__heading footer--button-container">
+          <Button className="footer__button" small transparent ClickHandler={() => (window.location.href = 'mailto:support@accredible.com?subject=Case Study Submission')} text="Submit a Case Study" />
         </div>
       </div>
     </Container>

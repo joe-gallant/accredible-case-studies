@@ -69,6 +69,10 @@ const SearchBarContainer = styled.div`
   width: 500px;
   max-width: 100%;
 
+  @media (max-width: 767px) {
+    margin-bottom : 24px;
+  }
+
   button {
     appearance: none;
     position: absolute;
