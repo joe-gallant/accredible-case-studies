@@ -73,9 +73,9 @@ export const Footer = () => {
           </div>
           <div className="links">
             <p class="footer__address">800 West El Camino Real,<br />Suite 180, <br />Accredible,<br />Mountain View,<br />CA, 94040</p>
-            <a class="footer__link" target="_blank" href="https://www.accredible.com/privacy-policy/">Privacy Policy</a>
-            <a class="footer__link" target="_blank" href="https://help.accredible.com/accessibility">Accessibility</a>
-            <a class="footer__link" target="_blank" href="https://www.accredible.com/terms">Terms of Service</a>
+            <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/privacy-policy/">Privacy Policy</a>
+            <a class="footer__link" rel="noopener noreferrer" href="https://help.accredible.com/accessibility">Accessibility</a>
+            <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/terms">Terms of Service</a>
           </div>
         </TextColumn>
         <TextColumn>
@@ -83,11 +83,11 @@ export const Footer = () => {
             <p class="footer__title">More Digital Credential Resources</p>
           </div>
           <div className="links">
-            <a class="footer__link" target="_blank" href="https://www.accredible.com/badge-designer">Badge Designer</a>
-            <a class="footer__link" target="_blank" href="https://www.accredible.com/videos">Videos</a>
-            <a class="footer__link" target="_blank" href="https://www.accredible.com/webinar">Webinars</a>
-            <a class="footer__link" target="_blank" href="https://www.accredible.com/downloadable-assets">Guides & Checklists</a>
-            <a class="footer__link" target="_blank" href="https://www.accredible.com/solutions/digital-credentials">What is a Credential?</a>
+            <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/badge-designer">Badge Designer</a>
+            <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/videos">Videos</a>
+            <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/webinar">Webinars</a>
+            <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/downloadable-assets">Guides & Checklists</a>
+            <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/solutions/digital-credentials">What is a Credential?</a>
           </div>
         </TextColumn>
         <div className="table__heading">
