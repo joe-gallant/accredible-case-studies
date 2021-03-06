@@ -1,10 +1,17 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { Banner } from '../components/Banner'
+import styled from 'styled-components'
+
+const BannerContainer = styled.div`
+  margin-bottom: 32px;
+`
 
 const NotFoundPage = () => (
   <Layout>
-    <Banner title="Page not found" tagline="404"></Banner>
+    <BannerContainer>
+      <Banner title="Page not found" tagline="404"></Banner>
+    </BannerContainer>
   </Layout>
 )
 
