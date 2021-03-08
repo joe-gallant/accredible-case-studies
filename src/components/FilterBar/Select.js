@@ -46,6 +46,7 @@ export const Select = ({ tags = [], placeholder = 'Industry', addTag, value = ''
         type="select"
         value={selectValue}
         onChange={handleChange}
+        aria-label={placeholder+ ' select'}
       >
         <option key="999" value="">
           {placeholder}

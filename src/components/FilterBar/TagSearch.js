@@ -95,6 +95,7 @@ export const TagSearch = ({ tags = [], placeholder = 'Industry', addTag }) => {
         value={value}
         onFocus={handleChange}
         onChange={handleChange}
+        aria-label={placeholder+ ' search'}
       ></SearchBox>
 
       <Dropdown>
