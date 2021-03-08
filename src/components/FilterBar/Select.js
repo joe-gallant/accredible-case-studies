@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import downIcon from '../../img/down-icon.svg'
@@ -26,21 +26,25 @@ const SelectInput = styled.select`
   cursor: pointer;
 `
 
-export const Select = ({ tags = [], placeholder = 'Industry', addTag }) => {
-  const [value, setValue] = useState('')
+export const Select = ({ tags = [], placeholder = 'Industry', addTag, value = '' }) => {
+  const [selectValue, setSelectValue] = useState(value)
 
   const handleChange = (event) => {
     const newValue = event.target.value
-    setValue(newValue)
+    setSelectValue(newValue)
     addTag(event.target.value)
   }
+
+  useEffect(() => {
+    setSelectValue(value)
+  }, [value])
 
   return (
     <Wrapper>
       <SelectInput
         placeholder={placeholder}
         type="select"
-        value={value}
+        value={selectValue}
         onChange={handleChange}
       >
         <option key="999" value="">
