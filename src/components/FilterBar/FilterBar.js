@@ -275,6 +275,7 @@ export const FilterBar = ({
             <Select
               placeholder="Choose a platform"
               addTag={(tag) => addTag(tag, 'platform')}
+              value={activePlatformTags[0]}
               tags={platforms}
             />
           </FilterSection>
@@ -284,6 +285,7 @@ export const FilterBar = ({
             <Select
               placeholder="Filter by year"
               addTag={(tag) => addTag(tag, 'date')}
+              value={activeDate}
               tags={dates}
             />
           </FilterSection>
