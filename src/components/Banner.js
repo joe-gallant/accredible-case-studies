@@ -128,6 +128,7 @@ export const Banner = ({
             onChange={handleChange}
             onKeyDown={handleKeyDown}
             placeholder={placeholder}
+            aria-label="Search bar"
           />
           <button
             onClick={() => submitSearch(searchTerm)}
