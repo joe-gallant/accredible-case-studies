@@ -5,6 +5,8 @@ import Navbar from '../components/Navbar'
 import './main.scss'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
