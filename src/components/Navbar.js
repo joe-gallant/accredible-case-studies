@@ -154,7 +154,7 @@ const MobileNavOptions = styled.div`
   .navbar-item {
     display: block;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
     color: rgba(40, 41, 85, 0.8);
 
     img {
