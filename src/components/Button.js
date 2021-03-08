@@ -26,7 +26,7 @@ const ButtonComponent = styled.button`
 
   &:hover {
     background-color: ${(props) => (props.transparent ? '#f7f7f5' : '#05cfd9;')};
-    box-shadow: ${(props) => (props.transparent ? '0 4px 12px 0 #282955' : '0 4px 24px 0 rgb(5 207 217 / 35%)')};
+    box-shadow: ${(props) => (props.transparent ? '0 8px 32px 0 rgb(40 41 85 / 15%)' : '0 4px 24px 0 rgb(5 207 217 / 35%)')};
     color: ${(props) => (props.transparent ? '#282955' : '#fff')};
   }
 `

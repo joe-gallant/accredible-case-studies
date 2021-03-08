@@ -54,7 +54,7 @@ const TextColumn = styled.div`
     font-size: 15px;
     line-height: 20px;
     text-decoration: none;
-    margin-bottom: 5px;
+    margin: 12px 0;
   }
 
   .footer__link {
@@ -79,7 +79,7 @@ export const Footer = () => {
             <img class="footer__image" src="https://assets.website-files.com/5f68558b209a0b8f85194e47/5f686b7a96b43fd11da99f61_Accredible%20Dark.svg" alt="footer-logo" />
           </div>
           <div className="links">
-            <p class="footer__address">800 West El Camino Real,<br />Suite 180, <br />Accredible,<br />Mountain View,<br />CA, 94040</p>
+            <p class="footer__address">800 West El Camino Real, Suite 180, <br />Accredible, Mountain View, CA, 94040</p>
             <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/privacy-policy/">Privacy Policy</a>
             <a class="footer__link" rel="noopener noreferrer" href="https://help.accredible.com/accessibility">Accessibility</a>
             <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/terms">Terms of Service</a>
