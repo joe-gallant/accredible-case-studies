@@ -1,9 +1,29 @@
 ---
 templateKey: case-study
-title: Skinny post
-featuredimage: /img/6001d1c8a266bd470d7a9b12_hero-background.jpg
-bannerImage: /img/ntfmjuz8tw3uld3tkbaatf.jpg
+title: International Association of Privacy Professionals Embrace Digital Certificates
+pageMeta:
+  metaTitle: International Association of Privacy Professionals Case Study
+  metaDescription: Accredible case study for the International Association of
+    Privacy Professionals
+  OGImage: /img/basic-blog-header-gradient.png
+websiteURL: https://www.accredible.com/case-studies/iapp
+featuredimage: /img/iapp-case-study-cover-image.png
+bannerImage: ""
 bannerColor: ""
 bannerOverlay: true
-date: 2021-03-01T18:29:48.943Z
+company-name: IAPP
+publishing-company-name: Accredible
+platform: Accredible
+author: " Alan Heppenstall"
+date: 2019-03-07T18:29:48.943Z
+industry:
+  - Association
+topics:
+  - Membership Retention
+  - Cost Management
+  - Time Management
+synopsis: Prior to digital credentials, the IAPP were printing and mailing paper
+  certificates but this was growing unmanageable, taking four admins up to two
+  days a month printing and mailing certificates. Switching to digital
+  credentials was a smooth transition and well-received by their recipients.
 ---
