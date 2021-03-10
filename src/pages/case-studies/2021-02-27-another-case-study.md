@@ -1,20 +1,27 @@
 ---
 templateKey: case-study
-title: Another case study
-websiteURL: https://www.google.com
+title: Scality Scales Their Training Program With Accredible
+pageMeta:
+  metaDescription: Scality Scales Their Training Program With Accredible
+  metaTitle: Scality Scales Their Training Program With Accredible
+  OGImage: /img/scality-case-study-cover-image.png
+websiteURL: https://www.accredible.com/case-studies/scality
+featuredimage: /img/scality-case-study-cover-image.png
 bannerColor: ""
 bannerOverlay: true
-featuredimage: /img/iapp-case-study-cover-image.png
-company-name: Test company name
-publishing-company-name: Test publish company name
-platform: The platform
-author: Bob Marley
-date: 2021-02-27T21:15:08.231Z
+company-name: Scality
+publishing-company-name: Accredible
+platform: Accredible
+author: Accredible
+date: 2018-10-05T20:15:08.231Z
 industry:
-  - Tech
-  - Science
+  - SaaS
 topics:
-  - Sauce
-  - Ketchup
-synopsis: this is an synopsis
+  - Managing Cost
+  - Managing Time
+  - Moodle Integration
+synopsis: Scality were issuing physical certificates but needed a solution that
+  would help them scale without causing additional workload for staff. Digital
+  credentials helped Scality save time and money, and increase their student
+  numbers with ease.
 ---
