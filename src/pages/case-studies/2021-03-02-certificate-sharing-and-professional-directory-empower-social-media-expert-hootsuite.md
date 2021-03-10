@@ -21,6 +21,7 @@ industry:
   - SaaS
 topics:
   - Engagement
+  - Thinkific Integration
 synopsis: Hootsuite chose digital credentials to replace their previously issued
   PDF certificates. Hootsuite needed a solution that that integrated with their
   new learning management system - Thinkific, while providing an excellent
