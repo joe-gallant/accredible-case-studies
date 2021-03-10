@@ -4,7 +4,7 @@ title: Scality Scales Their Training Program With Accredible
 pageMeta:
   metaDescription: Scality Scales Their Training Program With Accredible
   metaTitle: Scality Scales Their Training Program With Accredible
-  OGImage: /img/scality-case-study-cover-image.png
+  OGImage: /img/basic-blog-header-gradient.png
 websiteURL: https://www.accredible.com/case-studies/scality
 featuredimage: /img/scality-case-study-cover-image.png
 bannerColor: ""
