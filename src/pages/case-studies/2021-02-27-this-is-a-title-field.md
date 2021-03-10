@@ -1,21 +1,30 @@
 ---
 templateKey: case-study
-title: This is a title field
-featuredimage: /img/scality-case-study-cover-image.png
+title: " How Switching to Accredible helped DMI Save Time, Save Money, and
+  Increase their brand Visibility"
+pageMeta:
+  metaTitle: " How Switching to Accredible helped DMI"
+  metaDescription: " How Switching to Accredible helped DMI Save Time, Save Money,
+    and Increase their brand Visibility"
+  OGImage: /img/dmi-case-study-cover-image.png
+websiteURL: https://www.accredible.com/case-studies/dmi
+featuredimage: /img/dmi-case-study-cover-image.png
 bannerColor: ""
 bannerOverlay: true
-company-name: Company name here
-publishing-company-name: Publishing company name here
-platform: Platform here
-author: Author name here
-date: 2021-02-27T16:47:53.283Z
+company-name: Digital Marketing Institute
+publishing-company-name: Accredible
+platform: Accredible
+author: Accredible
+date: 2017-04-18T15:47:53.283Z
 industry:
-  - Industry 1
-  - Industy 2
+  - Social Media
 topics:
-  - Topic 1
-  - Topic 2
-synopsis: Syngoerungerougneorn oingreoigneorin onigeroingeoring
-  oingeroignoringoin oin goierngoerin oingeroignoierng oingeroign oingoering
-  oingreoign oingreoing
+  - Training
+  - Managing Cost
+  - Managing Time
+synopsis: Digital Marketing Institute provided certificates to recipients all
+  over the globe but this was costing them a lot money to print and ship
+  certificates that didn't always arrive. Utilizing digital credentials from
+  Accredible helped Digital Marketing Institute optimize the speed and
+  efficiency of delivery and save on the costs of printing and shipping.
 ---
