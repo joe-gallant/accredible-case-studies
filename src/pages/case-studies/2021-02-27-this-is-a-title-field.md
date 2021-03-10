@@ -6,7 +6,7 @@ pageMeta:
   metaTitle: " How Switching to Accredible helped DMI"
   metaDescription: " How Switching to Accredible helped DMI Save Time, Save Money,
     and Increase their brand Visibility"
-  OGImage: /img/dmi-case-study-cover-image.png
+  OGImage: /img/basic-blog-header-gradient.png
 websiteURL: https://www.accredible.com/case-studies/dmi
 featuredimage: /img/dmi-case-study-cover-image.png
 bannerColor: ""
