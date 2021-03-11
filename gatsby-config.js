@@ -5,8 +5,6 @@ module.exports = {
       'This site hosts a collection of links to digital credential case studies from a variety of different platform providers, brand names, and industry types.',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -29,6 +27,8 @@ module.exports = {
         name: 'images',
       },
     },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
