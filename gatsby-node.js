@@ -1,6 +1,7 @@
 const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
+const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -49,6 +50,7 @@ exports.createPages = ({ actions, graphql }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
+  fmImagesToRelative(node) // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
@@ -57,18 +59,5 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
-  }
-}
-
-exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
-  if (stage === 'build-javascript') {
-    const config = getConfig()
-    const miniCssExtractPlugin = config.plugins.find(
-      plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
-    )
-    if (miniCssExtractPlugin) {
-      miniCssExtractPlugin.options.ignoreOrder = true
-    }
-    actions.replaceWebpackConfig(config)
   }
 }

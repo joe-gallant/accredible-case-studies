@@ -9,6 +9,7 @@ pageMeta:
   OGImage: /img/basic-blog-header-gradient.png
 websiteURL: https://www.accredible.com/case-studies/iapp
 featuredimage: /img/iapp-case-study-cover-image.png
+bannerImage: ""
 bannerColor: ""
 bannerOverlay: true
 company-name: IAPP
