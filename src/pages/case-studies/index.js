@@ -181,7 +181,7 @@ class CaseStudyIndexPage extends React.Component {
   }
 }
 
-const PageQuery = () => (
+export default () => (
   <StaticQuery
     query={graphql`
       query CaseStudyQuery {
@@ -242,5 +242,3 @@ const PageQuery = () => (
     render={(data, count) => <CaseStudyIndexPage data={data} count={count} />}
   />
 )
-
-export default PageQuery;
