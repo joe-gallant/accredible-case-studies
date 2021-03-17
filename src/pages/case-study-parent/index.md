@@ -6,5 +6,5 @@ pageMeta:
 bannerImage: /img/6001d1c8a266bd470d7a9b12_hero-background.jpg
 bannerColor: ""
 bannerOverlay: true
-title: Case Studies!
+title: Case Studies
 ---
