@@ -2,7 +2,7 @@
 templateKey: case-study
 title: Brainfood - Implementing Digital Credentials In Higher Education
 pageMeta:
-  metaTitle: Brainfood - Implementing Digital Credentials In Higher Education
+  metaTitle: Fabcom Case Study
   metaDescription: A Fabcom Case Study around Implementing Digital Credentials in
     Higher Education
   OGImage: /img/fabcom-implementing-digital-credentials-in-higher-education.png
