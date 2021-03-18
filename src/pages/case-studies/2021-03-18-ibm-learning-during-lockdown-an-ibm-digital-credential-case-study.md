@@ -2,7 +2,7 @@
 templateKey: case-study
 title: IBM - Learning During Lockdown, An IBM Digital Credential Case Study
 pageMeta:
-  metaTitle: IBM - Learning During Lockdown, An IBM Digital Credential Case Study
+  metaTitle: An IBM Case Study
   metaDescription: An IBM Digital Credential Case Study about learning during lockdown
   OGImage: /img/case-study-cover-image-ibm-lockdown.png
 websiteURL: https://www.ibm.com/blogs/ibm-training/learning-during-lockdown-an-ibm-digital-credential-case-study/
