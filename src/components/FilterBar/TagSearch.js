@@ -46,13 +46,13 @@ const Item = styled.div`
   justify-content: space-between;
 
   &:hover {
-    background: #f4f5fa;
+    background: #1d3557;
   }
 
   &::after {
     content: '+';
     font-weight: bold;
-    color: #5557cd;
+    color: #457b9d;
   }
 `
 
