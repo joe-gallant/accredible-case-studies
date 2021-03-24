@@ -235,7 +235,7 @@ const Navbar = () => {
           <div className="navbar-end text-centered">
             <Button
               small
-              ClickHandler={() => navigate('/')}
+              ClickHandler={() => navigate('/subscribe')}
               text="Subscribe for Updates"
             />
           </div>
