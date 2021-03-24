@@ -1,9 +1,9 @@
 ---
 templateKey: case-study
-title: " How Switching to Accredible helped DMI Save Time, Save Money, and
-  Increase their brand Visibility"
+title: " Accredible - How Switching to Accredible Helped DMI Save Time, Save
+  Money, and Increase Their Brand Visibility"
 pageMeta:
-  metaTitle: Digital Marketing Institute Case Study
+  metaTitle: Accredible Digital Marketing Institute Case Study
   metaDescription: Accredible case study for the Digital Marketing Institute
   OGImage: /img/basic-blog-header-gradient.png
 websiteURL: https://www.accredible.com/case-studies/dmi
