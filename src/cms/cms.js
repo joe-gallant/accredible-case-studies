@@ -3,6 +3,7 @@ import uploadcare from 'netlify-cms-media-library-uploadcare'
 import cloudinary from 'netlify-cms-media-library-cloudinary'
 
 import AboutPagePreview from './preview-templates/AboutPagePreview'
+import SubscribePagePreview from './preview-templates/SubscribePagePreview'
 import CaseStudyPreview from './preview-templates/CaseStudyPreview'
 import CaseStudyParentPreview from './preview-templates/CaseStudyParentPreview'
 import IndexPagePreview from './preview-templates/IndexPagePreview'
