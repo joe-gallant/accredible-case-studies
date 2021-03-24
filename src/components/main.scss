@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
 
-// Primary text colour for headings --> #454798
+// Primary text colour for headings --> #1d3557 ~#454798~
 // Primary text colour for p --> #282955
 
 * {
@@ -50,7 +50,7 @@ h1,
   font-size: 48px;
   font-weight: 700;
   line-height: 60px;
-  color: #454798;
+  color: #1d3557;
   margin-bottom: 24px;
 
   @media (max-width: 767px) {
@@ -74,7 +74,7 @@ h2,
   font-size: 32px;
   font-weight: 700;
   line-height: 42px;
-  color: #454798;
+  color: #1d3557;
   margin-bottom: 12px;
 
   @media (max-width: 767px) {
@@ -88,13 +88,13 @@ h3,
   font-size: 18px;
   font-weight: 600;
   line-height: 28px;
-  color: #454798;
+  color: #1d3557;
   margin-bottom: 12px;
 }
 
 h4,
 .h4 {
-  color: #454798;
+  color: #1d3557;
   margin-bottom: 12px;
 }
 
@@ -145,7 +145,7 @@ p,
 
 a,
 .a {
-  color: #5557cd;
+  color: #457b9d;
   text-decoration: none;
 }
 
@@ -222,7 +222,7 @@ ul {
   padding: 4px 6px;
   font-size: 14px;
   border-radius: 4px;
-  background: #5557cd;
+  background: #457b9d;
   margin-right: 6px;
   color: white;
   margin-bottom: 6px;
@@ -231,7 +231,7 @@ ul {
   border: none;
 
   &:hover {
-    background: #454798;
+    background: #1d3557;
   }
 }
 

@@ -7,7 +7,7 @@ const BannerContainer = styled.div`
   background: ${(props) =>
     props.backgroundColor
       ? props.backgroundColor
-      : 'linear-gradient(45deg, #282955, #454798)'};
+      : 'linear-gradient(45deg, #282955, #1d3557)'};
   background-image: ${(props) => (props.img ? `url(${props.img})` : '')};
   width: 100%;
   min-height: 400px;
@@ -40,7 +40,7 @@ const BannerContainer = styled.div`
 
 const Gradient = styled.div`
   background: ${(props) =>
-    props.color ? props.color : 'linear-gradient(45deg, #282955, #454798)'};
+    props.color ? props.color : 'linear-gradient(45deg, #282955, #1d3557)'};
   position: absolute;
   height: 100%;
   width: 100%;

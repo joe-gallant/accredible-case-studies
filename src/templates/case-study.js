@@ -114,13 +114,13 @@ export const CaseStudyTemplate = ({
           <Wrapper>
             <Image>
               {featuredImage && (
-                <a href={data.websiteURL}>
+                <a target="_blank" href={data.websiteURL}>
                   <img src={featuredImage} alt={featuredImageName} />
                 </a>
               )}
               {data.websiteURL && (
                 <Button
-                  ClickHandler={() => (window.location.href = data.websiteURL)}
+                  ClickHandler={() => (window.open(data.websiteURL))}
                   text="Read Case Study"
                 />
               )}

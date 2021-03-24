@@ -15,7 +15,7 @@ const BannerContainer = styled.div`
 `
 
 const Content = styled.div`
-  background-image: linear-gradient(45deg, #282955, #454798);
+  background-image: linear-gradient(45deg, #282955, #1d3557);
   width: 50%;
   padding: 48px 72px 48px 48px;
   display: flex;
@@ -55,7 +55,7 @@ const InnerContent = styled.div`
 
 const Images = styled.div`
   width: 50%;
-  background: #f4f5fa;
+  background: #f1faee;
   position: relative;
   overflow: hidden;
   background: #000;

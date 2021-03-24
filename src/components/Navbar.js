@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, navigate } from 'gatsby'
-import logo from '../img/badgecasestudy.png'
+import logo from '../img/badgecasestudyll.svg'
 import styled from 'styled-components'
 import { Button } from '../components/Button'
 
@@ -109,14 +109,14 @@ const Burger = styled.div`
   margin-left: auto;
   border: 1px solid #dfdfe6;
   border-radius: 4px;
-  background-color: ${(props) => (props.active ? '#454798' : '#fff')};
+  background-color: ${(props) => (props.active ? '#1d3557' : '#fff')};
 
   &:focus {
     outline: none;
   }
 
   span {
-    background-color: ${(props) => (props.active ? '#fff' : '#454798')};
+    background-color: ${(props) => (props.active ? '#fff' : '#1d3557')};
     display: block;
     height: 2px;
     left: calc(50% - 8px);

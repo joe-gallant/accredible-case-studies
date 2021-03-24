@@ -80,7 +80,7 @@ const Tags = styled.div`
 
 const Tag = styled.div`
   padding: 6px 10px 6px 12px;
-  background: #5557cd;
+  background: #457b9d;
   color: #fff;
   width: auto;
   font-size: 14px;

@@ -10,7 +10,7 @@ const ButtonComponent = styled.button`
   padding: ${(props) => (props.small ? '12px 24px' : '12px 32px')};
   align-items: center;
   border-radius: 2px;
-  background-color: ${(props) => (props.transparent ? 'transparent' : '#00b5be;')};
+  background-color: ${(props) => (props.transparent ? 'transparent' : '#e63946;')};
   transition: box-shadow 300ms cubic-bezier(0.23, 1, 0.32, 1),
     background-color 300ms cubic-bezier(0.23, 1, 0.32, 1);
   color: ${(props) => (props.transparent ? '#282955' : '#fff')};
@@ -25,8 +25,8 @@ const ButtonComponent = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: ${(props) => (props.transparent ? '#f7f7f5' : '#05cfd9;')};
-    box-shadow: ${(props) => (props.transparent ? '0 8px 32px 0 rgb(40 41 85 / 15%)' : '0 4px 24px 0 rgb(5 207 217 / 35%)')};
+    background-color: ${(props) => (props.transparent ? '#f7f7f5' : '#ec6670;')};
+    box-shadow: ${(props) => (props.transparent ? '0 8px 32px 0 rgb(236 102 112 / 15%)' : '0 4px 24px 0 rgb(236 102 112 / 35%)')};
     color: ${(props) => (props.transparent ? '#282955' : '#fff')};
   }
 `

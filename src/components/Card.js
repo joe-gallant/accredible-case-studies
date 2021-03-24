@@ -35,7 +35,7 @@ const Content = styled.div`
   margin-left: 24px;
 
   span {
-    color: #5557cd;
+    color: #457b9d;
   }
 
   Button:not(.single-tag) {
