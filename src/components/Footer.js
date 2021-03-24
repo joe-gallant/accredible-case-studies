@@ -90,7 +90,7 @@ export const Footer = () => {
             <p class="footer__title">More Digital Credential Resources</p>
           </div>
           <div className="links">
-            <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/badge-designer">Badge Designer</a>
+            <a class="footer__link" rel="noopener noreferrer" href="https://badge.design">Badge Designer</a>
             <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/videos">Videos</a>
             <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/webinar">Webinars</a>
             <a class="footer__link" rel="noopener noreferrer" href="https://www.accredible.com/downloadable-assets">Guides & Checklists</a>

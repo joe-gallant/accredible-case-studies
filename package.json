@@ -4,10 +4,12 @@
   "version": "1.0.0",
   "author": "Joe Gallant",
   "dependencies": {
+    "@aaronhayes/react-use-hubspot-form": "^1.2.2",
     "babel-plugin-styled-components": "^1.12.0",
     "bulma": "^0.9.0",
     "gatsby": "^2.20.35",
     "gatsby-image": "^2.3.5",
+    "gatsby-plugin-google-gtag": "^2.0.17",
     "gatsby-plugin-netlify": "^2.2.4",
     "gatsby-plugin-netlify-cms": "^4.2.5",
     "gatsby-plugin-purgecss": "^5.0.0",

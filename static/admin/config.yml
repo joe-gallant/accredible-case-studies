@@ -88,6 +88,21 @@ collections:
           - {label: "Banner Image Overlay", name: "aboutBannerOverlay", widget: boolean, default: true}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/subscribe/index.md"
+        label: "Subscribe"
+        name: "subscribe"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "subscribe-page"}
+          - {label: Page Meta, name: pageMeta, widget: object, fields: [ 
+            {label: "Meta Title", name: "metaTitle", widget: string},
+            {label: "Meta Description", name: "metaDescription", widget: string},
+            {label: "Meta OG Image", name: "OGImage", widget: image}
+            ]}
+          - {label: "Banner Image", name: "subscribeBannerImage", widget: image, required: false}
+          - {label: "Banner Color (HEX value)", name: "subscribeBannerColor", widget: string, required: false}
+          - {label: "Banner Image Overlay", name: "subscribeBannerOverlay", widget: boolean, default: true}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
       - file: "src/pages/case-study-parent/index.md"
         label: "Case Study Library"
         name: "case-study-library"

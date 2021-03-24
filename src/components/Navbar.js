@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, navigate } from 'gatsby'
-import logo from '../img/accredible-logo.svg'
+import logo from '../img/badgecasestudy.png'
 import styled from 'styled-components'
 import { Button } from '../components/Button'
 
@@ -235,7 +235,7 @@ const Navbar = () => {
           <div className="navbar-end text-centered">
             <Button
               small
-              ClickHandler={() => navigate('/')}
+              ClickHandler={() => navigate('/subscribe')}
               text="Subscribe for Updates"
             />
           </div>
