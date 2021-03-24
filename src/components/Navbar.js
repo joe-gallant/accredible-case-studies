@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, navigate } from 'gatsby'
-import logo from '../img/accredible-logo.svg'
+import logo from '../img/badgecasestudy.png'
 import styled from 'styled-components'
 import { Button } from '../components/Button'
 
