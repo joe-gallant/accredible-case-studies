@@ -1,7 +1,7 @@
 ---
 templateKey: case-study
-title: Accredible - Certificate Sharing and Professional Directory Empower
-  Social Media Expert Hootsuite
+title: Certificate Sharing and Professional Directory Empower Social Media
+  Expert Hootsuite
 pageMeta:
   OGImage: /img/basic-blog-header-gradient.png
   metaDescription: Accredible case study for Hootsuite
