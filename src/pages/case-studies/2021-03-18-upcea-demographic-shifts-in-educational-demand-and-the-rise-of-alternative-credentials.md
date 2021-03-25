@@ -1,7 +1,7 @@
 ---
 templateKey: case-study
-title: UPCEA - Demographic Shifts in Educational Demand and the Rise of
-  Alternative Credentials
+title: Demographic Shifts in Educational Demand and the Rise of Alternative
+  Credentials
 pageMeta:
   metaTitle: UPCEA Case Study
   metaDescription: A UPCEA, Pearson, and Penn State University Report on
