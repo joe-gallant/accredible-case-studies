@@ -1,7 +1,6 @@
 ---
 templateKey: case-study
-title: Chief Learning Officer - Keeping Up With and Verifying Digital Badges and
-  Credentialing
+title: Keeping Up With and Verifying Digital Badges and Credentialing
 pageMeta:
   metaTitle: Chief Learning Officer Case Study
   metaDescription: Chief Learning Officer Case Study
