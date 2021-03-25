@@ -1,6 +1,6 @@
 ---
 templateKey: case-study
-title: Accredible - Scality Scales Their Training Program With Accredible
+title: Scality Scales Their Training Program With Accredible
 pageMeta:
   metaDescription: Accredible case study for Scality
   metaTitle: Accredible - Scality Case Study
