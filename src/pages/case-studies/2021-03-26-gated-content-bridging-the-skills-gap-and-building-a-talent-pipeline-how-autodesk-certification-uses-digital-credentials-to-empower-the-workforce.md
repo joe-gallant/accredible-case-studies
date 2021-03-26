@@ -5,9 +5,9 @@ title: "GATED CONTENT: Bridging the Skills Gap and Building a Talent Pipeline.
 pageMeta:
   metaTitle: Credly Autodesk Case Study
   metaDescription: Credly Autodesk Case Study
-  OGImage: /img/credly-autodesk-case-study-cover.png
+  OGImage: /img/credly_autodesk_casestudy_2019.png
 websiteURL: https://resources.credly.com/resources/case-study-autodesk
-featuredimage: /img/credly-autodesk-case-study-cover.png
+featuredimage: /img/credly_autodesk_casestudy_2019.png
 bannerOverlay: true
 company-name: Autodesk
 publishing-company-name: Credly
