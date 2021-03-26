@@ -13,8 +13,5 @@ publishing-company-name: Credly
 platform: Acclaim
 author: Credly
 date: 2020-01-01T12:35:39.288Z
-synopsis: "Central Maine Community College (CMCC), part of the Maine Community
-  College System, launched a digital credentialing program in the spring of 2019
-  with goals focused on two key areas: workforce development and student
-  engagement."
+synopsis: Building student engagement and workforce development with digital credentials.
 ---
