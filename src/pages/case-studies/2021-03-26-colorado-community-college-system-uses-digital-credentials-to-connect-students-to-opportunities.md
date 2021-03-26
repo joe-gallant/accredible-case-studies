@@ -6,7 +6,7 @@ pageMeta:
   metaTitle: "Credly Case Study: Colorado Community College System"
   metaDescription: "Credly Case Study: Colorado Community College System"
   OGImage: /img/credly_cccs_casestudy_final2019_web.png
-websiteURL: https://resources.credly.com/hubfs/Credly_CCCS_CaseStudy_Final2019_WEB.pdf
+websiteURL: https://resources.credly.com/colorado-community-college-case-study
 featuredimage: /img/credly_cccs_casestudy_final2019_web.png
 bannerOverlay: true
 company-name: Colorado Community College System
