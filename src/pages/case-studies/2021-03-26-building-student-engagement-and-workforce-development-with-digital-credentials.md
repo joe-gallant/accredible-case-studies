@@ -5,7 +5,7 @@ pageMeta:
   metaTitle: "Credly Customer Success Story: Central Maine Community College"
   metaDescription: "Credly Customer Success Story: Central Maine Community College"
   OGImage: /img/credly_centralmainecommunitycollege_successstory_2020.png
-websiteURL: https://resources.credly.com/hubfs/Credly_CentralMaineCommunityCollege_SuccessStory_2020.pdf
+websiteURL: https://resources.credly.com/blog/cmcc-success-story
 featuredimage: /img/credly_centralmainecommunitycollege_successstory_2020.png
 bannerOverlay: true
 company-name: Central Maine Community College
