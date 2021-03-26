@@ -14,5 +14,8 @@ publishing-company-name: Credly
 platform: Acclaim
 author: Credly
 date: 2020-01-01T12:49:12.075Z
-synopsis: How digital credentials boost certification enrollment and earner engagement.
+synopsis: |-
+  Personal details are required to download case study. 
+
+  How digital credentials boost certification enrollment and earner engagement.
 ---
