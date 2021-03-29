@@ -1,7 +1,6 @@
 ---
 templateKey: case-study
-title: Accredible International Association of Privacy Professionals Embrace
-  Digital Certificates
+title: International Association of Privacy Professionals Embrace Digital Certificates
 pageMeta:
   metaTitle: Accredible International Association of Privacy Professionals Case Study
   metaDescription: Accredible case study for the International Association of
