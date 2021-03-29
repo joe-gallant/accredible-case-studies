@@ -2,20 +2,20 @@
 templateKey: about-page
 path: /about
 pageMeta:
-  metaTitle: Digital Credential Case Studies
-  metaDescription: This site hosts a collection of links to digital credential
-    case studies from a variety of different platform providers.
+  metaTitle: What Is A Case Study?
+  metaDescription: What is a case study and how should they be used when carrying
+    out a procurement process to implement and launch digital credentials.
   OGImage: /img/og-image.png
-aboutBannerImage: /img/6001d1c8a266bd470d7a9b12_hero-background.jpg
+aboutBannerImage: /img/business-report-graphs-charts-business-concept.jpg
 aboutBannerColor: ""
 aboutBannerOverlay: true
 title: What is a case study?
 ---
-Case studies are research documents that are written using real-life situations and data. The aim of case studies is to gain an in-depth understanding of a service, product, event, or activity. Although case studies cover a variety of topics such as education, marketing, and business case studies, they serve different purposes and are commonly categorized in three ways:
+Case studies are research documents that are written using real-life situations and data. The aim of a case study is to gain an in-depth understanding of a service, product, event, or activity. Although case studies cover a variety of topics such as education, marketing, and business case studies, they serve different purposes and are commonly categorized in three ways:
 
-* **Exploratory**
-* **Descriptive**
-* **Explanatory**
+* Exploratory
+* Descriptive
+* Explanatory
 
 Exploratory case studies are traditionally used to inform subsequent and larger research efforts and are based around finding the answers to the questions ‘what’ and ‘who’. 
 
@@ -45,19 +45,19 @@ When using case studies as part of a buying process, it’s important to focus o
 
 Begin by finding case studies that address the pain points the organization is trying to solve and focuses on a company within the same or similar industry. Inform the process by considering what questions need to be asked, for example is the organization trying to:
 
-* **Save time?**
-* **Save money?**
-* **Improve visibility?**
-* **Improve engagement?**
-* **Encourage membership retention?**
+* Save time?
+* Save money?
+* Improve visibility?
+* Improve engagement?
+* Encourage membership retention?
 
 ### **Extracting Information**
 
 Skim the content for the key data that can answer the target question, this might be presented as:
 
-* **Percentage amounts**
-* **Hard figures**
-* **Cost savings**
+* Percentage amounts
+* Hard figures
+* Cost savings
 
 Make a note of this to present to a decision-maker or input to the relevant platform column of a comparison document. Include notes for how that figure was achieved to provide a full picture of the solution. 
 

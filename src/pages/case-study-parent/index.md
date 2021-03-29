@@ -1,9 +1,10 @@
 ---
 pageMeta:
-  metaTitle: Case Study Library
-  metaDescription: Case Study Library
+  metaTitle: Digital Credential Case Study Library
+  metaDescription: Find relevant case studies in the case study library with the
+    option to filter by topic, industry, and platform.
   OGImage: /img/og-image.png
-bannerImage: /img/6001d1c8a266bd470d7a9b12_hero-background.jpg
+bannerImage: /img/business-report-graphs-charts-business-concept.jpg
 bannerColor: ""
 bannerOverlay: true
 title: Case Studies
