@@ -47,6 +47,7 @@ const Item = styled.div`
 
   &:hover {
     background: #1d3557;
+    color: #ffffff;
   }
 
   &::after {
