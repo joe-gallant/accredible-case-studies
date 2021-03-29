@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 fullWidthImagePanel:
-  panelImage: https://assets.website-files.com/5f68558b209a0b8f85194e47/5fdb7a8539bf2d2757ead9a2_premium_white_labelling-premium_wl_fullpage.png
+  panelImage: /img/homepage-image.png
   panelTitle: What is the purpose of this site?
   panelText: This site hosts a collection of links to digital credential case
     studies from a variety of different platform providers, brand names, and
