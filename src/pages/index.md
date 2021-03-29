@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 fullWidthImagePanel:
-  panelImage: /img/homepage-image.png
+  panelImage: https://accredible-cdn.s3.amazonaws.com/case-studies/homepage-image.png
   panelTitle: What is the purpose of this site?
   panelText: This site hosts a collection of links to digital credential case
     studies from a variety of different platform providers, brand names, and
@@ -19,12 +19,12 @@ banner:
   bannerButtonText: View the Library
   bannerButtonLink: /case-studies
   bannerImages:
-    - /img/hootsuite-case-study-cover-image.png
-    - /img/acs_whitepaper_microcredentialing.png
-    - /img/iapp-case-study-cover-image.png
-    - /img/fabcom-implementing-digital-credentials-in-higher-education.png
-    - /img/dmi-case-study-cover-image.png
-    - /img/whitepaper-on-open-badges-en-micro-credentials.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/hootsuite-case-study-cover-image.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/acs_whitepaper_microcredentialing.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/iapp-case-study-cover-image.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/fabcom-implementing-digital-credentials-in-higher-education.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/dmi-case-study-cover-image.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/whitepaper-on-open-badges-en-micro-credentials.png
 bannerSubHeading: Find the latest digital credentialing case studies in our library.
 pageMeta:
   metaTitle: Digital Credential Case Studies
