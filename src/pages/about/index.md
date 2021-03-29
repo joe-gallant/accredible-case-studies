@@ -2,9 +2,9 @@
 templateKey: about-page
 path: /about
 pageMeta:
-  metaTitle: Digital Credential Case Studies
-  metaDescription: This site hosts a collection of links to digital credential
-    case studies from a variety of different platform providers.
+  metaTitle: What Is A Case Study?
+  metaDescription: What is a case study and how should they be used when carrying
+    out a procurement process to implement and launch digital credentials.
   OGImage: /img/og-image.png
 aboutBannerImage: /img/business-report-graphs-charts-business-concept.jpg
 aboutBannerColor: ""
