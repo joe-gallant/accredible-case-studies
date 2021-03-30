@@ -13,5 +13,10 @@ publishing-company-name: Credly
 platform: Acclaim
 author: Credly
 date: 2020-01-01T12:35:39.288Z
+industry:
+  - Education
+topics:
+  - Engagement
+  - Skill Development
 synopsis: Building student engagement and workforce development with digital credentials.
 ---
