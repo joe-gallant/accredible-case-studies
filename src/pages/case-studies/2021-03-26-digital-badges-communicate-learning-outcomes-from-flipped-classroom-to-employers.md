@@ -13,6 +13,10 @@ company-name: Santa Barbara College - Career Skills Institute
 publishing-company-name: Credly
 author: Credly
 date: 2019-07-01T16:55:22.233Z
+industry:
+  - Education
+topics:
+  - Skill Development
 synopsis: How digital credentials support the need for job-specific and soft
   skill qualifications.
 ---
