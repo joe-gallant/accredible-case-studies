@@ -14,6 +14,12 @@ publishing-company-name: Credly
 platform: Acclaim
 author: Credly
 date: 2018-01-01T13:56:31.640Z
+industry:
+  - Credentialing
+topics:
+  - Engagement
+  - Skill Development
+  - Training
 synopsis: >-
   Personal details required to download the white paper. 
 
