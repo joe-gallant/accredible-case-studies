@@ -12,6 +12,11 @@ bannerOverlay: true
 publishing-company-name: The Open University
 author: Jonathan Rosewell
 date: 2012-09-03T09:49:56.919Z
+industry:
+  - Education
+topics:
+  - Open Badges
+  - Recognizing Experience
 synopsis: This paper speculates on ways in which badges for learning could fit
   into the offering of the UK Open University, and exposes some of the tensions
   that badges raise.
