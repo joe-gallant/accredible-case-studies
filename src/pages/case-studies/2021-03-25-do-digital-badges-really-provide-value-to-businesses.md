@@ -12,5 +12,12 @@ publishing-company-name: IBM
 platform: IBM
 author: David Leaser
 date: 2019-06-18T11:02:55.603Z
+industry:
+  - SaaS
+  - Education
+topics:
+  - Engagement
+  - Visibility
+  - Training
 synopsis: Digital Badges Investigated and Launched by IBM Training and Skills
 ---
