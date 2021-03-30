@@ -14,6 +14,7 @@ author: Be Badges
 date: 2018-02-10T17:00:46.507Z
 industry:
   - Employment
+  - Education
 topics:
   - Open Badges
   - Training
