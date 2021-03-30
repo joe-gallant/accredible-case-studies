@@ -11,5 +11,12 @@ bannerOverlay: true
 publishing-company-name: The Sprout Fund
 author: The Sprout Fund
 date: 2017-07-14T09:57:29.240Z
+industry:
+  - Education
+  - Events
+topics:
+  - Skill Development
+  - Event Badges
+  - Learning Pathways
 synopsis: What the Sprout Fund learned when helping people to create digital badges.
 ---
