@@ -13,6 +13,11 @@ publishing-company-name: Credly
 platform: Acclaim
 author: Credly
 date: 2019-01-01T17:39:58.555Z
+industry:
+  - Association
+topics:
+  - Skill Development
+  - Recognizing Experience
 synopsis: >-
   Personal details required to download case study.
 
