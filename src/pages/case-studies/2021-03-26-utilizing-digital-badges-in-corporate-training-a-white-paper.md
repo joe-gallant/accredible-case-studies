@@ -14,6 +14,14 @@ publishing-company-name: "Cleary Building Corp. and Madison College School of
   Professional and Continuing Education "
 author: Gwendolyn Jones
 date: 2016-05-24T10:12:13.567Z
+industry:
+  - Education
+  - Employment
+topics:
+  - Skill Development
+  - Training
+  - Engagement
+  - Learning Pathways
 synopsis: In July, 2015 the administration of Madison College School of
   Professional and Continuing Education approached Cleary Building Corp., a
   Verona, Wisconsin based, family-owned manufacturing and construction company,
