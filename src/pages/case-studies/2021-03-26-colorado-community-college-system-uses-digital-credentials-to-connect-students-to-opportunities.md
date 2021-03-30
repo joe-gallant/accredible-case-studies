@@ -14,6 +14,13 @@ publishing-company-name: Credly
 platform: Acclaim
 author: Credly
 date: 2019-01-01T12:41:05.885Z
+industry:
+  - Education
+  - Employment
+topics:
+  - Visibility
+  - Skill Development
+  - Learning Pathways
 synopsis: Colorado Community College System uses digital credentials to connect
   students to opportunities.
 ---
