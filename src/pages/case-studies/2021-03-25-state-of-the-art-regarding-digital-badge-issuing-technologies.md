@@ -13,6 +13,11 @@ publishing-company-name: EOSC-Synergy
 author: Moltó, Germán; Campos, Isabel; Hardt, Marcus; Blanquer, Ignacio;
   Caballer, Miguel; Orviz, Pablo; David, Mario; Gomes, Jorge
 date: 2020-03-11T10:57:59.860Z
+industry:
+  - SaaS
+topics:
+  - Quality Assurance
+  - Open Badges
 synopsis: This document analyses the existing services and tools that allow
   issuing digital badges with the purpose of selecting the most appropriate one
   to be adopted by EOSC-SYNERGY in order to issue proper recognition stamps to
