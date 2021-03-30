@@ -15,6 +15,13 @@ publishing-company-name: PebblePad
 platform: PebblePad
 author: Ass Prof Caroline Nilson, Dr Silvia Dewiyanti
 date: 2020-07-27T09:01:16.763Z
+industry:
+  - Education
+  - Employment
+topics:
+  - Recognizing Experience
+  - Skill Development
+  - Work Experience
 synopsis: Supporting nursing students’ self-directed learning and competency
   achievements through the Murdoch University, Discipline of Nursing PebblePad
   Digital Badge Program
