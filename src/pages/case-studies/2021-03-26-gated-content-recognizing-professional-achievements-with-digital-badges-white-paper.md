@@ -12,6 +12,12 @@ bannerOverlay: true
 publishing-company-name: BadgeCert
 author: Dr. Ginger Malin
 date: 2015-07-01T17:00:34.761Z
+industry:
+  - Credentialing
+topics:
+  - Engagement
+  - Skill Development
+  - Branding
 synopsis: >-
   Institute of Credentialing Excellent (ICE) sign-up required to view white
   paper.
