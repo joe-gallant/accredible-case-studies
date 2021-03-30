@@ -13,6 +13,13 @@ publishing-company-name: Sheffield Hallam University
 author: Dr. Ian Glover, Sheffield Hallam University; Farzana Latif, City
   University London,
 date: 2013-01-01T10:21:23.325Z
+industry:
+  - Education
+topics:
+  - Open Badges
+  - Skill Development
+  - Engagement
+  - Recognizing Experience
 synopsis: Investigating perceptions and potential of open badges in formal
   higher education.
 ---
