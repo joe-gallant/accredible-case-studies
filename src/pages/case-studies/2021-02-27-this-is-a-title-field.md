@@ -19,8 +19,8 @@ industry:
   - Social Media
 topics:
   - Training
-  - Managing Cost
-  - Managing Time
+  - Cost Management
+  - Time Management
 synopsis: Digital Marketing Institute provided certificates to recipients all
   over the globe but this was costing them a lot money to print and ship
   certificates that didn't always arrive. Utilizing digital credentials from
