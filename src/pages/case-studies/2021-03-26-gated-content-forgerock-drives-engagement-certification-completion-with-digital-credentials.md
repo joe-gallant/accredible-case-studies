@@ -14,6 +14,12 @@ publishing-company-name: Credly
 platform: Acclaim
 author: Credly
 date: 2020-01-01T13:51:57.062Z
+industry:
+  - SaaS
+topics:
+  - Skill Development
+  - Learning Pathways
+  - Engagement
 synopsis: >-
   Personal details are required to download the customer success story.
 
