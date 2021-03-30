@@ -11,6 +11,13 @@ bannerOverlay: true
 publishing-company-name: Carnegie Mellon University
 author: Jackie Shimshoni
 date: 2015-08-19T10:45:19.371Z
+industry:
+  - Education
+  - Employment
+topics:
+  - Hiring
+  - Training
+  - Engagement
 synopsis: A guide for hiring managers in the arts that defines what digital
   badging is, how to implement digital badging programs, and looks at why
   digital badges are important to credentialing.
