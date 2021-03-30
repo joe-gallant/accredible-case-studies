@@ -13,6 +13,12 @@ bannerOverlay: true
 publishing-company-name: The Mozilla Foundation
 author: The Mozilla Foundation, Peer 2 Peer University, The MacArthur Foundation
 date: 2012-08-27T12:50:06.128Z
+industry:
+  - Education
+topics:
+  - Open Badges
+  - Training
+  - Skill Development
 synopsis: Exploring an open badge ecosystem to support skill development and
   lifelong learning for real results such as jobs and advancement.
 ---
