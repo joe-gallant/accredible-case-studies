@@ -12,5 +12,9 @@ bannerOverlay: true
 publishing-company-name: IMS Global
 author: IMS Global
 date: 2021-03-25T12:12:31.756Z
+industry:
+  - Education
+topics:
+  - Open Badges
 synopsis: Building Value from An Ecosystem Of Open Standards
 ---
