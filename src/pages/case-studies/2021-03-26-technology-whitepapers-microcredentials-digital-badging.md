@@ -11,5 +11,10 @@ bannerOverlay: true
 publishing-company-name: Vassar College Academic Computing Services
 author: Steve Taylor, Director of Academic Computing Services
 date: 2019-04-10T10:26:09.734Z
+industry:
+  - Education
+topics:
+  - Moodle Integration
+  - Learning Pathways
 synopsis: What are digital badges and how are they used at Vassar?
 ---
