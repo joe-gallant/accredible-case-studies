@@ -12,6 +12,11 @@ company-name: Selor
 platform: Be Badges
 author: Be Badges
 date: 2018-02-10T17:00:46.507Z
+industry:
+  - Employment
+topics:
+  - Open Badges
+  - Training
 synopsis: The Belgian federal agency Selor launched Be Badges, a Digital
   Platform where employers, schools and training centres can formally recognise
   skills and experiences earned by individuals.
