@@ -14,6 +14,12 @@ author: Dominic ORR, University of Nova Gorica and German Corporation for
   International Cooperation (GIZ) GmbH; Mantas Pupinis, PPMI; Greta Kirdulytė,
   PPMI
 date: 2020-12-14T11:16:45.327Z
+industry:
+  - Education
+  - Employment
+topics:
+  - Skill Development
+  - Lockdown Learning
 synopsis: A study of practices and commonalities in offering micro-credentials
   in European higher education. The Commission will work towards the development
   of a European Approach to micro-credentials, to help widen learning
