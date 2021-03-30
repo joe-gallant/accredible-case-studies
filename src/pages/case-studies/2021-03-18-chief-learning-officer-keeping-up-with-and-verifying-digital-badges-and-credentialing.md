@@ -12,6 +12,12 @@ company-name: ""
 publishing-company-name: Chief Learning Officer
 author: Elizabeth Loutfi
 date: 2020-02-06T18:12:45.435Z
+industry:
+  - Education
+  - Employment
+topics:
+  - Open Badges
+  - Training
 synopsis: Digital badges and credentials are rapidly growing in popularity. This
   case study talks about how we need to verify them through an industry standard
   that makes sense to stakeholders.
