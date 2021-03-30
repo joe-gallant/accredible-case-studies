@@ -15,6 +15,11 @@ company-name: UCPEA, Pearson, Penn State University
 publishing-company-name: UCPEA
 author: "UCPEA: Jim Fong, Pearson: Peter Janzow, Penn State University: Dr. Kyle Peck"
 date: 2016-06-01T17:50:34.836Z
+industry:
+  - Education
+topics:
+  - Training
+  - Branding
 synopsis: According to a report by the University Professional and Continuing
   Education Association (UPCEA), one in five institutions now offers digital
   badges.
