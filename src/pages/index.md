@@ -19,12 +19,12 @@ banner:
   bannerButtonText: View the Library
   bannerButtonLink: /case-studies
   bannerImages:
-    - /img/carousel_hootsuite.png
-    - /img/carousel_acs.png
-    - /img/carousel_iapp.png
-    - /img/carousel_fabcom.png
-    - /img/carousel_dmi.png
-    - /img/carousel_surfnet.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/carousel_hootsuite.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/carousel_acs.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/carousel_iapp.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/carousel_fabcom.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/carousel_dmi.png
+    - https://accredible-cdn.s3.amazonaws.com/case-studies/carousel_surfnet.png
 bannerSubHeading: Find the latest digital credentialing case studies in our library.
 pageMeta:
   metaTitle: Digital Credential Case Studies
