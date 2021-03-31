@@ -13,6 +13,10 @@ publishing-company-name: Credly
 platform: Acclaim
 author: Credly
 date: 2020-01-01T17:43:20.805Z
+industry:
+  - Education
+topics:
+  - Skill Development
 synopsis: How Madison College implemented and expanded their digital
   credentialing program.
 ---

@@ -13,6 +13,13 @@ publishing-company-name: Pepperdine University
 platform: Open Badges
 author: Sharen Linn Eaglen Bertrando
 date: 2017-07-01T09:12:21.676Z
+industry:
+  - Education
+  - Employment
+topics:
+  - Open Badges
+  - Training
+  - Skill Development
 synopsis: "Rethinking workplace learning in the digital world: A case study of
   Open Badges. The purpose of this collective case study is to explore digital
   badging in educational institutions."

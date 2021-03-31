@@ -12,5 +12,14 @@ publishing-company-name: Surf.net
 platform: ""
 author: Bart Kerver, Innovantes; Daphne Riksen, Ediction
 date: 2016-12-01T10:45:08.853Z
+industry:
+  - Education
+  - Employment
+topics:
+  - Skill Development
+  - Open Badges
+  - Training
+  - Gamification
+  - Learning Pathways
 synopsis: "Open badges: what, why, how to use them, and how to introduce them?"
 ---

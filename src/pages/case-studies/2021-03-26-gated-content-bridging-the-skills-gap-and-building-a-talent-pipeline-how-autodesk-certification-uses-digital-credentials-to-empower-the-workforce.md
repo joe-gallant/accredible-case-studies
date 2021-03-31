@@ -14,6 +14,12 @@ publishing-company-name: Credly
 platform: Acclaim
 author: Credly
 date: 2019-01-01T12:07:27.492Z
+industry:
+  - SaaS
+topics:
+  - Skill Development
+  - Training
+  - Learning Pathways
 synopsis: >-
   Personal details are required to download case study. 
 

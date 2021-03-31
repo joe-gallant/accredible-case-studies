@@ -19,12 +19,12 @@ banner:
   bannerButtonText: View the Library
   bannerButtonLink: /case-studies
   bannerImages:
-    - https://accredible-cdn.s3.amazonaws.com/case-studies/hootsuite-case-study-cover-image.png
-    - https://accredible-cdn.s3.amazonaws.com/case-studies/acs_whitepaper_microcredentialing.png
-    - https://accredible-cdn.s3.amazonaws.com/case-studies/iapp-case-study-cover-image.png
-    - https://accredible-cdn.s3.amazonaws.com/case-studies/fabcom-implementing-digital-credentials-in-higher-education.png
-    - https://accredible-cdn.s3.amazonaws.com/case-studies/dmi-case-study-cover-image.png
-    - https://accredible-cdn.s3.amazonaws.com/case-studies/whitepaper-on-open-badges-en-micro-credentials.png
+    - /img/carousel_hootsuite.png
+    - /img/carousel_acs.png
+    - /img/carousel_iapp.png
+    - /img/carousel_fabcom.png
+    - /img/carousel_dmi.png
+    - /img/carousel_surfnet.png
 bannerSubHeading: Find the latest digital credentialing case studies in our library.
 pageMeta:
   metaTitle: Digital Credential Case Studies

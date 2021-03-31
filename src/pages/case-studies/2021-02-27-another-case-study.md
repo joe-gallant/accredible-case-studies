@@ -17,8 +17,8 @@ date: 2018-10-05T20:15:08.231Z
 industry:
   - SaaS
 topics:
-  - Managing Cost
-  - Managing Time
+  - Cost Management
+  - Time Management
   - Moodle Integration
 synopsis: Scality were issuing physical certificates but needed a solution that
   would help them scale without causing additional workload for staff. Digital

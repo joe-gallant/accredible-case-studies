@@ -13,6 +13,11 @@ company-name: ""
 publishing-company-name: Fabcom
 author: "Brian Fabiano, Co-Author: Madison Miller"
 date: 2020-03-05T17:43:58.384Z
+industry:
+  - Education
+topics:
+  - Training
+  - Blockchain
 synopsis: This marketing white paper is designed to explore the strategy,
   creation, development, and distribution of what’s been accomplished with
   digital credentials in the education space, where we are in the development

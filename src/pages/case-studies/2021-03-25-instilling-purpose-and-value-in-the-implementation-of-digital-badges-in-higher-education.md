@@ -14,6 +14,11 @@ bannerOverlay: true
 publishing-company-name: International Journal of Educational Technology in Higher Education
 author: Jill Stefaniak & Kimberly Carey
 date: 2019-12-30T12:30:40.398Z
+industry:
+  - Education
+topics:
+  - Learning Pathways
+  - Skill Development
 synopsis: A research article that explores conveying the value for the
   implementation of digital badges in higher education.
 ---

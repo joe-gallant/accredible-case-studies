@@ -13,6 +13,12 @@ publishing-company-name: Credly
 platform: ""
 author: Credly
 date: 2019-01-01T15:17:35.097Z
+industry:
+  - SaaS
+topics:
+  - Skill Development
+  - Training
+  - Engagement
 synopsis: >-
   Personal details required to download case study.
 

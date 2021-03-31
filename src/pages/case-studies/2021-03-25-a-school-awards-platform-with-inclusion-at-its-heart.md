@@ -10,9 +10,14 @@ featuredimage: /img/juniper-article-cover.png
 bannerOverlay: true
 company-name: Sir Thomas Wharton Academy
 publishing-company-name: Juniper Education
-platform: Juniper Education
+platform: Certify
 author: Juniper Education
 date: 2020-12-08T13:17:02.902Z
+industry:
+  - Education
+topics:
+  - Engagement
+  - Award Initiative
 synopsis: Sir Thomas Wharton Academy pilots Juniper Education’s digital awards
   management solution across Year 10.
 ---

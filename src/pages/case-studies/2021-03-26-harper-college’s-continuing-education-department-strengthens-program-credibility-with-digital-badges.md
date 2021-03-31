@@ -14,6 +14,11 @@ publishing-company-name: Credly
 platform: Acclaim
 author: Credly
 date: 2019-01-01T14:45:14.068Z
+industry:
+  - Education
+topics:
+  - Skill Development
+  - Recognizing Experience
 synopsis: The Harper College case study looks at how the college uses digital
   credentials to strengthen program credibility.
 ---

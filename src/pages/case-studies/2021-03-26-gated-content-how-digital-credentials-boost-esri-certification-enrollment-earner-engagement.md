@@ -14,6 +14,12 @@ publishing-company-name: Credly
 platform: Acclaim
 author: Credly
 date: 2020-01-01T12:49:12.075Z
+industry:
+  - SaaS
+topics:
+  - Training
+  - Engagement
+  - Visibility
 synopsis: |-
   Personal details are required to download case study. 
 

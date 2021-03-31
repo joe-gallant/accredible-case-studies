@@ -13,5 +13,10 @@ author: "Stefania Cucchiara, Italian National Research Council; Donatella
   Persico, Italian National Research Council; Juliana Elisa Raffaghelli,
   Universitat Oberta de Catalunya; Alessandra Giglio, Dalarna University; "
 date: 2014-08-01T09:38:47.851Z
+industry:
+  - Education
+topics:
+  - Skill Development
+  - Learning Pathways
 synopsis: How digital badges can be used to support self-regulation in an online course.
 ---

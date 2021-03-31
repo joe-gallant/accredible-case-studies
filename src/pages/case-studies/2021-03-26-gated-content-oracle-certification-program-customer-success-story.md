@@ -12,6 +12,10 @@ company-name: Oracle
 publishing-company-name: Credly
 author: Credly
 date: 2019-07-01T16:48:07.381Z
+industry:
+  - SaaS
+topics:
+  - Engagement
 synopsis: >-
   Personal details required to download customer success story.
 
